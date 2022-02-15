@@ -27,23 +27,20 @@ class Category
     #[ORM\Column(type: 'string', length: 255)]
     private $img;
 
-    #[ORM\OneToMany(mappedBy: 'parent_category', targetEntity: Category::class)]
-    private $categories;
-
     #[ORM\OneToMany(mappedBy: 'category_id', targetEntity: Product::class)]
     private $product;
 
-    #[ORM\OneToMany(mappedBy: 'category_id', targetEntity: Article::class)]
-    private $category;
+    #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'categories')]
+    private $parentCategory;
+
+    #[ORM\OneToMany(mappedBy: 'parentCategory', targetEntity: self::class)]
+    private $categories;
 
     public function __construct()
     {
-        $this->categories = new ArrayCollection();
         $this->product = new ArrayCollection();
-        $this->category = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
-
-
 
     public function getId(): ?int
     {
@@ -99,36 +96,6 @@ class Category
     }
 
     /**
-     * @return Collection|Category[]
-     */
-    public function getCategories(): Collection
-    {
-        return $this->categories;
-    }
-
-    public function addCategory(Category $category): self
-    {
-        if (!$this->categories->contains($category)) {
-            $this->categories[] = $category;
-            $category->setParentCategory($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCategory(Category $category): self
-    {
-        if ($this->categories->removeElement($category)) {
-            // set the owning side to null (unless already changed)
-            if ($category->getParentCategory() === $this) {
-                $category->setParentCategory(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection|Product[]
      */
     public function getProduct(): Collection
@@ -158,11 +125,45 @@ class Category
         return $this;
     }
 
-    /**
-     * @return Collection|Article[]
-     */
-    public function getCategory(): Collection
+    public function getParentCategory(): ?self
     {
-        return $this->category;
+        return $this->parentCategory;
+    }
+
+    public function setParentCategory(?self $parentCategory): self
+    {
+        $this->parentCategory = $parentCategory;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|self[]
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(self $category): self
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories[] = $category;
+            $category->setParentCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(self $category): self
+    {
+        if ($this->categories->removeElement($category)) {
+            // set the owning side to null (unless already changed)
+            if ($category->getParentCategory() === $this) {
+                $category->setParentCategory(null);
+            }
+        }
+
+        return $this;
     }
 }
