@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CategoryController extends AbstractController
 {
-    #[Route('/category', name: 'category_index')]
+    #[Route('/admin/category', name: 'category_index')]
     public function index(CategoryRepository $categoryRepository): Response
     {
         $categories = $categoryRepository->findAll();
@@ -21,7 +22,7 @@ class CategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/category', name: 'maison_create')]
+    #[Route('/admin/category/new', name: 'maison_create')]
     public function create(Request $request, ManagerRegistry $managerRegistry)
     {
         $category = new Category(); //create new category
@@ -76,6 +77,10 @@ class CategoryController extends AbstractController
             $this->addFlash('success', 'La catégorie a bien été modifiée.');
             return $this->redirectToRoute('admin_category_index');
         }
+
+        return $this->render('admin/categoryForm.html.twig', [
+            'categoryForm' => $form->createView()
+        ]);
     }
 
     #[Route('/admin/category/delete/{id}', name: 'category_delete')]
