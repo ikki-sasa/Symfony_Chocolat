@@ -45,6 +45,7 @@ ul {
 }
 a {
   text-decoration: none;
+  list-style-type: none;
 }
 
 h1,
@@ -536,6 +537,11 @@ Footer
   transition: var(--transition);
   font-size: 12px;
   text-transform: capitalize;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--clr-primary-1);
 }
 
 .footer ul {
@@ -840,6 +846,7 @@ Footer
   margin-bottom: 5.5em;
   font-size: 1.5rem;
   margin-top: 65px;
+  color: var(--clr-primary-10);
 }
 .copyright-info {
     margin-top: auto;
