@@ -1,0 +1,43 @@
+{% extends 'adminBase.html.twig'%}
+
+
+{% block title %}Categorie{% endblock %}
+
+
+{% block body %}
+
+{{ form_start(categoryForm) }}
+
+<div class="row">
+    <div class="col-9">
+        {{ form_row(categoryForm.name, {'label': 'Titre'})}}
+    </div>
+    <div class="col-3">
+        {{ form_row(categoryForm.categories, {'label': 'Categorie'})}}
+    </div>
+</div>
+
+<div class="col-12">
+    {{ form_row(categoryForm.description, {'label': 'Description'})}}
+</div>
+
+<div class="row">
+    <div class="col-3">
+        {{ form_row(categoryForm.product, {'label: Produit'})}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        {{form_row(categoryForm.img, ('label: image'))}}
+    </div>
+</div>
+
+<div class="col12">
+    <a href="" class="btn btn-danger m-3">Annuler</a>
+    <button class="btn btn-success m-3">Créer</button>
+</div>
+
+{{ form_end(categoryForm) }}
+
+{% endblock %}

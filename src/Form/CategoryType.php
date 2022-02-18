@@ -5,9 +5,11 @@ namespace App\Form;
 use App\Entity\Category;
 use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class CategoryType extends AbstractType
 {
@@ -23,14 +25,9 @@ class CategoryType extends AbstractType
                 ]
             ])
 
-            // ->add('slug', TextType::class, [
-            //     'required' => true,
-            //     'label' => '',
-            //     'attr' => [
-            //     'maxLenght' => 255,
-
-            //     ]
-            // ])
+            ->add('slug', TextType::class, [
+                'required' => true,
+            ])
 
             ->add('description', TextareaType::class, [
                 'required' => true,
@@ -48,18 +45,27 @@ class CategoryType extends AbstractType
                 'help' => 'jpeg, png, gif, svg, eps, psd, tiff, jp2 ou webp - 3 Mo maximum ',
                 'constraints' => [
                     'maxSize' => '3M',
-                    'maxSizeMessage' => 'Votre fichier est trop volumineux'
+                    'maxSizeMessage' => 'Votre fichier est trop volumineux ({{ size }} Mo). Taille maximum autorisée.',
+                    'mimeTypes' => [
+                        'image/jpeg',
+                        'image/png',
+                        'image/gif',
+                        'image/svg',
+                        'image/eps',
+                        'image/psd',
+                        'image/tiff',
+                        'image/jp2',
+                        'image/webp',
+                    ],
+                    'mimeTypesMessage' => 'Merci d\'utiliser un des formats suivant jpeg, png, gif, svg, eps, psd, tiff, jp2 ou webp. '
                 ]
             ])
 
-            ->add('parentCategory', ::class, [
-                'required' => true,
-                'label' => '',
-                'attr' => [
-                    ''
-                ]
-            ])
-        ;
+            ->add('parentCategory', EntityType::class, [
+                'class' => Category::class,
+                'label' => 'Catégorie',
+                'choice_label' => 'Choix des catégories'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
