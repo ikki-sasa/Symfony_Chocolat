@@ -3,13 +3,14 @@
 namespace App\Form;
 
 use App\Entity\Category;
-use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Validator\Constraints\Image;
 
 class CategoryType extends AbstractType
 {
@@ -25,10 +26,6 @@ class CategoryType extends AbstractType
                 ]
             ])
 
-            ->add('slug', TextType::class, [
-                'required' => true,
-            ])
-
             ->add('description', TextareaType::class, [
                 'required' => true,
                 'label' => 'Description produit',
@@ -42,29 +39,32 @@ class CategoryType extends AbstractType
                 'required' => true,
                 'label' => 'Image produit',
                 'mapped' => false,
-                'help' => 'jpeg, png, gif, svg, eps, psd, tiff, jp2 ou webp - 3 Mo maximum ',
+                'help' => 'jpeg, png, gif, svg, eps, psd, tiff, jp2 ou webp - 8 Mo maximum ',
                 'constraints' => [
-                    'maxSize' => '3M',
-                    'maxSizeMessage' => 'Votre fichier est trop volumineux ({{ size }} Mo). Taille maximum autorisée.',
-                    'mimeTypes' => [
-                        'image/jpeg',
-                        'image/png',
-                        'image/gif',
-                        'image/svg',
-                        'image/eps',
-                        'image/psd',
-                        'image/tiff',
-                        'image/jp2',
-                        'image/webp',
-                    ],
-                    'mimeTypesMessage' => 'Merci d\'utiliser un des formats suivant jpeg, png, gif, svg, eps, psd, tiff, jp2 ou webp. '
+                    new Image([
+                        'maxSize' => '8M',
+                        'maxSizeMessage' => 'Votre fichier est trop volumineux ({{ size }} Mo). Taille maximum autorisée.',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                            'image/gif',
+                            'image/svg',
+                            'image/eps',
+                            'image/psd',
+                            'image/tiff',
+                            'image/jp2',
+                            'image/webp',
+                        ],
+                        'mimeTypesMessage' => 'Merci d\'utiliser un des formats suivant jpeg, png, gif, svg, eps, psd, tiff, jp2 ou webp. '
+                    ])
                 ]
             ])
 
             ->add('parentCategory', EntityType::class, [
-                'class' => Category::class,
+                'required' => true,
                 'label' => 'Catégorie',
-                'choice_label' => 'Choix des catégories'
+                'class' => Category::class,
+                'choice_label' => 'name'
             ]);
     }
 

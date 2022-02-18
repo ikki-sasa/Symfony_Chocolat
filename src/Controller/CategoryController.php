@@ -13,36 +13,38 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CategoryController extends AbstractController
 {
-    #[Route('/admin/category', name: 'category_index')]
+    #[Route('/admin/category', name: 'category_admin_index')]
     public function index(CategoryRepository $categoryRepository): Response
     {
         $categories = $categoryRepository->findAll();
-        return $this->render('category/index.html.twig', [
-            'category' => $categories,
+        return $this->render('category/adminIndex.html.twig', [
+            'categories' => $categories,
         ]);
     }
 
-    #[Route('/admin/category/new', name: 'maison_create')]
+    #[Route('/admin/category/new', name: 'category_create')]
     public function create(Request $request, ManagerRegistry $managerRegistry)
     {
         $category = new Category(); //create new category
         $form = $this->createForm(CategoryType::class, $category); //create the form with the parameter of new Category
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $cateImg = $form['img1']->getData();
+            $cateImg = $form['img']->getData();
             $extensionImg = $cateImg->guessExtension();
-            $nameImg = time() . '-1.' . $extensionImg;
+            $nameImg = time() . '.' . $extensionImg;
 
             $cateImg->move($this->getParameter('dossier_photos_category'), $nameImg);
             $category->setImg($nameImg);
+
+            $category->setSlug($form['name']->getData());
 
             $manager = $managerRegistry->getManager();
             $manager->persist($category);
             $manager->flush();
             $this->addFlash('success', 'La catégorie a bien été ajoutée.');
-            return $this->redirectToRoute('admin_maion_index');
+            return $this->redirectToRoute('category_admin_index');
         }
-        return $this->render('admin/categoryForm.html.twig', [
+        return $this->render('category/categoryForm.html.twig', [
             'categoryForm' => $form->createView()
         ]);
     }
@@ -55,7 +57,7 @@ class CategoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $cateImg = $form['img1']->getData();
+            $cateImg = $form['img']->getData();
             $nameOldImg = $category->getImg();
             if ($cateImg !== null) {
                 $pathOldimg = $this->getParameter('dossier_photos_category') . '/' .
@@ -64,7 +66,7 @@ class CategoryController extends AbstractController
                     unlink($pathOldimg);
                 }
                 $extensionImg = $cateImg->guessExtension();
-                $nameImg = time() . '-1.' . $extensionImg;
+                $nameImg = time() . '.' . $extensionImg;
                 $cateImg->move($this->getParameter('dossier_photos_category'), $nameImg);
                 $category->setImg($nameImg);
             } else {
@@ -75,10 +77,10 @@ class CategoryController extends AbstractController
             $manager->persist($category);
             $manager->flush();
             $this->addFlash('success', 'La catégorie a bien été modifiée.');
-            return $this->redirectToRoute('admin_category_index');
+            return $this->redirectToRoute('category_admin_index');
         }
 
-        return $this->render('admin/categoryForm.html.twig', [
+        return $this->render('category/categoryForm.html.twig', [
             'categoryForm' => $form->createView()
         ]);
     }
@@ -99,6 +101,6 @@ class CategoryController extends AbstractController
         $manager->remove($category);
         $manager->flush();
         $this->addFlash('success', 'La catégorie a bien été supprimée.');
-        return $this->redirectToRoute('admin_category_index');
+        return $this->redirectToRoute('category_admin_index');
     }
 }
