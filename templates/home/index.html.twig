@@ -3,5 +3,53 @@
 {% block title %}Accueil ♥ Les Amoureux du Chocolat ♥{% endblock %}
 
 {% block body %}
-<h1>allllll</h1>
+<header class="hero">
+    <div class="banner-hero-img">
+        <img src="{{ asset('img/Logo/logo_white_no_bg.png')}}" alt="Logo Les Amoureux du Chocolat"
+            class="img-logo-header" />
+        <img src="{{ asset('img/Header/Les_Amoureux_du_chocolat_header.png')}}" alt="Les Amoureux du Chocolat"
+            class="img-header" />
+
+        <div class="section-center hero-center">
+            <!-- <article class="section-center hero-bg"> -->
+            <a href="#" class="btn product-btn">Nos Produits</a>
+            <!-- </article> -->
+        </div>
+    </div>
+</header>
+<h1 class="text-center pt-5">Un Concentré Pur D'amour Et De Cacao</h1>
+<p class="section-title-p mb-5">
+    Tester le goût de nos produits, faits avec des produits pur et
+    premium, 100% fabrication artisanale
+</p>
+<div class="row pt-5">
+    {% for i in 1..3 %}
+    <div class="col">
+        <div class="card border-0 ">
+            <img src="{{ asset('img/Products-section1/Framboise1.jpg') }}"
+                alt="Image Les amoureux du chocolat du produit ganache framboise" class="img-fluid">
+            <!-- <img src="/public/Img/Products-section1/Framboise1.jpg" alt="Image du produit ganache framboise"> -->
+            <!-- <img src="https://picsum.photos/150/150" alt="Image du produit ganache framboise" class="img-fluid"> -->
+            <div class="card-body">
+                <h4 class="card-title text-center">L'amoureux noir</h4>
+                <p class="text-center">10€</p>
+                <!-- <a href="#" class="btn btn-primary btn-sm">Détails</a> -->
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="section-center intro-btn mb-5">
+        <a href="#" class="btn btn-sm text-center">Nos chocolats</a>
+    </div>
+</div>
+<div class="row">
+    {% for i in 1..3 %}
+    <div class="col">
+        <a href="#"><img src="{{('img/Products-section2/Passion1.jpg')}}"
+                alt="Image Les amoureux du chocolat du produit Passion" class="img-fluid"></a>
+    </div>
+    {% endfor %}
+</div>
+<h2 class="text-center mt-5">Regardez. Testez. Dégustez</h2>
+
 {% endblock %}

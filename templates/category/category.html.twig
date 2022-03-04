@@ -1,9 +1,30 @@
-{% extends 'adminBase.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block title %}Category{% endblock %}
+{% block title %}
+Category : {{ category.name }}
+{% endblock %}
 
 {% block body %}
 
+<h1 class="text-center mt-5 pt-5">Gammes De Produits </h1>
+<p class="text-center mt-4">Découvrez tous nos produits faits artisanalement.
+    Un concentré d'amour, de passion et de création qui vont éveiller vos sens et vos papilles
+</p>
 
-
+<div class="row">
+    {% for i in 1..3 %}
+    <div class="col">
+        <div class="card border-0 ">
+            <img src="{{ asset('img/Products-section1/Framboise1.jpg') }}"
+                alt="Image Les amoureux du chocolat du produit ganache framboise" class="img-fluid">
+            <!-- <img src="/public/Img/Products-section1/Framboise1.jpg" alt="Image du produit ganache framboise"> -->
+            <!-- <img src="https://picsum.photos/150/150" alt="Image du produit ganache framboise" class="img-fluid"> -->
+            <div class="card-body">
+                <h4 class="card-title text-center"> {{ category.name }} </h4>
+                <a href="#" class="btn btn-primary btn-sm">Détails</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
