@@ -22,12 +22,12 @@
     Tester le goût de nos produits, faits avec des produits pur et
     premium, 100% fabrication artisanale
 </p>
-<div class="row pt-5">
+<div class="row pt-5 mx-5">
     {% for i in 1..3 %}
     <div class="col">
         <div class="card border-0 ">
             <img src="{{ asset('img/Products-section1/Framboise1.jpg') }}"
-                alt="Image Les amoureux du chocolat du produit ganache framboise" class="img-fluid">
+                alt="Image Les amoureux du chocolat du produit ganache framboise" class="img-fluid w-60">
             <!-- <img src="/public/Img/Products-section1/Framboise1.jpg" alt="Image du produit ganache framboise"> -->
             <!-- <img src="https://picsum.photos/150/150" alt="Image du produit ganache framboise" class="img-fluid"> -->
             <div class="card-body">
@@ -42,14 +42,103 @@
         <a href="#" class="btn btn-sm text-center">Nos chocolats</a>
     </div>
 </div>
-<div class="row">
+<div class="row pt-5">
     {% for i in 1..3 %}
     <div class="col">
         <a href="#"><img src="{{('img/Products-section2/Passion1.jpg')}}"
-                alt="Image Les amoureux du chocolat du produit Passion" class="img-fluid"></a>
+                alt="Image Les amoureux du chocolat du produit Passion" class="img-fluid w-60"></a>
     </div>
     {% endfor %}
 </div>
 <h2 class="text-center mt-5">Regardez. Testez. Dégustez</h2>
+<div class="row pt-5">
+    {% for i in 1..3 %}
+    <div class="col">
+        <div class="card border-0 ">
+            <img src="{{ asset('img/Products-section2/Moules2.png') }}"
+                alt="Image Les amoureux du chocolat du produit ganache framboise" class="img-fluid w-55">
+            <!-- <img src="/public/Img/Products-section1/Framboise1.jpg" alt="Image du produit ganache framboise"> -->
+            <!-- <img src="https://picsum.photos/150/150" alt="Image du produit ganache framboise" class="img-fluid"> -->
+            <div class="card-body">
+                <h4 class="card-title text-center">L'amoureux noir</h4>
+                <!-- <a href="#" class="btn btn-primary btn-sm">Détails</a> -->
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class=" intro-btn mb-5">
+        <a href="#" class="btn btn-sm text-center">Nos chocolats</a>
+    </div>
+</div>
+<!-- Blog-info -->
+<section class="section-center info-blog">
+    <article class="infos-blog">
+        <div class="section-title">
+            <h4 class="blog-title">Rejoignez nous sur notre blog</h4>
+            <p class="info-blog-text">
+                Venez visiter notre blog pour découvrir nos nouveautés est
+                créations sur instagram #LaC
+            </p>
+        </div>
+        <div class="intro-btn">
+            <!-- <a href="#" class="btn"
+              >Venez découvrir l'actualité sur notre blog</a
+            > -->
+            <a href="#" class="btn-link">Venez découvrir l'actualité sur notre blog</a>
+        </div>
+    </article>
 
+    <article class="tiles section-center">
+        <div class="tile">
+            <div class="tiles-center">
+                <!-- single tile  -->
+                <article class="tile-1">
+                    <img src="./Img/Blog/work_production1.jpg" alt="Les_Amoureux_du_chocolat" />
+                </article>
+                <!-- end of single tile  -->
+                <!-- single tile  -->
+                <article class="tile-2">
+                    <img src="./Img/Blog/merry_christmas2.jpg" alt="Les_Amoureux_du_chocolat" />
+                </article>
+                <!-- end of single tile  -->
+                <!-- single tile  -->
+                <article class="tile-3">
+                    <img src="./Img/Blog/orangettes3.jpg" alt="Les_Amoureux_du_chocolat" />
+                </article>
+                <!-- end of single tile  -->
+                <!-- single tile  -->
+                <article class="tile-4">
+                    <img src="./Img/Blog/pere_noel_slide4.jpg" alt="Les_Amoureux_du_chocolat" />
+                </article>
+                <!-- end of single tile  -->
+                <!-- single tile  -->
+                <article class="tile-5">
+                    <img src="./Img/Blog/Madeleines noir5.jpg" alt="Les_Amoureux_du_chocolat" />
+                </article>
+                <!-- end of single tile  -->
+                <!-- single tile  -->
+                <article class="tile-6">
+                    <img src="./Img/Blog/truffes6.jpg" alt="Les_Amoureux_du_chocolat" />
+                </article>
+                <!-- end of single tile  -->
+                <!-- single tile  -->
+                <article class="tile-7">
+                    <img src="./Img/Blog/mini-box7.jpg" alt="Les_Amoureux_du_chocolat" width="250px" />
+                </article>
+                <!-- end of single tile  -->
+            </div>
+        </div>
+    </article>
+
+    <article class="container-fluid ">
+        <div class="row">
+            <img src="./Img/Gallery-l-m/Venezuela72.jpg" alt="Les_Amoureux_du_chocolat_Venezuela_72"
+                class="img-fluid" />
+        </div>
+        <div class="row">
+            <img src="./Img/Gallery-l-m/apropos-de-nous-acceuil.png" alt="Les_Amoureux_du_chocolat_shop"
+                class="img-fluid" />
+        </div>
+    </article>
+</section>
 {% endblock %}

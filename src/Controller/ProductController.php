@@ -2,28 +2,29 @@
 
 namespace App\Controller;
 
-use App\Repository\CategoryRepository;
+use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ProductController extends AbstractController
 {
-    #[Route('/{slug}', name: 'product_category')]
-    public function category($slug, CategoryRepository $categoryRepository): Response
-    {
+    // #[Route('/products', name: 'product_index')]
+    // public function index(ProductRepository $productRepository): Response
+    // {
+    //     $products = $productRepository->findAll();
+    //     return $this->render('product/index.html.twig', [
+    //         'products' => $products
+    //     ]);
+    // }
 
-        $category = $categoryRepository->findOneBy([
-            'slug' => $slug
-        ]);
+    // #[Route('/product/{id}', name: 'product_view')]
+    // public function view(ProductRepository $productRepository, int $id): Response
+    // {
+    //     return $this->render('product/view.html.twig', [
+    //         'product' => $productRepository->find($id)
+    //     ]);
+    // }
 
-        if (!$category) {
-            throw $this->createNotFoundException("La catégorie demandée n'existe pas");
-        }
-
-        return $this->render('category/category.html.twig', [
-            'slug' => $slug,
-            'category' => $category
-        ]);
-    }
+    // #[Route('/admin/products',)]
 }

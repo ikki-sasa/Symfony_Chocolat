@@ -1,8 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-Category : {{ category.name }}
-{% endblock %}
+{% block title %}Category : {{ category.name }}{% endblock %}
 
 {% block body %}
 
@@ -12,19 +10,29 @@ Category : {{ category.name }}
 </p>
 
 <div class="row">
-    {% for i in 1..3 %}
+
+    {% if sousCategories is defined %}
+    {% for sousCategorie in sousCategories %}
+    <a href="{{ path('product_category', {'slug': sousCategorie.slug}) }}">{{ sousCategorie.name }}</a>
+    {% endfor %}
+    {% else %}
+    {# boucler sur les produits #}
+    {{ message }}
+    {% endif %}
+
+    {# {% for product in products %}
     <div class="col">
         <div class="card border-0 ">
             <img src="{{ asset('img/Products-section1/Framboise1.jpg') }}"
-                alt="Image Les amoureux du chocolat du produit ganache framboise" class="img-fluid">
+                alt="Image Les amoureux du chocolat du produit ganache framboise" class="img-fluid w-75">
             <!-- <img src="/public/Img/Products-section1/Framboise1.jpg" alt="Image du produit ganache framboise"> -->
             <!-- <img src="https://picsum.photos/150/150" alt="Image du produit ganache framboise" class="img-fluid"> -->
             <div class="card-body">
                 <h4 class="card-title text-center"> {{ category.name }} </h4>
-                <a href="#" class="btn btn-primary btn-sm">Détails</a>
+                <a href="#" class="btn btn-sm text-center">Détails</a>
             </div>
         </div>
     </div>
-    {% endfor %}
+    {% endfor %} #}
 </div>
 {% endblock %}

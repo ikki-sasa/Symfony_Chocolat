@@ -19,7 +19,7 @@ class CategoryType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'required' => true,
-                'label' => 'Nom Produit',
+                'label' => 'Nom catégorie',
                 'attr' => [
                     'maxLenght' => 255,
                     'placeholder' => 'Exemple: L\'Amoureux Noir'

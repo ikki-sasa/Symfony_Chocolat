@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
+use CodeInc\StripAccents\StripAccents;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,21 +23,59 @@ class CategoryController extends AbstractController
         ]);
     }
 
+    #[Route('/categories', name: 'category_index')]
+    public function categories(CategoryRepository $categoryRepository): Response
+    {
+        $categories = $categoryRepository->findBy(['parentCategory' => 2], ['name' => 'ASC']);
+        return $this->render('category/index.html.twig', [
+            'categories' => $categories
+        ]);
+    }
+
+    #[Route('/categorie/{slug}', name: 'product_category')]
+    public function category($slug, CategoryRepository $categoryRepository): Response
+    {
+        // récupérer les sous-catégories
+        $category = $categoryRepository->findOneBy(['slug' => $slug]); // récupère l'id de la catégorie parente
+        $sousCategories = $categoryRepository->findBy(['parentCategory' => $category->getId()]); // récupère les sous-catégories (catégories enfant)
+
+        if (!empty($sousCategories)) {
+            return $this->render('category/category.html.twig', [
+                'category' => $category,
+                'sousCategories' => $sousCategories
+            ]);
+        } else {
+            // récupérer les produits
+        }
+
+        return $this->render('category/category.html.twig', [
+            'category' => $category,
+            'message' => 'aller récupérer les produits'
+        ]);
+    }
+
     #[Route('/admin/category/new', name: 'category_create')]
-    public function create(Request $request, ManagerRegistry $managerRegistry)
+    public function create(Request $request, ManagerRegistry $managerRegistry): Response
     {
         $category = new Category(); //create new category
         $form = $this->createForm(CategoryType::class, $category); //create the form with the parameter of new Category
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+
+            // $slugMinuscules = strtolower($form['name']->getData());
+            // $slugSansCaracteresSpeciaux = str_replace([' ', '\'', '"', '&'], ['-', '-', '-', 'et'], $slugMinuscules);
+            // $slugSansAccents = StripAccents::strip($slugSansCaracteresSpeciaux);
+            // $category->setSlug($slugSansAccents);
+            $slug = StripAccents::strip(str_replace([' ', '\'', '"', '&'], ['-', '-', '-', 'et'], strtolower($form['name']->getData())));
+            $category->setSlug($slug);
+            // throw new \Exception('À finir : remplacer les caractères avec accent dans le slug par des lettres sans accent');
+
             $cateImg = $form['img']->getData();
             $extensionImg = $cateImg->guessExtension();
             $nameImg = time() . '.' . $extensionImg;
 
             $cateImg->move($this->getParameter('dossier_photos_category'), $nameImg);
             $category->setImg($nameImg);
-
-            $category->setSlug($form['name']->getData());
 
             $manager = $managerRegistry->getManager();
             $manager->persist($category);
@@ -57,6 +96,8 @@ class CategoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $slug = StripAccents::strip(str_replace([' ', '\'', '"', '&'], ['-', '-', '-', 'et'], strtolower($form['name']->getData())));
+            $category->setSlug($slug);
             $cateImg = $form['img']->getData();
             $nameOldImg = $category->getImg();
             if ($cateImg !== null) {
