@@ -1,0 +1,48 @@
+{% extends "adminBase.html.twig" %}
+
+{% block %}Produit{% endblock %}
+
+{% block body %}
+
+{{ form_start(productForm)}}
+<div class="row">
+    <div class="col-3">
+        {{ form_row(productForm.categorie, {'label': 'Catégorie'})}}
+    </div>
+    <div class="col-9">
+        {{ form_row(productForm.title, {'label': 'Nom'})}}
+    </div>
+</div>
+
+<div class="col-12">
+    {{ form_row(productForm.description,{'label': 'Description'})}}
+</div>
+
+<div class="row">
+    <div class="col-3">
+        {{ form_row(productForm.status, {'label': 'État'})}}
+    </div>
+    <div class="col-3">
+        {{ form_row(productForm.date, {'label': 'Date d\'ajout'})}}
+    </div>
+    <div class="col-3">
+        {{ form_row(productForm.price, {'label': 'Prix'})}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        {{ form_row(productForm.img, {'label': 'Photo du 1er produit '})}}
+    </div>
+    <div class="col-6">
+        {{ form_row(productForm.img1, {'label': 'Photo du 2nd produit'})}}
+    </div>
+</div>
+
+<div class="col-12 d-flex justify-content-end">
+    <a href=" {{ path('admin_product_index') }} " class="btn btn-danger m-3">Annuler</a>
+    <button class="btn btn-success m-3">Créer/ajouter</button>
+</div>
+{{ form_end(productForm)}}
+
+{% endblock %}
