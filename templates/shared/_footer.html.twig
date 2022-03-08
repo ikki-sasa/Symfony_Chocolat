@@ -1,26 +1,24 @@
-{#
 <!-- Footer -->
 <footer class="pt-1">
     <div class="container p-4">
         <div class="row">
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                 <div class="logo-footer">
-                    <img src="./Img/Logo/logo_white_no_bg.png" alt="Les_Amoureux_du_chocolat_logo" />
+                    <img src="{{( '/img/Logo/logo_white_no_bg.png' )}}" alt="Les Amoureux du chocolat logo" />
                 </div>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur
-                </p>
+                <div class="flex-row social">
+                    {# <div class="social-fb"></div> #}
+                    <a href=""><i class="fab fa-facebook" class="align-baseline p-5"></i></a>
+                    {# <div class="social-instagram"></div> #}
+                    <a href=""><i class="fab fa-instagram" class="align-baseline p-5"></i></a>
+                </div>
             </div>
 
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <h5 class="text-uppercase text-white text-center">INFORMATIONS</h5>
-
                 <ul class="mb-0 text-center">
                     <li>
-                        <a href="#" class="text-white">Mentions légales</a>
+                        <a href="#" class="text-white text-center">Mentions légales</a>
                     </li>
                     <li>
                         <a href="#" class="text-white">Conditions générales de vente</a>
@@ -30,6 +28,9 @@
                     </li>
                     <li>
                         <a href="#" class="text-white">Nous contacter</a>
+                    </li>
+                    <li>
+                        <a href=" {{ path('admin') }} " class="text-white">Admin</a>
                     </li>
                 </ul>
             </div>
@@ -54,4 +55,4 @@
     </div>
     <!-- Copyright -->
 </footer>
-<!-- Footer --> #}
+<!-- Footer -->

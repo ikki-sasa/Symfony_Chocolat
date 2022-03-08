@@ -10,15 +10,15 @@
 </p>
 
 <div class="row">
-
+    {#
     {% if sousCategories is defined %}
     {% for sousCategorie in sousCategories %}
     <a href="{{ path('product_category', {'slug': sousCategorie.slug}) }}">{{ sousCategorie.name }}</a>
     {% endfor %}
     {% else %}
     {# boucler sur les produits #}
-    {{ message }}
-    {% endif %}
+    {#{ message }#}
+    {#% endif %} #}
 
     {# {% for product in products %}
     <div class="col">

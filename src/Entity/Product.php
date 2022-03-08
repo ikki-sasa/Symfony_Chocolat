@@ -32,6 +32,9 @@ class Product
     #[ORM\Column(type: 'string', length: 30, nullable: true)]
     private $img2;
 
+    #[ORM\Column(type: 'datetime_immutable')]
+    private $PublishedAt;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +108,18 @@ class Product
     public function setImg2(string $img2): self
     {
         $this->img2 = $img2;
+
+        return $this;
+    }
+
+    public function getPublishedAt(): ?\DateTimeImmutable
+    {
+        return $this->PublishedAt;
+    }
+
+    public function setPublishedAt(\DateTimeImmutable $PublishedAt): self
+    {
+        $this->PublishedAt = $PublishedAt;
 
         return $this;
     }

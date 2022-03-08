@@ -34,7 +34,7 @@ class ProductController extends AbstractController
     public function adminIndex(ProductRepository $productRepository): Response
     {
         $products = $productRepository->findAll();
-        return $this->render('admin/produts.html.twig', [
+        return $this->render('admin/products.html.twig', [
             'products' => $products
         ]);
     }
@@ -46,7 +46,7 @@ class ProductController extends AbstractController
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $firstImg = $form['img1']->getData();
+            $firstImg = $form['img']->getData();
             $extensionFirstImg = $firstImg->guessExtension();
             $nameImg1 = time() . '-1' . $extensionFirstImg;
             $firstImg->move($this->getParameter('dossier_photos_category'), $nameImg1);
@@ -60,6 +60,7 @@ class ProductController extends AbstractController
             } else {
                 $product->setImg2('null');
             }
+            $product->setPublishedAt(new \DateTimeImmutable());
             $manager = $managerRegistry->getManager();
             $manager->persist($product);
             $manager->flush();
@@ -133,5 +134,10 @@ class ProductController extends AbstractController
                 unlink($oldPathImg);
             }
         }
+        $manager = $managerRegistry->getManager();
+        $manager->remove($product);
+        $manager->flush();
+        $this->addFlash('success', 'Le produit a bien été supprimé ');
+        return $this->redirectToRoute('admin_product_index');
     }
 }

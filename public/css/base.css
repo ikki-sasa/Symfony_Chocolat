@@ -148,6 +148,9 @@ a.btn {
   color: var(--clr-primary-1);
 }
 
+.logo-nav {
+  width: 8.5em;
+}
 
 /*
 .logo-navbar {

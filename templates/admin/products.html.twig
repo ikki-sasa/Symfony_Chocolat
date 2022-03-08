@@ -1,4 +1,4 @@
-{% extends 'baseAdmin.html.twig' %}
+{% extends 'adminBase.html.twig' %}
 
 {% block title %} Produits {% endblock title %}
 
@@ -13,27 +13,30 @@
             <th>Nom</th>
             <th>Prix</th>
             <th>Image</th>
-            <th></th>
-            <th></th>
+            <th>Catégorie</th>
+            <th>Modifier|Supprimer</th>
         </tr>
     </thead>
     <tbody class="table-secondary">
         {% for product in products %}
         <tr>
-            <td class="align-middle"></td>
-            <td class="align-middle"></td>
-            <td class="align-middle"></td>
-            <td class="align-middle"></td>
-            <td class="align-middle"></td>
+            <td class="align-middle"> {{ product.Id }} </td>
+            <td class="align-middle"> {{ product.productName }} </td>
+            <td class="align-middle"> {{ product.price|number_format(0, ',', '') }} €</td>
+            <td class="align-middle"><img src="{{ asset('img/category/' ~ product.img) }}"
+                    alt="photo produit {{ product.productName }} "></td>
+            <td class="align-middle"> {{ product.categoryId.name }} </td>
             <td class="align-middle">
-                <a href="#" class="text-warning"><i class="fas fa-pen-square"></i></a>
-                <a href="#" class="text-danger"><i class="fas fa-trash-alt"></i></a>
+                <a href=" {{ path('product_update', { 'id': product.id})}}" class="text-warning"><i
+                        class="fas fa-pen-square"></i></a>
+                <a href=" {{ path('product_delete', { 'id': product.id})}}" class="text-danger"><i
+                        class="fas fa-trash-alt"></i></a>
             </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 <div class="d-flex justify-content-end my-5">
-    <a href="" class="btn btn-success">Ajouter une création</a>
+    <a href=" {{ path('product_create')}}" class="btn btn-success">Ajouter une création</a>
 </div>
 {% endblock %}
