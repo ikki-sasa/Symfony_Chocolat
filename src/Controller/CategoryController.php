@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
+use App\Repository\ProductRepository;
 use CodeInc\StripAccents\StripAccents;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,7 +34,7 @@ class CategoryController extends AbstractController
     }
 
     #[Route('/categorie/{slug}', name: 'product_category')]
-    public function category($slug, CategoryRepository $categoryRepository): Response
+    public function category($slug, CategoryRepository $categoryRepository, ProductRepository $productRepository): Response
     {
         // récupérer les sous-catégories
         $category = $categoryRepository->findOneBy(['slug' => $slug]); // récupère l'id de la catégorie parente
@@ -45,12 +46,13 @@ class CategoryController extends AbstractController
                 'sousCategories' => $sousCategories
             ]);
         } else {
-            // récupérer les produits
+            $products = $productRepository->findBy(['category_id' => $category->getId()], ['product_name' => 'ASC']);
         }
 
         return $this->render('category/category.html.twig', [
             'category' => $category,
-            'message' => 'aller récupérer les produits'
+            'message' => 'aller récupérer les produits',
+            'products' => $products
         ]);
     }
 

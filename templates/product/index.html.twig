@@ -1,16 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Produits ♥ Les Amoureux du Chocolat ♥{% endblock %}
+{% block title %}Détails Produit ♥ Les Amoureux du Chocolat ♥{% endblock %}
 
 
 {% block body %}
-<h1 class="text-center mt-5 pt-5">Chocolat & fruits sec {#{ product.Id }#} </h1>
-<p class="section-title-p mb-5 mt-4">
-    Découvrez tous nos produits faits artisanalement.
-    Un concentré d'amour, de passion et de création qui vont éveiller vos sens et vos papilles.Laissez vous tentez par
-    nos mélanges chocolat & fruits secs à la fois tendre et croquant.
-</p>
 
+<div class="row row-grid border border-dark">
+    <div class="col-xs-6 col-md-6 my-1 border border-dark">
+        <img src="./Img/Products-section1/Framboise1.jpg" alt="" style="width:450px" />
+    </div>
+    <div class="col-xs-6 col-md-6 my-1 mb-5 border border-dark">
+        <p class="mt-12" href=" {{ path('home')}} ">Accueil > Produit</p>
+        <h6> Mendiant Noir </h6>
+        <p>État : Nouveau produit
+        </p>
+        <p>Palets craquants de chocolat noir intense, parsemés d'amandes,
+            noisettes et pistaches.
+        </p>
+        <p>100g (environ 12 mendiants)
+        </p>
+        <p>7€ incl. T.V.A
+        </p>
+        <p>Ingrédients:</p>
+        <p>Chocolat noir 67% (pâte de cacao 67%, sucre, beurre de cacao,émulsifiant: lécithine de SOJA,
+            vanille),AMANDES, NOISETTES, PISTACHES.</p>
+    </div>
+</div>
 
 
 

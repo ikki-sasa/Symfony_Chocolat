@@ -1,24 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}catégories {% endblock %}
+{% block title %}Catégories ♥ Les Amoureux du Chocolat ♥ {% endblock %}
 
 {% block body %}
-<h1 class="text-center mt-5 pt-5">Gammes De Produits </h1>
-<p class="text-center mt-4">Découvrez tous nos produits faits artisanalement.
-    Un concentré d'amour, de passion et de création qui vont éveiller vos sens et vos papilles
-</p>
-{% for category in categories %}
-{# <a href="{{ path('product_category', {'slug': category.slug}) }}">{{ category.name }}</a> #}
-<div class="col-4 p-3">
-    <div class="card ">
-        <img src=" {{asset('img/category/' ~ category.img )}} " alt="photo principale {{category.name}}"
-            class="card-img-top ">
-        <div class="card-body">
-            <h5 class="card-title"> {{ category.name }} </h5>
-        </div>
-    </div>
-</div>
 
-{% endfor %}
+<main class="container-fluid">
+    <h1 class="text-center mt-5 pt-5">Gammes De Produits </h1>
+    <p class="text-center mt-4">Découvrez tous nos produits faits artisanalement.
+        Un concentré d'amour, de passion et de création qui vont éveiller vos sens et vos papilles
+    </p>
+    <div class="row">
+        {% for category in categories %}
+        <div class="col-4 p-3">
+            <div class="card card-category">
+                <img src=" {{asset('img/category/' ~ category.img )}} " alt="photo principale {{category.name}}"
+                    class="card-img-top ">
+                <div class="card-body">
+                    {# <h5 class="card-title text-center"> {{ category.name }} </h5> #}
+                    <a href="{{ path('product_category', {'slug': category.slug}) }}" class="text-center">{{
+                        category.name }}</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
 
 {% endblock %}

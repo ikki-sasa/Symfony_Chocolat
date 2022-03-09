@@ -1,38 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Category : {{ category.name }}{% endblock %}
+{% block title %} {{ category.name }} ♥ Les Amoureux du Chocolat ♥{% endblock %}
 
 {% block body %}
-
-<h1 class="text-center mt-5 pt-5">Gammes De Produits </h1>
-<p class="text-center mt-4">Découvrez tous nos produits faits artisanalement.
+<h1 class="text-center pt-5 mt-5">{{ category.name }}</h1>
+<p class="section-title-p mb-5">Découvrez tous nos produits faits artisanalement.
     Un concentré d'amour, de passion et de création qui vont éveiller vos sens et vos papilles
+    Laissez vous tentez par nos mélanges chocolat & fruits secs à la fois tendre et croquant.
 </p>
-
 <div class="row">
-    {#
-    {% if sousCategories is defined %}
-    {% for sousCategorie in sousCategories %}
-    <a href="{{ path('product_category', {'slug': sousCategorie.slug}) }}">{{ sousCategorie.name }}</a>
-    {% endfor %}
-    {% else %}
-    {# boucler sur les produits #}
-    {#{ message }#}
-    {#% endif %} #}
-
-    {# {% for product in products %}
-    <div class="col">
-        <div class="card border-0 ">
-            <img src="{{ asset('img/Products-section1/Framboise1.jpg') }}"
-                alt="Image Les amoureux du chocolat du produit ganache framboise" class="img-fluid w-75">
-            <!-- <img src="/public/Img/Products-section1/Framboise1.jpg" alt="Image du produit ganache framboise"> -->
-            <!-- <img src="https://picsum.photos/150/150" alt="Image du produit ganache framboise" class="img-fluid"> -->
+    {% for product in products %}
+    <div class="col-4 p-3">
+        <div class="card border-0 card-product">
+            <img src="{{ asset('img/category/' ~ product.img ) }}" alt="photo principale" class="img-fluid">
             <div class="card-body">
-                <h4 class="card-title text-center"> {{ category.name }} </h4>
-                <a href="#" class="btn btn-sm text-center">Détails</a>
+                <h4 class="card-title text-center"> {{ product.productName }} </h4>
+                <a href=" {{ path('product_index')}} " class="btn intro-btn mb-5 text-center">Détails</a>
             </div>
         </div>
     </div>
-    {% endfor %} #}
+    {% endfor %}
 </div>
 {% endblock %}

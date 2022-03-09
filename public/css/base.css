@@ -256,8 +256,9 @@ a.btn {
   Cards
   =============
 */
-
-
+/* .card-category {
+  width: 15em;
+} */
 /* .card img {
   width: 100%;
 }
@@ -474,6 +475,10 @@ footer {
 
 footer img {
     width: 28em;
+}
+
+footer a {
+  text-decoration: none;
 }
 
  .social a {
