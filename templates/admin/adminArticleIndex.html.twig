@@ -7,18 +7,44 @@
 <table class="table table-dark text-center table-hover">
     <thead>
         <tr>
-            <th>N°</th>
-            <th>Titre article</th>
-            <th>Images</th>
-            <th>Événements</th>
-            <th>Modifier|Supprimer</th>
+            <th scope="col">N°</th>
+            <th scope="col">Titre article</th>
+            <th scope="col">Date de création</th>
+            <th scope="col">Date d'édition</th>
+            <th scope="col">Description</th>
+            <th scope="col">Images</th>
+            <th scope="col">Événements</th>
+            <th scope="col">Modifier|Supprimer</th>
         </tr>
     </thead>
     <tbody class="table-secondary">
-        {# {% for comment in comments %}
-
-        {% endfor %} #}
+        {% for article in articles %}
+        <tr>
+            <td class="alig middle"> {{article.id}} </td>
+            <td class="alig middle"> {{article.title}} </td>
+            <td class="alig middle"> {{article.created_at}} </td>
+            <td class="alig middle"> {{article.updated_at}} </td>
+            <td class="alig middle"> {{article.content}} </td>
+            <td class="alig middle"> {{article.featured_img}} </td>
+            <td class="alig middle"> <img src=" {{ asset('img/article/' ~ article.featured_img)}} "
+                    alt=" {{ article.title }} ">
+            </td>
+            <td class="alig middle">
+                <a href=" {{ path('article_update', {'id': article.id}) }}" class="text-primary">
+                    <i class="fas fa-pen-square"></i>
+                </a>
+            </td>
+            <td class="alig middle">
+                <a href=" {{ path('article_delete', {'id': article.id}) }}" class="text-danger">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
     </tbody>
 </table>
+<div class="d-flex justify-content-end my-5">
+    <a href="{{ path('article_create')}}" class="btn btn-success">Ajouter un article</a>
+</div>
 
 {% endblock %}
