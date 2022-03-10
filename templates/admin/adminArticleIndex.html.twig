@@ -1,0 +1,24 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Article Blog{% endblock %}
+
+{% block body %}
+<h2 class="pb-5">Liste des articles blog</h2>
+<table class="table table-dark text-center table-hover">
+    <thead>
+        <tr>
+            <th>N°</th>
+            <th>Titre article</th>
+            <th>Images</th>
+            <th>Événements</th>
+            <th>Modifier|Supprimer</th>
+        </tr>
+    </thead>
+    <tbody class="table-secondary">
+        {# {% for comment in comments %}
+
+        {% endfor %} #}
+    </tbody>
+</table>
+
+{% endblock %}

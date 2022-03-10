@@ -34,7 +34,7 @@ class ProductController extends AbstractController
     public function adminIndex(ProductRepository $productRepository): Response
     {
         $products = $productRepository->findAll();
-        return $this->render('admin/products.html.twig', [
+        return $this->render('admin/adminProducts.html.twig', [
             'products' => $products
         ]);
     }
@@ -67,7 +67,7 @@ class ProductController extends AbstractController
             $this->addFlash('success', 'Le produit a bien été ajouté.');
             return $this->redirectToRoute('admin_product_index');
         }
-        return $this->render('admin/productForm.html.twig', [
+        return $this->render('admin/adminProductForm.html.twig', [
             'productForm' => $form->createView()
         ]);
     }
@@ -117,7 +117,7 @@ class ProductController extends AbstractController
             return $this->redirectToRoute('admin_product_index');
         }
 
-        return $this->render('admin/productForm.html.twig', [
+        return $this->render('admin/adminProductForm.html.twig', [
             'productForm' => $form->createView(),
             'product' => $product
         ]);

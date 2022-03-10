@@ -14,8 +14,17 @@ class CommentType extends AbstractType
         $builder
             ->add('content')
             ->add('articles_id')
-            ->add('user_id')
-        ;
+            ->add('user_id');
+        //  ->add('content', TextType::class, [
+        //     'required' => true
+        // ])
+        // ->add('articles_id', EntityType::class, [
+        //     'required' => true,
+        //     'label' => 'Événement',
+        //     'class' => Category::class,
+        //     'choice_label' => 'title'
+        // ])
+        // ->add('user_id');
     }
 
     public function configureOptions(OptionsResolver $resolver): void
