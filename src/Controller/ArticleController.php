@@ -3,14 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
 use CodeInc\StripAccents\StripAccents;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 
 class ArticleController extends AbstractController
 {
@@ -22,6 +23,7 @@ class ArticleController extends AbstractController
             'articles' => $articles
         ]);
     }
+
     #[Route('/articles', name: 'article_index')]
     public function articles(ArticleRepository $articleRepository): Response
     {
@@ -30,6 +32,7 @@ class ArticleController extends AbstractController
             'articles' => $articles
         ]);
     }
+
     #[Route('/article/{slug}', name: 'article_category')]
     public function article($slug, ArticleRepository $articleRepository, CategoryRepository $categoryRepository): Response
     {
@@ -50,6 +53,7 @@ class ArticleController extends AbstractController
             'categories' => $categories
         ]);
     }
+
     #[Route('/admin/article/new', name: 'article_create')]
     public function create(Request $request, ManagerRegistry $managerRegistry): Response
     {
@@ -57,15 +61,19 @@ class ArticleController extends AbstractController
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $slug = StripAccents::strip(str_replace([' ', '\'', '"', '&'], ['-', '-', '-', 'et'], strtolower($form['name']->getData())));
+            $slug = StripAccents::strip(str_replace([' ', '\'', '"', '&'], ['-', '-', '-', 'et'], strtolower($form['title']->getData())));
             $article->setSlug($slug);
 
-            $artImg = $form['img']->getData();
+            $artImg = $form['featured_img']->getData();
             $extensionImg = $artImg->guessExtension();
             $nameImg = time() . '.' . $extensionImg;
 
             $artImg->move($this->getParameter('dossier_photos_category'), $nameImg);
             $article->setFeaturedImg($nameImg);
+
+            $article->setCreatedAt(new \DateTime);
+
+            $article->setUserId($this->getUser());
 
             $manager = $managerRegistry->getManager();
             $manager->persist($article);
@@ -73,7 +81,7 @@ class ArticleController extends AbstractController
             $this->addFlash('success', 'L\'article a bien été ajoutée.');
             return $this->redirectToRoute('article_admin_index');
         }
-        return $this->render('article/adminArticleForm.html.twig', [
+        return $this->render('admin/adminArticleForm.html.twig', [
             'articleForm' => $form->createView()
         ]);
     }
@@ -88,7 +96,7 @@ class ArticleController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $slug = StripAccents::strip(str_replace([' ', '\'', '"', '&'], ['-', '-', '-', 'et'], strtolower($form['name']->getData())));
             $article->setSlug($slug);
-            $artImg = $form['img']->getData();
+            $artImg = $form['featured_img']->getData();
             $nameOldImg = $article->getFeaturedImg();
             if ($artImg !== null) {
                 $pathOldImg = $this->getParameter('dossier_photos_category') . '/' .
@@ -103,6 +111,8 @@ class ArticleController extends AbstractController
             } else {
                 $article->setFeaturedImg($nameOldImg);
             }
+
+            $article->setUpdatedAt(new \DateTime);
 
             $manager = $managerRegistry->getManager();
             $manager->persist($article);

@@ -6,38 +6,26 @@
 
 {{ form_start(articleForm)}}
 <div class="row">
-    <div class="col-3">
-        {{ form_row(articleForm.category_id, {'label': 'Catégorie'})}}
+    <div class="col-8">
+        {{ form_row(articleForm.title, {'label': 'Titre'})}}
     </div>
-    <div class="col-9">
-        {{ form_row(articleForm.product_name, {'label': 'Nom'})}}
+    <div class="col-4">
+        {{ form_row(articleForm.category_id, {'label': 'Catégorie article'})}}
     </div>
 </div>
 
 <div class="col-12">
-    {{ form_row(articleForm.description,{'label': 'Description'})}}
-</div>
-
-<div class="row">
-    <div class="col-3">
-        {# {{ form_row(articleForm.status, {'label': 'Disponibilité'})}} #}
-    </div>
-    <div class="col-3">
-        {{ form_row(articleForm.price, {'label': 'Prix (€)'})}}
-    </div>
+    {{ form_row(articleForm.content, {'label': 'Description article'})}}
 </div>
 
 <div class="row">
     <div class="col-6">
-        {{ form_row(articleForm.img, {'label': 'Première photo du produit'})}}
-    </div>
-    <div class="col-6">
-        {{ form_row(articleForm.img2, {'label': 'Second photo du produit'})}}
+        {{ form_row(articleForm.featured_img, {'label': 'Photo article'})}}
     </div>
 </div>
 
 <div class="col-12 d-flex justify-content-end">
-    <a href=" {{ path('admin_product_index') }} " class="btn btn-danger m-3">Annuler</a>
+    <a href=" {{ path('article_admin_index') }} " class="btn btn-danger m-3">Annuler</a>
     <button class="btn btn-success m-3">Créer/ajouter</button>
 </div>
 {{ form_end(articleForm)}}

@@ -27,17 +27,17 @@ class Article
     #[ORM\Column(type: 'datetime')]
     private $created_at;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'datetime', nullable: true)]
     private $updated_at;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $featured_img;
 
-    #[ORM\ManyToOne(targetEntity: user::class, inversedBy: 'articles')]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'articles')]
     #[ORM\JoinColumn(nullable: false)]
     private $user_id;
 
-    #[ORM\ManyToOne(targetEntity: category::class, inversedBy: 'category')]
+    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'category')]
     #[ORM\JoinColumn(nullable: false)]
     private $category_id;
 
@@ -126,24 +126,24 @@ class Article
         return $this;
     }
 
-    public function getUserId(): ?user
+    public function getUserId(): ?User
     {
         return $this->user_id;
     }
 
-    public function setUserId(?user $user_id): self
+    public function setUserId(?User $user_id): self
     {
         $this->user_id = $user_id;
 
         return $this;
     }
 
-    public function getCategoryId(): ?category
+    public function getCategoryId(): ?Category
     {
         return $this->category_id;
     }
 
-    public function setCategoryId(?category $category_id): self
+    public function setCategoryId(?Category $category_id): self
     {
         $this->category_id = $category_id;
 

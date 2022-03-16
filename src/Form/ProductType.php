@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Product;
 use App\Entity\Category;
+use App\Repository\CategoryRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -93,6 +94,9 @@ class ProductType extends AbstractType
                 'required' => true,
                 'label' => 'Catégorie',
                 'class' => Category::class,
+                'query_builder' => function (CategoryRepository $categoryRepository) {
+                    return $categoryRepository->getProductCategories();
+                },
                 'choice_label' => 'name'
             ]);
     }

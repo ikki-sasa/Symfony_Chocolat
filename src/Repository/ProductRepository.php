@@ -47,4 +47,21 @@ class ProductRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     * @return Product[]
+     */
+    public function findLastThree()
+    {
+
+        return $this->createQueryBuilder('fls')
+            ->orderBy('fls.id', 'ASC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @return Product[] 
+     */
 }

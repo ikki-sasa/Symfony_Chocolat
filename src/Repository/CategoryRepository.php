@@ -19,6 +19,28 @@ class CategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, Category::class);
     }
 
+    /**
+     * @return Category[] Returns an array of Category objects
+     */
+    public function getBlogCategories()
+    {
+        return $this->createQueryBuilder('gbc')
+            ->andWhere('gbc.parentCategory = :val')
+            ->setParameter('val', 3)
+            ->orderBy('gbc.name', 'ASC');
+    }
+
+    /**
+     * @return Category[] Returns an array of Category objects
+     */
+    public function getProductCategories()
+    {
+        return $this->createQueryBuilder('gpc')
+            ->andWhere('gpc.parentCategory = :val')
+            ->setParameter('val', 2)
+            ->orderBy('gpc.name', 'ASC');
+    }
+
     // /**
     //  * @return Category[] Returns an array of Category objects
     //  */
@@ -47,4 +69,22 @@ class CategoryRepository extends ServiceEntityRepository
         ;
     }
     */
+    /**
+     * @return Category[]
+     */
+    public function findLastThree()
+    {
+        return $this->createQueryBuilder('cat')
+            ->andWhere('cat.id >= :val', 'cat.id < :value')
+            ->setParameter('val', 15)
+            ->setParameter('value', 18)
+            ->orderBy('cat.id', 'ASC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult();
+    }
+
+    // /**
+    //  * @return Category[] 
+    //  */
 }

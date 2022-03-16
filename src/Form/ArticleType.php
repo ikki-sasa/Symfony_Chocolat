@@ -2,42 +2,42 @@
 
 namespace App\Form;
 
+use App\Entity\Article;
 use App\Entity\Category;
+use App\Repository\CategoryRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Validator\Constraints\Image;
 
-class CategoryType extends AbstractType
+class ArticleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, [
+            ->add('title', TextType::class, [
                 'required' => true,
-                'label' => 'Nom catégorie',
+                'label' => 'Nom de l\'article',
                 'attr' => [
                     'maxLength' => 255,
-                    'placeholder' => 'Exemple: L\'Amoureux Noir'
+                    'placeholder' => 'Exemple: La Saint Valentin'
                 ]
             ])
-
-            ->add('description', TextareaType::class, [
+            ->add('content', TextareaType::class, [
                 'required' => true,
-                'label' => 'Description produit',
+                'label' => 'Description article',
                 'attr' => [
                     'maxLength' => 80000,
-                    'placeholder' => 'Exemple: Voici le nouveau venu dans la famille des ganaches.... '
+                    'placeholder' => 'Exemple: Voici l\'évenment tant attendu cette année....'
                 ]
             ])
-
-            ->add('img', FileType::class, [
+            ->add('featured_img', FileType::class, [
                 'required' => true,
-                'label' => 'Image produit',
+                'label' => 'Image article',
                 'mapped' => false,
                 'help' => 'jpeg, png, gif, svg, eps, psd, tiff, jp2 ou webp - 8 Mo maximum ',
                 'constraints' => [
@@ -59,11 +59,13 @@ class CategoryType extends AbstractType
                     ])
                 ]
             ])
-
-            ->add('parentCategory', EntityType::class, [
+            ->add('category_id', EntityType::class, [
                 'required' => true,
-                'label' => 'Catégorie',
+                'label' => 'Catégorie article',
                 'class' => Category::class,
+                'query_builder' => function (CategoryRepository $categoryRepository) {
+                    return $categoryRepository->getBlogCategories();
+                },
                 'choice_label' => 'name'
             ]);
     }
@@ -71,7 +73,7 @@ class CategoryType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Category::class,
+            'data_class' => Article::class,
         ]);
     }
 }
