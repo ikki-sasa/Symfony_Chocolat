@@ -16,11 +16,11 @@ class Comment
     #[ORM\Column(type: 'text')]
     private $content;
 
-    #[ORM\ManyToOne(targetEntity: article::class, inversedBy: 'comment')]
+    #[ORM\ManyToOne(targetEntity: Article::class, inversedBy: 'comment')]
     #[ORM\JoinColumn(nullable: false)]
     private $articles_id;
 
-    #[ORM\ManyToOne(targetEntity: user::class, inversedBy: 'user_id')]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'user_id')]
     #[ORM\JoinColumn(nullable: false)]
     private $user_id;
 
@@ -41,24 +41,24 @@ class Comment
         return $this;
     }
 
-    public function getArticlesId(): ?article
+    public function getArticlesId(): ?Article
     {
         return $this->articles_id;
     }
 
-    public function setArticlesId(?article $articles_id): self
+    public function setArticlesId(?Article $articles_id): self
     {
         $this->articles_id = $articles_id;
 
         return $this;
     }
 
-    public function getUserId(): ?user
+    public function getUserId(): ?User
     {
         return $this->user_id;
     }
 
-    public function setUserId(?user $user_id): self
+    public function setUserId(?User $user_id): self
     {
         $this->user_id = $user_id;
 

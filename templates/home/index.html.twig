@@ -15,6 +15,17 @@
         </div>
     </div>
 </header>
+<div class="row">
+    <div class="col-8 offset-2">
+        {% for label, messages in app.flashes %}
+        {% for message in messages %}
+        <div class="flash-{{ label }} bg-{{ label }} text-light p-3 mb-5 rounded">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endfor %}
+    </div>
+</div>
 <h1 class="text-center pt-5">Un Concentré Pur D'amour Et De Cacao</h1>
 <p class="section-title-p mb-5">
     Tester le goût de nos produits, faits avec des produits pur et
@@ -129,4 +140,5 @@
         </div>
     </article>
 </section>
+
 {% endblock %}

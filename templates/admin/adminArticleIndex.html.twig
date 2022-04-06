@@ -20,21 +20,19 @@
     <tbody class="table-secondary">
         {% for article in articles %}
         <tr>
-            <td class="alig middle"> {{article.id}} </td>
-            <td class="alig middle"> {{article.title}} </td>
-            <td class="alig middle"> {{article.created_at}} </td>
-            <td class="alig middle"> {{article.updated_at}} </td>
-            <td class="alig middle"> {{article.content}} </td>
-            <td class="alig middle"> {{article.featured_img}} </td>
-            <td class="alig middle"> <img src=" {{ asset('img/article/' ~ article.featured_img)}} "
+            <td class="alig middle"> {{ article.id }} </td>
+            <td class="alig middle"> {{ article.title }} </td>
+            <td class="alig middle"> {{ article.createdAt|date('d/m/y') }} </td>
+            <td class="alig middle"> {{article.updatedAt|date('d/m/y')}} </td>
+            <td class="alig middle"> {{article.content|u.truncate(90,'...')}} </td>
+            <td class="alig middle"> <img src=" {{ asset('img/category/' ~ article.featuredImg)}} "
                     alt=" {{ article.title }} ">
             </td>
+            <td class="alig middle"> {{article.event}} </td>
             <td class="alig middle">
                 <a href=" {{ path('article_update', {'id': article.id}) }}" class="text-primary">
                     <i class="fas fa-pen-square"></i>
                 </a>
-            </td>
-            <td class="alig middle">
                 <a href=" {{ path('article_delete', {'id': article.id}) }}" class="text-danger">
                     <i class="fas fa-trash-alt"></i>
                 </a>

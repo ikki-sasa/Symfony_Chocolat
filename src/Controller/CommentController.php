@@ -13,10 +13,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CommentController extends AbstractController
 {
-    #[Route('/comment', name: 'comment_index', methods: ['GET'])]
+    #[Route('admin/comment', name: 'comment_admin_index', methods: ['GET'])]
     public function index(CommentRepository $commentRepository): Response
     {
-        return $this->render('comment/index.html.twig', [
+        return $this->render('admin/adminComment.html.twig', [
             'comments' => $commentRepository->findAll(),
         ]);
     }

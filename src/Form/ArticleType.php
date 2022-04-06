@@ -32,11 +32,11 @@ class ArticleType extends AbstractType
                 'label' => 'Description article',
                 'attr' => [
                     'maxLength' => 80000,
-                    'placeholder' => 'Exemple: Voici l\'évenment tant attendu cette année....'
+                    'placeholder' => 'Voici l\'évenment tant attendu cette année....'
                 ]
             ])
             ->add('featured_img', FileType::class, [
-                'required' => true,
+                'required' => false,
                 'label' => 'Image article',
                 'mapped' => false,
                 'help' => 'jpeg, png, gif, svg, eps, psd, tiff, jp2 ou webp - 8 Mo maximum ',
@@ -67,6 +67,14 @@ class ArticleType extends AbstractType
                     return $categoryRepository->getBlogCategories();
                 },
                 'choice_label' => 'name'
+            ])
+            ->add('event', TextType::class, [
+                'required' => true,
+                'label' => 'Événement',
+                'attr' => [
+                    'maxLength' => 100,
+                    'placeholder' => 'Veuillez décrire le type d\'événement'
+                ]
             ]);
     }
 

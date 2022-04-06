@@ -25,7 +25,7 @@ class Product
     #[ORM\Column(type: 'integer')]
     private $price;
 
-    #[ORM\ManyToOne(targetEntity: category::class, inversedBy: 'product')]
+    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'product')]
     #[ORM\JoinColumn(nullable: false)]
     private $category_id;
 
@@ -88,12 +88,12 @@ class Product
         return $this;
     }
 
-    public function getCategoryId(): ?category
+    public function getCategoryId(): ?Category
     {
         return $this->category_id;
     }
 
-    public function setCategoryId(?category $category_id): self
+    public function setCategoryId(?Category $category_id): self
     {
         $this->category_id = $category_id;
 

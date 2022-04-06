@@ -44,6 +44,9 @@ class Article
     #[ORM\OneToMany(mappedBy: 'articles_id', targetEntity: Comment::class)]
     private $comment;
 
+    #[ORM\Column(type: 'string', length: 100)]
+    private $event;
+
     public function __construct()
     {
         $this->comment = new ArrayCollection();
@@ -138,12 +141,12 @@ class Article
         return $this;
     }
 
-    public function getCategoryId(): ?Category
+    public function getCategoryId(): ?category
     {
         return $this->category_id;
     }
 
-    public function setCategoryId(?Category $category_id): self
+    public function setCategoryId(?category $category_id): self
     {
         $this->category_id = $category_id;
 
@@ -176,6 +179,18 @@ class Article
                 $comment->setArticlesId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEvent(): ?string
+    {
+        return $this->event;
+    }
+
+    public function setEvent(string $event): self
+    {
+        $this->event = $event;
 
         return $this;
     }

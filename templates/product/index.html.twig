@@ -4,28 +4,38 @@
 
 
 {% block body %}
-
-<div class="row row-grid border border-dark">
+<div class="row row-grid border border-dark mt-5">
     <div class="col-xs-6 col-md-6 my-1 border border-dark">
-        <img src="./Img/Products-section1/Framboise1.jpg" alt="" style="width:450px" />
+        {% for product in products %}
+        {# <img src="./Img/Products-section1/Framboise1.jpg" alt="" style="width:450px" /> #}
+        <img src="{{ asset('img/category/' ~ product.img ) }}" alt="photo principale" class="img-fluid">
     </div>
     <div class="col-xs-6 col-md-6 my-1 mb-5 border border-dark">
-        <p class="mt-12" href=" {{ path('home')}} ">Accueil > Produit</p>
-        <h6> Mendiant Noir </h6>
+        <ol class="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href=" {{ path('home')}} ">Accueil</a></li>
+                <li class="breadcrumb-item"><a href=" {{ path('category_index')}} ">{{ product.productName
+                        }}</a></li>
+                <li class="breadcrumb-item active">{{ product.productName }}</li>
+            </ol>
+        </ol>
+        <h6> {{ product.productName }} </h6>
         <p>État : Nouveau produit
         </p>
-        <p>Palets craquants de chocolat noir intense, parsemés d'amandes,
-            noisettes et pistaches.
+        <p>{{ product.description }}
         </p>
         <p>100g (environ 12 mendiants)
         </p>
-        <p>7€ incl. T.V.A
+        <p>{{ product.price }}€ incl. T.V.A
         </p>
         <p>Ingrédients:</p>
         <p>Chocolat noir 67% (pâte de cacao 67%, sucre, beurre de cacao,émulsifiant: lécithine de SOJA,
             vanille),AMANDES, NOISETTES, PISTACHES.</p>
+        {% endfor %}
     </div>
 </div>
+
+
 
 
 

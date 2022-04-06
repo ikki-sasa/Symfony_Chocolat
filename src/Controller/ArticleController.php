@@ -90,11 +90,11 @@ class ArticleController extends AbstractController
     public function update(ArticleRepository $articleRepository, int $id, Request $request, ManagerRegistry $managerRegistry)
     {
         $article = $articleRepository->find($id);
-        $form = $this->createForm(Article::class, $article);
+        $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $slug = StripAccents::strip(str_replace([' ', '\'', '"', '&'], ['-', '-', '-', 'et'], strtolower($form['name']->getData())));
+            $slug = StripAccents::strip(str_replace([' ', '\'', '"', '&'], ['-', '-', '-', 'et'], strtolower($form['title']->getData())));
             $article->setSlug($slug);
             $artImg = $form['featured_img']->getData();
             $nameOldImg = $article->getFeaturedImg();
