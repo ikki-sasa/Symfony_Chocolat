@@ -79,6 +79,9 @@ p {
 
 /* Global classes */
 
+.btn-validation {
+  color: var(--clr-primary-4);
+}
 a.btn {
   text-transform: uppercase;
   background: var(--clr-primary-4);

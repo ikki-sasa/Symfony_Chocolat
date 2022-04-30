@@ -1,5 +1,6 @@
 framework:
     mailer:
         dsn: '%env(MAILER_DSN)%'
-        envelope:
-            recipients: ['manga.samadjine@3wa.io'] # envoie tout les mail à cette adress
+        # dsn: 'null://null'
+        # envelope:
+            # recipients: ['manga.samadjine@3wa.io'] # envoie tout les mail à cette adress
