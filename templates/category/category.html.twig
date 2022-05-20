@@ -15,7 +15,8 @@
             <img src="{{ asset('img/category/' ~ product.img ) }}" alt="photo principale" class="img-fluid">
             <div class="card-body">
                 <h4 class="card-title text-center"> {{ product.productName }} </h4>
-                <a href=" {{ path('product_index')}} " class="btn intro-btn mb-5 text-center">Détails</a>
+                <a href=" {{ path('product_view', {'id':product.id})}} "
+                    class="btn intro-btn mb-5 text-center">Détails</a>
             </div>
         </div>
     </div>

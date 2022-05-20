@@ -466,6 +466,29 @@ color: var(--clr-primary-1);
   margin-left: 0rem;
 } */
 
+
+/* About us page start */
+
+.about-h1 {
+  font-size: 3em;
+  color: var(--clr-primary-10);
+}
+
+.about-p {
+  padding-bottom: 2.5em;
+  font-size: 20px;
+}
+
+.card-img-top {
+  height: 18rem;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+/* .footer-about-card-img-top img {
+  width: 50rem;
+} */
+/* About us page end */
 /*
 =============== 
 Footer
@@ -725,7 +748,6 @@ End of Footer
 
 
 } 
-
 
 
 /* mobileM 375 */
