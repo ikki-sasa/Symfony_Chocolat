@@ -520,7 +520,12 @@ End of Footer
 ===============
 */
 
+/* CATEGORIE INDEX  */
 
+.card-body a {
+  text-decoration: none;
+  list-style-type: none;
+}
 
 
 /* END OF BLOG TILES GRID  */

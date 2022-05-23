@@ -10,13 +10,23 @@
 </p>
 <div class="row">
     {% for product in products %}
-    <div class="col-4 p-3">
+    {# <div class="col-4 p-3">
         <div class="card border-0 card-product">
             <img src="{{ asset('img/category/' ~ product.img ) }}" alt="photo principale" class="img-fluid">
-            <div class="card-body">
-                <h4 class="card-title text-center"> {{ product.productName }} </h4>
-                <a href=" {{ path('product_view', {'id':product.id})}} "
-                    class="btn intro-btn mb-5 text-center">Détails</a>
+            <div class="card-body text-center">
+                <h4 class="card-title"> {{ product.productName }} </h4>
+                <a href=" {{ path('product_view', {'id':product.id})}} " class="btn intro-btn mb-5 ">Détails</a>
+            </div>
+        </div>
+    </div> #}
+    <div class="col-md-3 p-3 col-6 mx-auto">
+        <div class="card border-0 card-product">
+            <img src="{{ asset('img/category/' ~ product.img ) }}" alt="photo principale" class="img-fluid">
+            <div class="card-body  text-center">
+                <h4 class="card-title">{{ product.productName }}</h4>
+                <p class="mt-4">
+                    <a href=" {{ path('product_view', {'id':product.id})}} " class="btn intro-btn mb-5 ">Détails</a>
+                </p>
             </div>
         </div>
     </div>
