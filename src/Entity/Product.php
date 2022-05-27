@@ -35,6 +35,9 @@ class Product
     #[ORM\Column(type: 'datetime_immutable')]
     private $PublishedAt;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $statutes;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +123,18 @@ class Product
     public function setPublishedAt(\DateTimeImmutable $PublishedAt): self
     {
         $this->PublishedAt = $PublishedAt;
+
+        return $this;
+    }
+
+    public function getStatutes(): ?string
+    {
+        return $this->statutes;
+    }
+
+    public function setStatutes(string $statutes): self
+    {
+        $this->statutes = $statutes;
 
         return $this;
     }

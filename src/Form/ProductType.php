@@ -37,6 +37,16 @@ class ProductType extends AbstractType
                 ]
 
             ])
+            ->add('statutes', TextType::class, [
+                'required' => true,
+                'label' => 'État/Statut',
+                'attr' => [
+                    'maxLength' => 50,
+                    'placeholder' => 'État du produit en cours'
+                ]
+
+            ])
+
             ->add('price', IntegerType::class, [
                 'required' => true,
                 'label' => 'Prix',

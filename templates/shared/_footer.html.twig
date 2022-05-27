@@ -7,10 +7,10 @@
                     <img src="{{( '/img/Logo/logo_white_no_bg.png' )}}" alt="Les Amoureux du chocolat logo" />
                 </div>
                 <div class="flex-row social">
-                    {# <div class="social-fb"></div> #}
-                    <a href=""><i class="fab fa-facebook" class="align-baseline p-5"></i></a>
-                    {# <div class="social-instagram"></div> #}
-                    <a href=""><i class="fab fa-instagram" class="align-baseline p-5"></i></a>
+                    <a href="https://www.facebook.com/lesamoureuxduchocolat"><i class="fab fa-facebook"
+                            class="align-baseline p-5"></i></a>
+                    <a href="https://www.instagram.com/accounts/login/?next=/lesamoureuxduchocolat/"><i
+                            class="fab fa-instagram" class="align-baseline p-5"></i></a>
                 </div>
             </div>
 
@@ -27,7 +27,7 @@
                         <a href="#" class="text-white">Politique d'utilisation des cookies</a>
                     </li>
                     <li>
-                        <a href="#" class="text-white">Nous contacter</a>
+                        <a href=" {{ path('contact') }} " class="text-white">Nous contacter</a>
                     </li>
                     <li>
                         <a href=" {{ path('admin') }} " class="text-white">Admin</a>
