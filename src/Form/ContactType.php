@@ -3,11 +3,12 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use VictorPrdh\RecaptchaBundle\Form\ReCaptchaType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ContactType extends AbstractType
 {
@@ -47,7 +48,8 @@ class ContactType extends AbstractType
                 'attr' => [
                     'maxLength' => 100
                 ]
-            ]);
+            ])
+            ->add('captcha', ReCaptchaType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

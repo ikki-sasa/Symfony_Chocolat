@@ -22,11 +22,15 @@
                     <div class="col-12 col-md">
                         <div class="form-control ">
                             {{ form_row(contactForm.firstName) }}
+                            {# {{ form_errors(contactForm.firstName) }} #}
+
                         </div>
                     </div>
                     <div class="col-12 col-md mt-4 mt-md-0">
                         <div class="form-control mt-1">
                             {{ form_row(contactForm.lastName) }}
+                            {# {{ form_errors(contactForm.lastName) }} #}
+
                         </div>
                     </div>
                 </div>
@@ -34,6 +38,7 @@
                     <div class="col">
                         <div class="form-control mt-1">
                             {{ form_row(contactForm.email) }}
+                            {# {{ form_errors(contactForm.email) }} #}
                         </div>
                     </div>
                 </div>
@@ -41,6 +46,7 @@
                     <div class="col">
                         <div class="form-control mt-1">
                             {{ form_row(contactForm.phone) }}
+                            {# {{ form_errors(contactForm.phone) }} #}
                         </div>
                     </div>
                 </div>
@@ -48,9 +54,17 @@
                     <div class="col">
                         <div class="form-control mt-1">
                             {{ form_row(contactForm.message) }}
+                            {# {{ form_errors(contactForm.message) }} #}
                         </div>
                     </div>
                 </div>
+                <div class="col">
+                    <div class="mt-1">
+                        {{ form_row(contactForm.captcha) }}
+                        {{ form_errors(contactForm.captcha) }}
+                    </div>
+                </div>
+
                 <div class="row mt-4 text-center">
                     <div class="col">
                         <input type="submit" class="btn btn-primary btn-md" value="Envoyer">

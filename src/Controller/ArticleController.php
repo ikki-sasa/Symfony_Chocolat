@@ -27,7 +27,7 @@ class ArticleController extends AbstractController
     #[Route('/articles', name: 'article_index')]
     public function articles(ArticleRepository $articleRepository): Response
     {
-        $articles = $articleRepository->findBy(['category' => 2], ['name' => 'ASC']);
+        $articles = $articleRepository->findAll();
         return $this->render('article/index.html.twig', [
             'articles' => $articles
         ]);
@@ -68,7 +68,7 @@ class ArticleController extends AbstractController
             $extensionImg = $artImg->guessExtension();
             $nameImg = time() . '.' . $extensionImg;
 
-            $artImg->move($this->getParameter('dossier_photos_category'), $nameImg);
+            $artImg->move($this->getParameter('dossier_photos_blog'), $nameImg);
             $article->setFeaturedImg($nameImg);
 
             $article->setCreatedAt(new \DateTime);
@@ -99,14 +99,14 @@ class ArticleController extends AbstractController
             $artImg = $form['featured_img']->getData();
             $nameOldImg = $article->getFeaturedImg();
             if ($artImg !== null) {
-                $pathOldImg = $this->getParameter('dossier_photos_category') . '/' .
+                $pathOldImg = $this->getParameter('dossier_photos_blog') . '/' .
                     $nameOldImg;
                 if (file_exists($pathOldImg)) {
                     unlink($pathOldImg);
                 }
                 $extensionImg = $artImg->guessExtension();
                 $nameImg = time() . '.' . $extensionImg;
-                $artImg->move($this->getParameter('dossier_photos_category'), $nameImg);
+                $artImg->move($this->getParameter('dossier_photos_blog'), $nameImg);
                 $article->setFeaturedImg($nameImg);
             } else {
                 $article->setFeaturedImg($nameOldImg);
@@ -132,7 +132,7 @@ class ArticleController extends AbstractController
         $article = $articleRepository->find($id);
         $nameImg = $article->getFeaturedImg();
         if ($nameImg !== null) {
-            $pathImg = $this->getParameter('dossier_photos_category') . '/' . $nameImg;
+            $pathImg = $this->getParameter('dossier_photos_blog') . '/' . $nameImg;
             if (file_exists($pathImg)) {
                 unlink($pathImg);
             }
@@ -146,6 +146,6 @@ class ArticleController extends AbstractController
     }
 
     // 1. articles (crud)
-    // 2. user (register, login, logout, email, crud)
+    // 2. user (register ok , login ok, logout, email ok, crud presque)
     // 3. comment (crud)
 }

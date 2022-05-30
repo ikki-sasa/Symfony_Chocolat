@@ -260,72 +260,14 @@ a.btn {
   Cards
   =============
 */
-/* .card-category {
-  width: 15em;
-} */
-/* .card img {
-  width: 100%;
-}
-.cards {
-  padding: 1rem 1rem;
-  background: var(--clr-primary-10);
-  margin-bottom: -2rem;
-}
-.cards-center {
-  width: 80vw;
-  max-width: 1170px;
-  margin: 2rem auto;
-}
-.card {
-  border: 1px solid var(--darkGrey);
-  margin-bottom: 3rem;
-}
-.card-info {
-  padding: 1rem;
-  text-align: center;
-  color: var(--clr-primary-2);
-  background: var(--clr-primary-10);
-  width: 27vw;
-}
 
-
-.cards-center h4:hover {
-color: var(--clr-primary-1);
-}
-
-
-.card-info h4 {
-  font-size: 15px;
-}
-.card-info p {
-  margin-bottom: 0.2rem;
-  color: var(--clr-primary-4);
-
-} */
 
 .intro-btn {
   text-align: center;
 }
 
 
-
-
-
-/* .card {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto;
-  cursor: pointer;
-}
-.cards-center {
-  display: inline-grid;
-  grid-column-gap: 1rem;
-  width: 85vw;
-  margin-bottom: -2rem;
-  border-radius: var(--raduis);
-} */
-
-  /* products-inventory  --> */
+  /* products-inventory */
 
 .products-inventory {
     display: flex;
@@ -490,6 +432,47 @@ color: var(--clr-primary-1);
   width: 50rem;
 } */
 /* About us page end */
+
+
+
+/* CHOCOBLOG */
+/*Profile Card 5*/
+.profile-card-blog {
+    margin-top:20px;
+}
+.profile-card-blog .btn {
+    border-radius:2px;
+    text-transform:uppercase;
+    font-size:12px;
+    padding:7px 20px;
+}
+.profile-card-blog .card-img-block {
+    width: 91%;
+    margin: 0 auto;
+    position: relative;
+    top: -20px;
+    
+}
+.profile-card-blog .card-img-block img {
+    border-radius:5px;
+    box-shadow:0 0 10px rgba(0,0,0,0.63);
+}
+.profile-card-blog h5 {
+    color: var(--clr-primary-1);
+    font-weight:600;
+}
+.profile-card-blog p {
+    font-size:14px;
+    font-weight:300;
+}
+.profile-card-blog .btn-primary {
+    background-color:#4E5E30;
+    border-color:#4E5E30;
+}
+
+
+
+
 /*
 =============== 
 Footer

@@ -25,7 +25,7 @@
             <td class="alig middle"> {{ article.createdAt|date('d/m/y') }} </td>
             <td class="alig middle"> {{article.updatedAt|date('d/m/y')}} </td>
             <td class="alig middle"> {{article.content|u.truncate(90,'...')}} </td>
-            <td class="alig middle"> <img src=" {{ asset('img/category/' ~ article.featuredImg)}} "
+            <td class="alig middle"> <img src=" {{ asset('img/Blog/' ~ article.featuredImg)}} "
                     alt=" {{ article.title }} ">
             </td>
             <td class="alig middle"> {{article.event}} </td>

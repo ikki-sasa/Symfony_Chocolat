@@ -9,7 +9,8 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>Content</th>
+            <th>Commentaire</th>
+            <th>Article</th>
             <th>actions</th>
         </tr>
     </thead>
@@ -18,18 +19,24 @@
         <tr>
             <td>{{ comment.id }}</td>
             <td>{{ comment.content }}</td>
+            <td>{{ comment.article.title }}</td>
             <td>
-                <a href="{{ path('comment_show', {'id': comment.id}) }}">show</a>
-                <a href="{{ path('comment_edit', {'id': comment.id}) }}">edit</a>
+                <a href="{{ path('comment_show', {'id': comment.id}) }}" class="text-warning"><i
+                        class="fas fa-eye"></i>show</a>
+                <a href="{{ path('comment_edit', {'id': comment.id}) }}" class="text-danger"><i
+                        class="fas fa-pen-square"></i>edit</a>
             </td>
         </tr>
         {% else %}
         <tr>
-            <td colspan="3">no records found</td>
+            <td colspan="3">aucun commentaire trouvé</td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 
-<a href="{{ path('comment_new') }}">Create new</a>
+<a href="">Create new</a>
+<div class="d-flex justify-content-end my-5">
+    <a href="{{ path('comment_new') }}" class="btn btn-success">Ajouter un commentaire</a>
+</div>
 {% endblock %}

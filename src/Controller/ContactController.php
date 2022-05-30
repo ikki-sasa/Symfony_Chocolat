@@ -33,6 +33,7 @@ class ContactController extends AbstractController
                     'emailAddress' => $contact['email'],
                     'phone' => $contact['phone'],
                     'message' => $contact['message'],
+                    // ''
                 ]);
             $mailer->send($email);
             $this->addFlash('succes', 'Votre message a été envoyé');

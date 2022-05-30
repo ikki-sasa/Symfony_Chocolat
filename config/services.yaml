@@ -5,6 +5,7 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     dossier_photos_category: '%kernel.project_dir%/public/img/category'
+    dossier_photos_blog: '%kernel.project_dir%/public/img/Blog'
 
 services:
     # default configuration for services in *this* file

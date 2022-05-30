@@ -1,3 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ article.title }} ♥ Les Amoureux du Chocolat ♥{% endblock %}
+{% block title %}{{ article.title }} détails Chocoblog ♥ Les Amoureux du Chocolat ♥ {% endblock %}
+
+{% block body %}
+<div class="row border border-dark mb-6">
+    <div class="col-md-6 ">
+        <div class=" product">
+            <div class="item">
+                <img src="{{ asset('img/Blog/' ~ article.featuredImg ) }}" alt="photo principale {{ article.title }}"
+                    class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="product-dtl">
+            <div class="product-info mt-5 text-left py-3 px-lg-5">
+                <ol class="breadcrumb">
+                    <ol class="breadcrumb py-3">
+                        <li class="breadcrumb-item"><a href=" {{ path('home')}} ">Accueil</a></li>
+                        <li class="breadcrumb-item"><a href=" {{ path('article_index')}} ">ChocoBlog article</a>
+                        </li>
+                        <li class="breadcrumb-item active">{{ article.title }}</li>
+                    </ol>
+                </ol>
+                <h4> {{ article.articleName }} </h4>
+                <div class="text-left">
+                    <p>{{ article.description }}
+                    </p>
+                    <p>État : {{ article.statutes}}
+                    </p>
+                    <h6>100g</h6>
+                    <p>Prix : {{ article.price }} €</p>
+                    <h6>Ingrédients:</h6>
+                    <p> {{ article.description }} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

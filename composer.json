@@ -49,7 +49,8 @@
         "twig/extra-bundle": "^3.4",
         "twig/inky-extra": "^3.4",
         "twig/string-extra": "^3.3",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "victor-prdh/recaptcha-bundle": "^1.6"
     },
     "config": {
         "allow-plugins": {
