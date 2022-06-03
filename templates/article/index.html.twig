@@ -5,11 +5,12 @@
 {% block body %}
 
 <main class="container-fluid">
-    <h1 class="text-center mt-5 pt-5 mb-5">ChocoBlog - Notre actualité les biens faits du chocolat et bien plus encore
+    <h1 class="text-center mt-5 pt-5 mb-5 pb-5">ChocoBlog - Notre actualité les biens faits du chocolat et bien plus
+        encore
     </h1>
     <div class="row">
         {% for article in articles %}
-        <div class="col-4 mt-5 mb-5 pt-5 pb-5">
+        <div class="col-4 mt-2 pt-3 pb-5">
             <div class="card profile-card-blog text-center border-top-0">
                 <div class="card-img-block">
                     <img src=" {{asset('img/Blog/' ~ article.featuredImg )}} " alt="photo principale {{article.title}}"
@@ -18,7 +19,8 @@
                 <div class="card-body pt-0">
                     <h4 class="card-title text-center mt-5"> {{ article.title}} </h4>
                     <p class="card-text"> {{ article.content|u.truncate(30, '...', false)}} </p>
-                    <a href=" {{ path('article_category', {'slug': article.slug}) }} " target="_blank">Lire la suite</a>
+                    <a href=" {{ path('article', {'id': article.id} )}} " target="_blank">Lire la
+                        suite</a>
                 </div>
             </div>
         </div>

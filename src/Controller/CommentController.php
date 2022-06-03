@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Comment;
 use App\Form\CommentType;
+use App\Repository\ArticleRepository;
 use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,23 +23,39 @@ class CommentController extends AbstractController
         ]);
     }
 
-    #[Route('/comment/new', name: 'comment_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    // #[Route('/comment/{id}', name: 'comment')]
+    // public function comment(ArticleRepository $articleRepository, int $id): Response
+    // {
+    //     $article = $articleRepository->find($id);
+
+    //     return $this->render('comment/user_comment.html.twig', [
+    //         'article' => $article,
+    //     ]);
+    // }
+
+    #[Route('/comment/new/{id}', name: 'comment_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, EntityManagerInterface $entityManager, ManagerRegistry $managerRegistry, int $id, ArticleRepository $articleRepository): Response
     {
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
+        $article = $articleRepository->find($id);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($comment);
-            $entityManager->flush();
+            $comment->setArticlesId($article);
+            $comment->setCommentStatus(false);
+            $comment->setUserId($this->getUser());
+            $comment->setCreatedAt(new \DateTime);
+            $manager = $managerRegistry->getManager();
+            $manager->persist($comment);
+            $manager->flush();
 
-            return $this->redirectToRoute('comment_admin_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('article_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('comment/new.html.twig', [
-            'comment' => $comment,
-            'form' => $form,
+        return $this->render('comment/user_comment.html.twig', [
+            'commentForm' => $form->createView(),
+            'article' => $article
         ]);
     }
 
@@ -67,14 +85,40 @@ class CommentController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/comment/{id}', name: 'comment_delete', methods: ['POST'])]
-    public function delete(Request $request, Comment $comment, EntityManagerInterface $entityManager): Response
+    #[Route('/admin/comment/delete/{id}', name: 'comment_delete')]
+    public function delete(CommentRepository $commentRepository, int $id, ManagerRegistry $managerRegistry): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $comment->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($comment);
-            $entityManager->flush();
-        }
+        $manager = $managerRegistry->getManager();
+        $comment = $commentRepository->find($id);
+        $manager->remove($comment);
+        $manager->flush();
 
-        return $this->redirectToRoute('comment_index', [], Response::HTTP_SEE_OTHER);
+
+        return $this->redirectToRoute('comment_admin_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+
+    #[Route('/admin/comment/publish/{id}', name: 'comment_publish')]
+    public function publish(int $id, CommentRepository $commentRepository, ManagerRegistry $managerRegistry): Response
+    {
+        $manager = $managerRegistry->getManager();
+        $comment = $commentRepository->find($id);
+        $publish = $comment->getCommentStatus();
+
+        if ($publish == 0) {
+            $comment->setCommentStatus('1');
+            $manager->persist($comment);
+            $manager->flush();
+
+            $this->addFlash('success', 'Le commentaire est publié');
+            return $this->redirectToRoute('comment_admin_index', [], Response::HTTP_SEE_OTHER);
+        } elseif ($publish == 1) {
+            $comment->setCommentStatus('0');
+            $manager->persist($comment);
+            $manager->flush();
+
+            $this->addFlash('danger', 'Le commentaire outrageu a été retirer');
+            return $this->redirectToRoute('comment_admin_index', [], Response::HTTP_SEE_OTHER);
+        }
     }
 }

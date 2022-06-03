@@ -7,71 +7,73 @@
     style="min-height: 100vh; background-size: cover; background-image: url(./Img/Gallery-l-m/apropos-de-nous-acceuil.png);">
     <div class="container ">
         <div class="row align-items-center ">
-            <h1 class="  text-white fw-bold mb-3 mt-5 display-3 text-center">Nous Contacter</h1>
+            <h1 class="text-white fw-bold mb-3 mt-5 display-3 text-center">Nous Contacter</h1>
         </div>
     </div>
 </section>
 <section class="pb-5 pt-0">
-
-    <div class="container">
-        <div class="row pt-5">
-            <div class="col-12">
-                <h1 class="text-center pb-5">Recevez des informations personnalisées</h1>
-                {{ form_start(contactForm)}}
-                <div class="row">
-                    <div class="col-12 col-md">
-                        <div class="form-control ">
-                            {{ form_row(contactForm.firstName) }}
-                            {# {{ form_errors(contactForm.firstName) }} #}
-
-                        </div>
-                    </div>
-                    <div class="col-12 col-md mt-4 mt-md-0">
-                        <div class="form-control mt-1">
-                            {{ form_row(contactForm.lastName) }}
-                            {# {{ form_errors(contactForm.lastName) }} #}
-
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col">
-                        <div class="form-control mt-1">
-                            {{ form_row(contactForm.email) }}
-                            {# {{ form_errors(contactForm.email) }} #}
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col">
-                        <div class="form-control mt-1">
-                            {{ form_row(contactForm.phone) }}
-                            {# {{ form_errors(contactForm.phone) }} #}
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col">
-                        <div class="form-control mt-1">
-                            {{ form_row(contactForm.message) }}
-                            {# {{ form_errors(contactForm.message) }} #}
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="mt-1">
-                        {{ form_row(contactForm.captcha) }}
-                        {{ form_errors(contactForm.captcha) }}
-                    </div>
-                </div>
-
-                <div class="row mt-4 text-center">
-                    <div class="col">
-                        <input type="submit" class="btn btn-primary btn-md" value="Envoyer">
-                    </div>
-                </div>
+    <div class="container-fluid">
+        <div class="row mt-5">
+            <div class="col-12 col-md-6 col-lg-6">
+                <h2 class="mb-5">Recevez des informations personnalisées</h2>
+                <p class="text-center mt-5">Si vous avez un doute ou une interrogation... nous restons à votre
+                    disposition pour
+                    toute
+                    information complémentaire !</p>
+                <p class="text-center mt-5">Contactez-nous via le formulaire.</p>
+                <p class="text-center mt-5">
+                    <strong>Email:</strong>
+                    <a href="mailto:contact@lesamoureuxduchocolat.com" target="_blank"
+                        title="Envoyez un mail à Les amoureux du chocolat">contact@lesamoureuxduchocolat.com</a>
+                </p>
+                <p class="text-center mt-5">
+                    <strong>Téléphone:</strong>
+                    <a href="#">01 85 41 05 43</a>
+                </p>
             </div>
-            {{ form_end(contactForm)}}
+            <div class="col-12 col-md-6 ms-auto pt-5 pt-md-0">
+                {{ form_start(contactForm)}}
+
+                <form>
+                    <div class="row">
+                        <div class="col">
+                            {{ form_row(contactForm.firstName)}}
+
+
+                        </div>
+                        <div class="col">
+                            {{ form_row(contactForm.lastName)}}
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            {{ form_row(contactForm.email)}}
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            {{ form_row(contactForm.phone)}}
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            {{ form_row(contactForm.message)}}
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            {{ form_row(contactForm.captcha) }}
+                            {{ form_errors(contactForm.captcha) }}
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <input type="submit" class="btn btn-primary" value="Envoyer">
+                        </div>
+                    </div>
+                </form>
+                {{ form_end(contactForm)}}
+            </div>
         </div>
     </div>
 </section>

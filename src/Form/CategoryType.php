@@ -36,7 +36,7 @@ class CategoryType extends AbstractType
             ])
 
             ->add('img', FileType::class, [
-                'required' => true,
+                'required' => false,
                 'label' => 'Image produit',
                 'mapped' => false,
                 'help' => 'jpeg, png, gif, svg, eps, psd, tiff, jp2 ou webp - 8 Mo maximum ',

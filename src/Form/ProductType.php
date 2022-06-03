@@ -57,7 +57,7 @@ class ProductType extends AbstractType
             ])
 
             ->add('img', FileType::class, [
-                'required' => true,
+                'required' => false,
                 'label' => 'Première photo du produit',
                 'mapped' => false,
                 'constraints' => [

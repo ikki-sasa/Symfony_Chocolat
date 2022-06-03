@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use VictorPrdh\RecaptchaBundle\Form\ReCaptchaType;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -20,32 +21,36 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('firstName', TextType::class, [
+                'label' => 'Prénom *',
                 'required' => true,
                 'attr' => [
                     'maxLength' => 120
                 ]
             ])
             ->add('lastName', TextType::class, [
+                'label' => 'Nom *',
                 'required' => true,
                 'attr' => [
                     'maxLength' => 120
                 ]
             ])
             ->add('email', TextType::class, [
+                'label' => 'Courriel *',
                 'required' => true,
                 'attr' => [
                     'maxLength' => 180
                 ]
             ])
             // ->add('email')
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'Vous devez accepter nos conditions générales d\'utilisation.',
-                    ]),
-                ],
-            ])
+            // ->add('agreeTerms', CheckboxType::class, [
+            //     'label' => 'Nos conditions générales',
+            //     'mapped' => false,
+            //     'constraints' => [
+            //         new IsTrue([
+            //             'message' => 'Vous devez accepter nos conditions générales d\'utilisation.',
+            //         ]),
+            //     ],
+            // ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
@@ -53,7 +58,7 @@ class RegistrationFormType extends AbstractType
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Veuillez entrer un mot de passe s\'il vous plaît',
                     ]),
                     new PasswordStrength([
                         'minLength' => 8,
@@ -63,7 +68,8 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Le mot de passe doit contenir au moins une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial'
                     ]),
                 ],
-            ]);
+            ])
+            ->add('captcha', ReCaptchaType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -59,7 +59,6 @@ class RegistrationController extends AbstractController
             } else {
                 return $this->redirectToRoute('user');
             }
-            return $this->redirectToRoute('home');
         }
 
         return $this->render('registration/register.html.twig', [

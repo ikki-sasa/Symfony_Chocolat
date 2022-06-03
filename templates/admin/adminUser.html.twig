@@ -1,0 +1,40 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Liste des utilisateurs ♥ Les Amoureux du Chocolat ♥{% endblock %}
+
+{% block body %}
+<h2 class="pb-5">Liste des utilisateurs</h2>
+<table class="table table-dark text-center table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Modifier|Supprimer</th>
+        </tr>
+    </thead>
+    <tbody class="table-secondary">
+        {% for user in users %}
+        <tr>
+            <td class="align-middle"> {{ user.id }} </td>
+            <td class="align-middle"> {{ user.firstName }} </td>
+            <td class="align-middle"> {{ user.lastName }} </td>
+            <td class="align-middle"> {{ user.email }} </td>
+            {# <td class="align-middle"> {{ user.roles }} </td> #}
+            {# <td class="align-middle"> {{ user.price|number_format(0, ',', '') }} €</td>
+            <td class="align-middle"><img src="{{ asset('img/category/' ~ users.img) }}"
+                    alt="photo produit {{ users.usersName }} "></td> #}
+            {# <td class="align-middle"> {{ user.articles }} </td> #}
+            {# <td class="align-middle">
+                <a href=" {{ path('user_update', { 'id': user.id})}}" class="text-warning"><i
+                        class="fas fa-pen-square"></i></a>
+                <a href=" {{ path('user_delete', { 'id': user.id})}}" class="text-danger"><i
+                        class="fas fa-trash-alt"></i></a>
+            </td> #}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

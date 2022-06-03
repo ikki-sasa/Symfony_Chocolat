@@ -470,6 +470,12 @@ a.btn {
     border-color:#4E5E30;
 }
 
+.p-article {
+  word-spacing:var(--spacing) ;
+  letter-spacing: var(--spacing);
+  line-height: 1.25;
+}
+
 
 
 

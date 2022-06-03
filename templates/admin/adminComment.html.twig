@@ -1,42 +1,61 @@
 {% extends 'adminBase.html.twig' %}
-
+{# ici tu récupere la liste des commentaires a publier ou a supprimer #}
 {% block title %}Commentaire blog {% endblock %}
 
 {% block body %}
-<h1>Commentaire blog Admin</h1>
+<h2 class="pb-5">Commentaire blog Admin</h2>
 
-<table class="table">
+
+<table class="table table-dark text-center table-hover">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Commentaire</th>
-            <th>Article</th>
-            <th>actions</th>
+            <th scope="col">Titre article</th>
+            <th scope="col">Auteur || Autrice</th>
+            <th scope="col">Email</th>
+            <th scope="col">Date de création</th>
+            <th scope="col">Description</th>
+            <th scope="col">Événements</th>
+            <th scope="col">Status du commentaire</th>
+            <th scope="col">Publier</th>
+            <th scope="col">Supprimer</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="table-secondary">
         {% for comment in comments %}
         <tr>
-            <td>{{ comment.id }}</td>
-            <td>{{ comment.content }}</td>
-            <td>{{ comment.article.title }}</td>
-            <td>
-                <a href="{{ path('comment_show', {'id': comment.id}) }}" class="text-warning"><i
-                        class="fas fa-eye"></i>show</a>
-                <a href="{{ path('comment_edit', {'id': comment.id}) }}" class="text-danger"><i
-                        class="fas fa-pen-square"></i>edit</a>
+            <td class="alig middle"> {{ comment.articlesId.title }} </td>
+            <td class="alig middle"> {{ comment.userId.firstName }} </td>
+            <td class="alig middle"> {{ comment.userId.email }} </td>
+            <td class="alig middle"> {{ comment.createdAt|date('d/m/y') }} </td>
+            <td class="alig middle"> {{comment.content|u.truncate(90,'...')}} </td>
+            <td class="alig middle"> {{comment.articlesId.event}} </td>
+            {% if comment.commentStatus == false %}
+            <td class="alig middle text-danger"> Non publié </td>
+            {% else %}
+            <td class="alig middle text-success"> Publié </td>
+            {% endif %}
+            <td class="alig middle">
+                <a href=" {{ path('comment_publish', {'id': comment.id}) }}" class="text-primary">
+                    {# <i class="fas fa-pen-square"></i> #}
+                    <i class="fas fa-retweet"></i>
+                </a>
+
             </td>
-        </tr>
-        {% else %}
+            <td class="alig middle">
+                <a href=" {{ path('comment_delete', {'id': comment.id}) }}" class="text-danger">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </td>
+            {% else %}
         <tr>
-            <td colspan="3">aucun commentaire trouvé</td>
+            <td colspan="12">aucun commentaire trouvé</td>
+        </tr>
         </tr>
         {% endfor %}
     </tbody>
 </table>
-
-<a href="">Create new</a>
 <div class="d-flex justify-content-end my-5">
-    <a href="{{ path('comment_new') }}" class="btn btn-success">Ajouter un commentaire</a>
+    {# <a href="{{ path('comment_new') }}" class="btn btn-success">Publier commentaire</a> #}
+    {# <a href="{{ path('comment_new') }}" class="btn btn-danger">Supprimer commentaire</a> #}
 </div>
 {% endblock %}

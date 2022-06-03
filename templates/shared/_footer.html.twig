@@ -1,6 +1,6 @@
 <!-- Footer -->
 <footer class="pt-1">
-    <div class="container p-4">
+    <div class="container-fluid p-4">
         <div class="row">
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                 <div class="logo-footer">
@@ -14,11 +14,11 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
                 <h5 class="text-uppercase text-white text-center">INFORMATIONS</h5>
-                <ul class="mb-0 text-center">
+                <ul class="mb-0 text-center list-group">
                     <li>
-                        <a href="#" class="text-white text-center">Mentions légales</a>
+                        <a href=" {{ path('mentions')}} " class="text-white ">Mentions légales</a>
                     </li>
                     <li>
                         <a href="#" class="text-white">Conditions générales de vente</a>
@@ -30,14 +30,21 @@
                         <a href=" {{ path('contact') }} " class="text-white">Nous contacter</a>
                     </li>
                     <li>
+                        {% if is_granted('ROLE_SUPER_ADMIN') %}
                         <a href=" {{ path('admin') }} " class="text-white">Admin</a>
+                        {% endif %}
+                    </li>
+                    <li>
+                        {% if is_granted('ROLE_USER') %}
+                        <a href=" {{ path('user_index') }} " class="text-white">Votre compte</a>
+                        {% endif %}
                     </li>
                 </ul>
             </div>
 
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <h5 class="text-uppercase text-white mb-0 text-center">HORAIRES D'OUVERTURES</h5>
-                <ul class="text-white text-center">
+                <ul class="text-white text-center list-group">
                     <li>Mardi - Samedi</li>
                     <li>09:30-19:30</li>
                     <li>Dimanche</li>
@@ -57,3 +64,111 @@
     <!-- Copyright -->
 </footer>
 <!-- Footer -->
+{# <footer class="section footer-classic  ">
+    <div class="container-fluid p-0">
+        <div class="row row-30">
+            <div class="col-md-4 col-xl-5">
+                <div class="pr-xl-4"><a class="brand" href="{{ path('home') }}"><img class="logo-footer"
+                            src="{{( '/img/Logo/logo_white_no_bg.png' )}}" alt="Les Amoureux du chocolat logo"></a>
+                    <p>We are an award-winning creative agency, dedicated to the best result in web design, promotion,
+                        business consulting, and marketing.</p>
+                    <!-- Rights-->
+                    <p class="rights"><span>©  </span><span
+                            class="copyright-year">2018</span><span> </span><span>Waves</span><span>. </span><span>All
+                            Rights Reserved.</span></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-uppercase text-white">INFORMATIONS</h5>
+                <ul class=" list-group">
+                    <li>
+                        <a href=" {{ path('mentions')}} " class="text-white ">Mentions légales</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-white">Conditions générales de vente</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-white">Politique d'utilisation des cookies</a>
+                    </li>
+                    <li>
+                        <a href=" {{ path('contact') }} " class="text-white">Nous contacter</a>
+                    </li>
+                    <li>
+
+                        <dl class="contact-list">
+                            <dt>email:</dt>
+                            <dd><a href="mailto:#">dkstudioin@gmail.com</a></dd>
+                        </dl>
+                        <dl class="contact-list">
+                            <dt>phones:</dt>
+                            <dd><a href="tel:#">https://karosearch.com</a> <span>or</span> <a
+                                    href="tel:#">https://karosearch.com</a>
+                            </dd>
+                        </dl>
+                </ul>
+            </div>
+            <div class="col-md-4 col-xl-3">
+                <h5>Links</h5>
+                <ul class="nav-list">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contacts</a></li>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row no-gutters social-container">
+        <div class="col"><a class="social-inner" href="#"><span
+                    class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
+        <div class="col"><a class="social-inner" href="#"><span
+                    class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
+        <div class="col"><a class="social-inner" href="#"><span
+                    class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
+        <div class="col"><a class="social-inner" href="#"><span
+                    class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
+    </div>
+</footer> #}
+{# <div class="container-fluid">
+    <div class="row footer-classic">
+        <div class="col-sm-4 text-center">
+            <div class="logo-footer">
+                <img src="{{( '/img/Logo/logo_white_no_bg.png' )}}" alt="Les Amoureux du chocolat logo" />
+            </div>
+        </div>
+        <div class="col-sm-4 text-center border-left">
+            <h4 class="ft-text-title">Our Team</h4>
+            <div class="address-member">
+                <p class="member">
+                    <b>Director</b> :
+                </p>
+                <p class="member">
+                    <b>Editor</b> :
+                </p>
+                <p class="member">
+                    <b>Reporter</b> :
+                </p>
+                <p class="member">
+                    <b>Reporter</b> :
+                </p>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12 text-center border-left">
+            <h4 class="ft-text-title">About</h4>
+            <div class="pspt-dtls">
+                <a href="#" class="about">About</a>
+                <a href="#" class="team">Team</a>
+                <a href="#" class="advertise">Advertise</a>
+                <br><br><br><br><br><br><br>
+            </div>
+        </div>
+    </div>
+    <div class="row ft-copyright pt-2 pb-2" style="padding-left: 25px;">
+        <div class="col-sm-4 text-pp-crt">cpoyright 2018 All Rights Reserved</div>
+        <div class="col-sm-4 text-pp-crt-rg">Department of Information Reg No :</div>
+        <div class="col-sm-4 developer">
+            <a href="https://topline-tech.com" target="_blank" class="text-pp-crt">By : <b>T</b>op<b>L</b>ine</a>
+        </div>
+    </div>
+</div> #}

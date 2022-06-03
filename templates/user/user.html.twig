@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue {{ user.firstName }} ♥ Les Amoureux du Chocolat ♥{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row mt-4 pt-4">
+        <div class="col-12 col-md-6 col-lg-5 ms-auto">
+            <h2 class="pt-5 mt-5">Votre compte</h2>
+            <p class=" mt-5">
+                <a href="#">Historique des articles commenter</a>
+            </p>
+            <p class=" mt-5">
+                <a href="#">Déconnexion</a>
+            </p>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5 me-auto">
+            {# {% for comment in comments|reverse %} #}
+            <h2 class="pt-4 mt-5">Bienvenue {{ user.firstName }}</h2>
+            <h3 class="pt-5 mt-5">Historique des commentaires.</h3>
+            <p class="pt-3 mt-3 mb-5">Vous n'avez pas d'article commenter</p>
+            {# <p class="pt-3 mt-3 mb-5"> {{ user.articles }} </p> #}
+            <h3 class="pt-3 mt-3">Détails du compte</h3>
+            <p class="pt-3 mt-3">{{ user.lastName }}</p>
+            <p class="pt-3 mt-3">{{ user.firstName }}</p>
+            <p class="pt-3 mt-3 mb-5">{{ user.email }}</p>
+            {# {% endfor %} #}
+        </div>
+    </div>
+</div>
+</section>
+{% endblock %}

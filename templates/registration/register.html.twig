@@ -1,12 +1,62 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription ♥ Les Amoureux du Chocolat ♥{% endblock %}
+{% block title %}Créer un compte ♥ Les Amoureux du Chocolat ♥{% endblock %}
 
 {% block body %}
 
 
 <main class="container-fluid">
-    <div class="row">
+    <section class="pb-5 pt-5">
+        <div class="container">
+            <div class="row mt-5">
+                <h1 class="text-center mt-5">Créer un compte - Les Amoureux du Chocolat</h1>
+                <div class="col-12 col-md-4 mx-auto pt-5">
+                    {{ form_start(registrationForm) }}
+                    <form>
+                        <div class="row">
+                            <div class="col">
+                                {{ form_row(registrationForm.firstName)}}
+                            </div>
+                            <div class="col">
+                                {{ form_row(registrationForm.lastName)}}
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                {{ form_row(registrationForm.email) }}
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                {{ form_row(registrationForm.plainPassword, {
+                                label: 'Mot de passe *'
+                                }) }}
+                                {# <a href="#">{{ form_row(registrationForm.agreeTerms) }}</a> #}
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                {{ form_row(registrationForm.captcha) }}
+                                {{ form_errors(registrationForm.captcha) }}
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <input type="submit" class="btn btn-primary" value="Envoyer">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <a href="{{ path('home') }} ">Retour à l'acceuil</a>
+                            </div>
+                        </div>
+                    </form>
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
+        </div>
+    </section>
+    {# <div class="row">
         <div class="col-8 offset-2 mt-5">
             {% for label, messages in app.flashes %}
             {% for message in messages %}
@@ -16,8 +66,8 @@
             {% endfor %}
             {% endfor %}
         </div>
-    </div>
-    <h1 class="text-center mt-5">Inscription - Les Amoureux du Chocolat</h1>
+    </div> #}
+    {# <h1 class="text-center mt-5">Créer un compte - Les Amoureux du Chocolat</h1>
     <div class="row py-5">
         <div class="col-3 offset-4 mt-5">
             {{ form_start(registrationForm) }}
@@ -31,7 +81,7 @@
             </div>
             {{ form_end(registrationForm) }}
         </div>
-    </div>
+    </div> #}
 
 </main>
 

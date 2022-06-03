@@ -6,6 +6,7 @@ use App\Entity\Article;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
+use App\Repository\CommentRepository;
 use CodeInc\StripAccents\StripAccents;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,24 +34,26 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/article/{slug}', name: 'article_category')]
-    public function article($slug, ArticleRepository $articleRepository, CategoryRepository $categoryRepository): Response
+    #[Route('/article/{id}', name: 'article')]
+    public function article(ArticleRepository $articleRepository, int $id, CommentRepository $commentRepository): Response
     {
-        $article = $articleRepository->findOneBy(['slug' => $slug]);
-        $sousArticles = $articleRepository->findBy(['category' => $article->getId()]);
-
-        if (!empty($sousArticles)) {
-            return $this->render('article/article.html.twig', [
-                'article' => $article,
-                'sousArticles' => $sousArticles
-            ]);
-        } else {
-            $categories = $categoryRepository->findBy(['articles_id' => $article->getId()], ['comment' => 'ASC']);
-        }
-
-        return $this->render('article/index.html.twig', [
+        $article = $articleRepository->find($id);
+        $comments = $commentRepository->findBy(['articles_id' => $id]);
+        // $sousArticles = $articleRepository->findBy(['articles' => $article->getId()]);
+        return $this->render('article/article.html.twig', [
             'article' => $article,
-            'categories' => $categories
+            'comments' => $comments
+            // 'sousArticles' => $sousArticles
+
+            // if (!empty($sousArticles)) {
+            // ]);
+            // } else {
+            //     $categories = $categoryRepository->findBy(['articles_id' => $article->getId()], ['comment' => 'ASC']);
+            // }
+
+            // return $this->render('article/index.html.twig', [
+            //     'article' => $article,
+            //     'categories' => $categories
         ]);
     }
 
