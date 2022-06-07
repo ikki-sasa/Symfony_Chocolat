@@ -46,42 +46,41 @@
                     <ul class="pt-5 pl-3">
                         <li class="py-2">
                             <a href="{{ path('admin') }} " title="Accueil administrateur">
-                                <i class="fas fa-store-alt"></i>
+                                <i class="fas fa-tachometer-alt"></i>
                             </a>
                         </li>
-
                         <li class="py-2">
                             <a href="{{ path('category_admin_index') }} " title="Categorie">
                                 <i class="fas fa-layer-group"></i>
                             </a>
                         </li>
-
                         <li class="py-2">
                             <a href="{{ path('article_admin_index') }} " title="Article">
                                 <i class="fas fa-newspaper"></i>
                             </a>
                         </li>
-
                         <li class="py-2">
                             <a href="{{ path('comment_admin_index') }} " title="Commentaire">
                                 <i class="fas fa-comment-dots"></i>
                             </a>
                         </li>
-
                         <li class="py-2">
                             <a href="{{ path('admin_product_index') }}" title="Produit">
                                 <i class="bi bi-bag-heart-fill"></i>
                             </a>
                         </li>
-
                         <li class="py-2">
                             <a href="{{ path('user_admin_index') }} " title="Utilisateur">
                                 <i class="fas fa-user-friends"></i>
                             </a>
                         </li>
-
                         <li class="py-2">
-                            <a href="{{ path('home') }} " title="Déconnexion">
+                            <a href="{{ path('home') }} " title="Acceuil du site">
+                                <i class="fas fa-store-alt"></i>
+                            </a>
+                        </li>
+                        <li class="py-2">
+                            <a href="{{ path('app_logout') }} " title="Déconnexion">
                                 <i class="fas fa-sign-out-alt"></i>
                             </a>
                         </li>
@@ -98,8 +97,6 @@
             </div>
         </div>
     </main>
-
-
     <footer class="container-fluid text-center text-light pt-3 pb-1">
         <div class="logo-footer ">
             <img src="{{ asset('img/Logo/logo_white_no_bg.png') }}" alt="Les_Amoureux_du_chocolat_logo" />

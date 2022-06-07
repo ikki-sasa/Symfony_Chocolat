@@ -35,7 +35,14 @@ class ProductType extends AbstractType
                     'maxLength' => 70000,
                     'placeholder' => 'Exemple: Assortiment de nos pâtes de fruits: Framboise, mangue/passion...'
                 ]
-
+            ])
+            ->add('ingredients', TextareaType::class, [
+                'required' => true,
+                'label' => 'Ingrédients',
+                'attr' => [
+                    'maxLength' => 750,
+                    'placeholder' => 'Ingrédients du produit'
+                ]
             ])
             ->add('statutes', TextType::class, [
                 'required' => true,
@@ -44,9 +51,7 @@ class ProductType extends AbstractType
                     'maxLength' => 50,
                     'placeholder' => 'État du produit en cours'
                 ]
-
             ])
-
             ->add('price', IntegerType::class, [
                 'required' => true,
                 'label' => 'Prix',
@@ -55,7 +60,14 @@ class ProductType extends AbstractType
                     'max' => 5000
                 ]
             ])
-
+            ->add('weight', IntegerType::class, [
+                'required' => true,
+                'label' => 'Poids',
+                'attr' => [
+                    'min' => 0,
+                    'max' => 5000
+                ]
+            ])
             ->add('img', FileType::class, [
                 'required' => false,
                 'label' => 'Première photo du produit',
@@ -79,7 +91,7 @@ class ProductType extends AbstractType
                 ]
             ])
             ->add('img2', FileType::class, [
-                'required' => true,
+                'required' => false,
                 'label' => 'Second photo du produit',
                 'mapped' => false,
                 'constraints' => [

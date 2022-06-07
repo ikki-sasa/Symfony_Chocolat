@@ -38,6 +38,12 @@ class Product
     #[ORM\Column(type: 'string', length: 255)]
     private $statutes;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $ingredients;
+
+    #[ORM\Column(type: 'integer')]
+    private $weight;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -135,6 +141,30 @@ class Product
     public function setStatutes(string $statutes): self
     {
         $this->statutes = $statutes;
+
+        return $this;
+    }
+
+    public function getIngredients(): ?string
+    {
+        return $this->ingredients;
+    }
+
+    public function setIngredients(string $ingredients): self
+    {
+        $this->ingredients = $ingredients;
+
+        return $this;
+    }
+
+    public function getWeight(): ?int
+    {
+        return $this->weight;
+    }
+
+    public function setWeight(int $weight): self
+    {
+        $this->weight = $weight;
 
         return $this;
     }

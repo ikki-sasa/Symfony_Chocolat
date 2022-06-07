@@ -80,6 +80,7 @@ class ProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $manager = $managerRegistry->getManager();
             $firstImg = $form['img']->getData();
             $nameOldImg = $product->getImg();
             if ($firstImg !== null) {
@@ -88,9 +89,10 @@ class ProductController extends AbstractController
                     unlink($oldPathImg);
                 }
                 $extensionFirstImg = $firstImg->guessExtension();
-                $nameImg1 = time() . '-1' . $extensionFirstImg;
+                $nameImg1 = time() . '-1.' . $extensionFirstImg;
                 $firstImg->move($this->getParameter('dossier_photos_category'), $nameImg1);
                 $product->setImg($nameImg1);
+                $manager->persist($product);
             } else {
                 $product->setImg($nameOldImg);
             }
@@ -104,14 +106,13 @@ class ProductController extends AbstractController
                     }
                 }
                 $extensionSecondImg = $secondImg->guessExtension();
-                $nameImg2 = time() . '-1' . $extensionSecondImg;
+                $nameImg2 = time() . '-2.' . $extensionSecondImg;
                 $secondImg->move($this->getParameter('dossier_photos_category'), $nameImg2);
                 $product->setImg2($nameImg2);
+                $manager->persist($product);
             } else {
                 $product->setImg2($nameOldImg2);
             }
-            $manager = $managerRegistry->getManager();
-            $manager->persist($product);
             $manager->flush();
             $this->addFlash('success', 'Le produit a bien été modifié.');
             return $this->redirectToRoute('admin_product_index');

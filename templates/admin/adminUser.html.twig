@@ -17,12 +17,19 @@
     </thead>
     <tbody class="table-secondary">
         {% for user in users %}
+        {# {{dump(user)}} #}
+
         <tr>
             <td class="align-middle"> {{ user.id }} </td>
             <td class="align-middle"> {{ user.firstName }} </td>
             <td class="align-middle"> {{ user.lastName }} </td>
             <td class="align-middle"> {{ user.email }} </td>
-            {# <td class="align-middle"> {{ user.roles }} </td> #}
+            {% if "ROLE_SUPER_ADMIN" in user.roles %}
+            <td class="align-middle"> Admin </td>
+            {% else %}
+            <td class="align-middle"> user </td>
+
+            {% endif %}
             {# <td class="align-middle"> {{ user.price|number_format(0, ',', '') }} €</td>
             <td class="align-middle"><img src="{{ asset('img/category/' ~ users.img) }}"
                     alt="photo produit {{ users.usersName }} "></td> #}

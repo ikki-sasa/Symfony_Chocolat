@@ -12,7 +12,8 @@
                 <a href="#">Historique des articles commenter</a>
             </p>
             <p class=" mt-5">
-                <a href="#">Déconnexion</a>
+                <a href=" {{ path('app_logout') }} ">Déconnexion</a>
+
             </p>
         </div>
         <div class="col-12 col-md-6 col-lg-5 me-auto">
@@ -21,10 +22,10 @@
             <h3 class="pt-5 mt-5">Historique des commentaires.</h3>
             <p class="pt-3 mt-3 mb-5">Vous n'avez pas d'article commenter</p>
             {# <p class="pt-3 mt-3 mb-5"> {{ user.articles }} </p> #}
-            <h3 class="pt-3 mt-3">Détails du compte</h3>
+            <h3 class="pt-3 mt-3">Détails de votre compte</h3>
             <p class="pt-3 mt-3">{{ user.lastName }}</p>
             <p class="pt-3 mt-3">{{ user.firstName }}</p>
-            <p class="pt-3 mt-3 mb-5">{{ user.email }}</p>
+            <p class="pt-3 mt-3 mb-5">Votre e-mail : {{ user.email }}</p>
             {# {% endfor %} #}
         </div>
     </div>

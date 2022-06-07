@@ -18,12 +18,19 @@
     {{ form_row(productForm.description,{'label': 'Description'})}}
 </div>
 
+<div class="col-12">
+    {{ form_row(productForm.ingredients,{'label': 'Ingrédients'})}}
+</div>
+
 <div class="row">
     <div class="col-3">
         {{ form_row(productForm.statutes, {'label': 'Disponibilité État / Statut du produit'})}}
     </div>
     <div class="col-3">
         {{ form_row(productForm.price, {'label': 'Prix (€)'})}}
+    </div>
+    <div class="col-3">
+        {{ form_row(productForm.weight, {'label': 'Poids g'})}}
     </div>
 </div>
 
