@@ -32,10 +32,9 @@
                     {# <p> {{ article.description }} </p> #}
                 </div>
                 <a href=" {{ path('comment_new', {'id':article.id}) }} ">Commenter l'article</a>
-
                 <div class="pt-5">
+                    <h1 class="text-center mt-5 pb-5">Découvrez ce que nos clients disent de l'événement</h1>
                     {% for comment in comments|reverse %}
-
                 </div>
             </div>
         </div>
