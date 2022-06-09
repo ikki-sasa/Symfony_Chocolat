@@ -4,34 +4,18 @@
 
 
 {% block body %}
-<section class="pt-5 pb-1 mt-0 align-items-center d-flex bg-dark"
-    style="min-height: 130vh; max-width: 500vw; background-size: cover; background-image: url(../img/Header/bear_hand.jpg);">
-    <div class="container-fluid">
-        <div class="row  justify-content-center align-items-center d-flex-row text-center h-100">
-            <div class="col-12 col-md-8  h-50 ">
-                <div class="icon-wrap text-primary d-flex justify-content-center my-3">
-                </div>
-                <h1 class="text-white mb-2 mt-2">À propos de nous
-                </h1>
-            </div>
-        </div>
+<header class="hero">
+    <div class="banner-hero-img">
+        <img src="{{ asset('img/Header/bear_hand.jpg')}}" alt="Les Amoureux du Chocolat" class="img-header" />
+        <h1 class="about-h1">À propos de nous
+        </h1>
     </div>
-</section>
-<!--<section class="header-about pt-5 pb-1 mt-0 align-items-center d-flex">
-    {# <img src="{{ asset('img/Header/bear_hand.jpg')}}" alt="Les Amoureux du Chocolat" class="img-header-about" /> #}
-    <div class="container-fluid">
-        <div class="row  justify-content-center align-items-center d-flex-row text-center h-100">
-            <h1 class="about-h1">À propos de nous
-            </h1>
-        </div>
-    </div>
-    </div>
-</section>-->
+</header>
 <section class="bg-white text-dark pt-5 pb-5 mx-auto">
     <div class="container-fluid">
         <div class="row justify-content-center align-content-center d-flex">
             <div class="col-lg-6">
-                <h2 class="pb-4">Les Amoureux...</h2>
+                <h2 class="pb-4 about-h2">Les Amoureux...</h2>
                 <div class="about-p mx-auto">
                     <p>Dès son plus jeune âge, Johan est déjà fasciné par l'univers
                         du chocolat et des gourmandises.
@@ -67,8 +51,6 @@
             <div class="col-sm mx-auto">
                 <img src="./Img/About/nous.png" alt="Les Amoureux du chocolat les artisans" class="img-fluid">
             </div>
-            <!-- -->
-
         </div>
     </div>
 </section>
@@ -134,20 +116,5 @@
 
     </div>
 </div>
-<!-- <section class="">
-    <div class="container-fluid">
-        <div class="row row-grid">
-            <div class="col-sm">
-                <img src="./Img/About/les-amoureux-du-chocolat-Jo-work-maq.png" alt="" class="img-fluid">
-            </div>
-            <div class="col-sm">
-                <img src="./Img/About/les-amoureux-du-chocolat-work-maq.png" alt="" class="img-fluid">
-            </div>
-            <div class="col-sm">
-                <img src="./Img/About/les-amoureux-du-chocolat-us-maq.png" alt="" class="img-fluid">
-            </div>
-        </div>
-    </div>
-</section>-->
 {% include "shared/_scrolltop.html.twig" %}
 {% endblock %}
