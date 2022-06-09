@@ -3,8 +3,6 @@
 {% block title %}Créer un compte ♥ Les Amoureux du Chocolat ♥{% endblock %}
 
 {% block body %}
-
-
 <main class="container-fluid">
     <section class="pb-5 pt-5">
         <div class="container">
@@ -12,45 +10,43 @@
                 <h1 class="text-center mt-5">Créer un compte - Les Amoureux du Chocolat</h1>
                 <div class="col-12 col-md-4 mx-auto pt-5">
                     {{ form_start(registrationForm) }}
-                    <form>
-                        <div class="row">
-                            <div class="col">
-                                {{ form_row(registrationForm.firstName)}}
-                            </div>
-                            <div class="col">
-                                {{ form_row(registrationForm.lastName)}}
-                            </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form_row(registrationForm.firstName)}}
                         </div>
-                        <div class="row mt-4">
-                            <div class="col">
-                                {{ form_row(registrationForm.email) }}
-                            </div>
+                        <div class="col">
+                            {{ form_row(registrationForm.lastName)}}
                         </div>
-                        <div class="row mt-4">
-                            <div class="col">
-                                {{ form_row(registrationForm.plainPassword, {
-                                label: 'Mot de passe *'
-                                }) }}
-                                {# <a href="#">{{ form_row(registrationForm.agreeTerms) }}</a> #}
-                            </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            {{ form_row(registrationForm.email) }}
                         </div>
-                        <div class="row mt-4">
-                            <div class="col">
-                                {{ form_row(registrationForm.captcha) }}
-                                {{ form_errors(registrationForm.captcha) }}
-                            </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            {{ form_row(registrationForm.plainPassword, {
+                            label: 'Mot de passe *'
+                            }) }}
+                            {# <a href="#">{{ form_row(registrationForm.agreeTerms) }}</a> #}
                         </div>
-                        <div class="row mt-4">
-                            <div class="col">
-                                <input type="submit" class="btn btn-primary" value="Envoyer">
-                            </div>
+                    </div>
+                    {# <div class="row mt-4">
+                        <div class="col">
+                            {{ form_row(registrationForm.captcha) }}
+                            {{ form_errors(registrationForm.captcha) }}
                         </div>
-                        <div class="row mt-4">
-                            <div class="col">
-                                <a href="{{ path('home') }} ">Retour à l'acceuil</a>
-                            </div>
+                    </div> #}
+                    <div class="row mt-4">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary">Envoyer</button>
                         </div>
-                    </form>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <a href="{{ path('home') }} ">Retour à l'acceuil</a>
+                        </div>
+                    </div>
                     {{ form_end(registrationForm) }}
                 </div>
             </div>
@@ -84,6 +80,5 @@
     </div> #}
 
 </main>
-
-
+{% include "shared/_scrolltop.html.twig" %}
 {% endblock %}

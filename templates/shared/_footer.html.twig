@@ -1,174 +1,81 @@
 <!-- Footer -->
-<footer class="pt-1">
-    <div class="container-fluid p-4">
-        <div class="row">
-            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                <div class="logo-footer">
-                    <img src="{{( '/img/Logo/logo_white_no_bg.png' )}}" alt="Les Amoureux du chocolat logo" />
+
+<section class="">
+    <!-- Footer -->
+    <footer class=" text-white text-center">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <div class="logo-footer">
+                        <img src="{{( '/img/Logo/logo_white_no_bg.png' )}}" alt="Les Amoureux du chocolat logo" />
+                    </div>
+                    <div class="flex-row social">
+                        <a href="https://www.facebook.com/lesamoureuxduchocolat"><i class="fab fa-facebook"
+                                class="d-flex justify-content-center p-5"></i></a>
+                        <a href="https://www.instagram.com/accounts/login/?next=/lesamoureuxduchocolat/"><i
+                                class="fab fa-instagram" class="d-flex justify-content-center p-5"></i></a>
+                    </div>
                 </div>
-                <div class="flex-row social">
-                    <a href="https://www.facebook.com/lesamoureuxduchocolat"><i class="fab fa-facebook"
-                            class="align-baseline p-5"></i></a>
-                    <a href="https://www.instagram.com/accounts/login/?next=/lesamoureuxduchocolat/"><i
-                            class="fab fa-instagram" class="align-baseline p-5"></i></a>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase text-white">INFORMATIONS</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href=" {{ path('mentions')}} " class="text-white ">Mentions légales</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('conditions')}}" class="text-white">Conditions d'utilisation</a>
+                        </li>
+                        <li>
+                            <a href=" {{ path('contact') }} " class="text-white">Nous contacter</a>
+                        </li>
+                        <li>
+                            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                            <a href=" {{ path('admin') }} " class="text-white">Admin</a>
+                            {% endif %}
+                        </li>
+                        <li>
+                            {% if is_granted('ROLE_USER') %}
+                            <a href=" {{ path('user_index') }} " class="text-white">Votre compte</a>
+                            {% endif %}
+                        </li>
+                    </ul>
                 </div>
-            </div>
+                <!--Grid column-->
 
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
-                <h5 class="text-uppercase text-white text-center">INFORMATIONS</h5>
-                <ul class="mb-0 text-center list-group">
-                    <li>
-                        <a href=" {{ path('mentions')}} " class="text-white ">Mentions légales</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('conditions')}}" class="text-white">Conditions d'utilisation</a>
-                    </li>
-                    <li>
-                        <a href=" {{ path('policy')}} " class="text-white">Politique de confidentialité</a>
-                    </li>
-                    <li>
-                        <a href=" {{ path('contact') }} " class="text-white">Nous contacter</a>
-                    </li>
-                    <li>
-                        {% if is_granted('ROLE_SUPER_ADMIN') %}
-                        <a href=" {{ path('admin') }} " class="text-white">Admin</a>
-                        {% endif %}
-                    </li>
-                    <li>
-                        {% if is_granted('ROLE_USER') %}
-                        <a href=" {{ path('user_index') }} " class="text-white">Votre compte</a>
-                        {% endif %}
-                    </li>
-                </ul>
-            </div>
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase text-white mb-0">HORAIRES D'OUVERTURES</h5>
 
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 class="text-uppercase text-white mb-0 text-center">HORAIRES D'OUVERTURES</h5>
-                <ul class="text-white text-center list-group">
-                    <li>Mardi - Samedi</li>
-                    <li>09:30-19:30</li>
-                    <li>Dimanche</li>
-                    <li>09:30-13:00</li>
-                    <li>Lundi</li>
-                    <li>boutique fermé</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        <small class="text-white">&copy;Copyright © 2002 par Les Amoureux du Chocolat. Tous droits réservés. 812 329 936
-            R.C.S Evry</small>
-    </div>
-    <!-- Copyright -->
-</footer>
-<!-- Footer -->
-{# <footer class="section footer-classic  ">
-    <div class="container-fluid p-0">
-        <div class="row row-30">
-            <div class="col-md-4 col-xl-5">
-                <div class="pr-xl-4"><a class="brand" href="{{ path('home') }}"><img class="logo-footer"
-                            src="{{( '/img/Logo/logo_white_no_bg.png' )}}" alt="Les Amoureux du chocolat logo"></a>
-                    <p>We are an award-winning creative agency, dedicated to the best result in web design, promotion,
-                        business consulting, and marketing.</p>
-                    <!-- Rights-->
-                    <p class="rights"><span>©  </span><span
-                            class="copyright-year">2018</span><span> </span><span>Waves</span><span>. </span><span>All
-                            Rights Reserved.</span></p>
+                    <ul class="list-unstyled">
+                        <li>Mardi - Samedi</li>
+                        <li>09:30-19:30</li>
+                        <li>Dimanche</li>
+                        <li>09:30-13:00</li>
+                        <li>Lundi</li>
+                        <li>boutique fermé</li>
+                    </ul>
                 </div>
+                <!--Grid column-->
             </div>
-            <div class="col-md-4">
-                <h5 class="text-uppercase text-white">INFORMATIONS</h5>
-                <ul class=" list-group">
-                    <li>
-                        <a href=" {{ path('mentions')}} " class="text-white ">Mentions légales</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-white">Conditions générales de vente</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-white">Politique d'utilisation des cookies</a>
-                    </li>
-                    <li>
-                        <a href=" {{ path('contact') }} " class="text-white">Nous contacter</a>
-                    </li>
-                    <li>
+            <!--Grid row-->
+        </div>
+        <!-- Grid container -->
 
-                        <dl class="contact-list">
-                            <dt>email:</dt>
-                            <dd><a href="mailto:#">dkstudioin@gmail.com</a></dd>
-                        </dl>
-                        <dl class="contact-list">
-                            <dt>phones:</dt>
-                            <dd><a href="tel:#">https://karosearch.com</a> <span>or</span> <a
-                                    href="tel:#">https://karosearch.com</a>
-                            </dd>
-                        </dl>
-                </ul>
-            </div>
-            <div class="col-md-4 col-xl-3">
-                <h5>Links</h5>
-                <ul class="nav-list">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contacts</a></li>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </div>
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            <small class="text-white">&copy;Copyright Depuis 2002 par Les Amoureux du Chocolat. Tous droits réservés.
+                812 329 <span id="date"></span>
+                936
+                R.C.S Evry</small>
         </div>
-    </div>
-    <div class="row no-gutters social-container">
-        <div class="col"><a class="social-inner" href="#"><span
-                    class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
-        <div class="col"><a class="social-inner" href="#"><span
-                    class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
-        <div class="col"><a class="social-inner" href="#"><span
-                    class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
-        <div class="col"><a class="social-inner" href="#"><span
-                    class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
-    </div>
-</footer> #}
-{# <div class="container-fluid">
-    <div class="row footer-classic">
-        <div class="col-sm-4 text-center">
-            <div class="logo-footer">
-                <img src="{{( '/img/Logo/logo_white_no_bg.png' )}}" alt="Les Amoureux du chocolat logo" />
-            </div>
-        </div>
-        <div class="col-sm-4 text-center border-left">
-            <h4 class="ft-text-title">Our Team</h4>
-            <div class="address-member">
-                <p class="member">
-                    <b>Director</b> :
-                </p>
-                <p class="member">
-                    <b>Editor</b> :
-                </p>
-                <p class="member">
-                    <b>Reporter</b> :
-                </p>
-                <p class="member">
-                    <b>Reporter</b> :
-                </p>
-            </div>
-        </div>
-        <div class="col-sm-4 col-xs-12 text-center border-left">
-            <h4 class="ft-text-title">About</h4>
-            <div class="pspt-dtls">
-                <a href="#" class="about">About</a>
-                <a href="#" class="team">Team</a>
-                <a href="#" class="advertise">Advertise</a>
-                <br><br><br><br><br><br><br>
-            </div>
-        </div>
-    </div>
-    <div class="row ft-copyright pt-2 pb-2" style="padding-left: 25px;">
-        <div class="col-sm-4 text-pp-crt">cpoyright 2018 All Rights Reserved</div>
-        <div class="col-sm-4 text-pp-crt-rg">Department of Information Reg No :</div>
-        <div class="col-sm-4 developer">
-            <a href="https://topline-tech.com" target="_blank" class="text-pp-crt">By : <b>T</b>op<b>L</b>ine</a>
-        </div>
-    </div>
-</div> #}
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+</section>

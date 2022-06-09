@@ -1,55 +1,56 @@
-<nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="{{ path('home') }}">
-            <img src="{{ asset('img/Logo/Les-amoureux-du-chocolat-logo_brown.png')}}"
-                alt="Logo Les Amoureux du Chocolat" class="logo-nav">
-        </a>
-        <button class=" navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
-            aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarToggler">
-            <ul class="navbar-nav ms-auto me-sm-2 mt-2 mt-lg-0">
-                <li class="nav-item active me-3">
-                    <a class="nav-link" href=" {{ path('home') }} ">Accueil <span class="sr-only">(current)</span></a>
+<nav class="navbar" id="navbar">
+    <a class="navbar-brand" href="{{ path('home') }}">
+        <img src="{{ asset('img/Logo/Les-amoureux-du-chocolat-logo_brown.png')}}" alt="Logo Les Amoureux du Chocolat"
+            class="logo">
+    </a>
+    <label for="btn" class="icon-burger">
+        <svg viewbox="0 0 100 80" width="40" height="40">
+            <rect width="100" height="15"></rect>
+            <rect y="35" width="100" height="15"></rect>
+            <rect y="70" width="100" height="15"></rect>
+        </svg>
+    </label>
+    <input type="checkbox" name="" id="btn">
+    <ul class="nav-menu">
+        <li class="nav-item">
+            <a href=" {{ path('home') }} " class="nav-link scroll-link"
+                title="L'accueil des Amoureux du chocolat">Accueil</a>
+        </li>
+        <li class="nav-item">
+            <a href=" {{ path('about') }} " class="nav-link scroll-link"
+                title="Aller à la page à propos des Amoureux du chocolat">À propos</a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ path('article_index') }}" class="nav-link scroll-link"
+                title="Aller à la page ChocoBlog des Amoureux du chocolat">ChocoBlog</a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ path('category_index') }}" class="nav-link scroll-link"
+                title="Aller à la page Produit des Amoureux du chocolat">Produit</a>
+        </li>
+        {# menu dropdown start #}
+        <li class="nav-item">
+            <label for="btn2" class="show">Mon compte <i class="fas fa-caret-down"></i> </label>
+            <input type="checkbox" id="btn2">
+            <ul class="dropdown">
+                <li class="drop-item">
+                    {% if app.user%}
+                    <a href="{{ path('app_logout') }}" class="nav-link scroll-link"
+                        title="Se déconnecter des Amoureux du chocolat">Se
+                        déconnecter</a>
                 </li>
-                <li class="nav-item me-3">
-                    <a class="nav-link" href=" {{ path('about') }} ">À propos</a>
-                </li>
-                <li class="nav-item me-3">
-                    <a class="nav-link" href=" {{ path('article_index')}} ">ChocoBlog</a>
-                </li>
-                <li class="nav-item me-3">
-                    <a class="nav-link" href=" {{ path('category_index') }} ">Produit</a>
-                </li>
-                {% if app.user%}
-                <li class="nav-item me-3">
-                    <a class="nav-link" href=" {{ path('app_logout') }} ">Se déconnecter</a>
-                </li>
-
-                <li class="nav-item me-3">
-                    <a class="nav-link" href=" {{ path('admin') }} ">Administrateur</a>
+                <li class="drop-item">
+                    <a href="{{ path('admin') }}" class="nav-link scroll-link"
+                        title="Aller à la page Administrateur des Amoureux du chocolat">Administrateur</a>
                 </li>
                 {% else %}
-                <li class="nav-item me-3">
-                    <a class="nav-link" href=" {{ path('app_login') }} ">Se connecter</a>
+                <li class="drop-item">
+                    <a href="{{ path('app_login') }}" class="nav-link scroll-link"
+                        title="Aller à la page Se connecter des Amoureux du chocolat">Se connecter</a>
                 </li>
                 {% endif %}
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="true">
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="#">Account Settings</a>
-                        <a class="dropdown-item" href="#">Newsletter</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Sign Out</a>
-                    </div>
-                </li>
             </ul>
+        </li>
 
-        </div>
-    </div>
+    </ul>
 </nav>

@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Accueil ♥ Les Amoureux du Chocolat ♥{% endblock %}
-
 {% block body %}
+{% include "shared/_flash_confirm_email.html.twig" %}
 <header class="hero">
     <div class="banner-hero-img">
         <img src="{{ asset('img/Logo/logo_white_no_bg.png')}}" alt="Logo Les Amoureux du Chocolat"
@@ -11,33 +11,22 @@
             class="img-header" />
 
         <div class="section-center hero-center">
-            <a href="#" class="btn product-btn">Nos Produits</a>
+            <a href="{{ path('category_index') }}" class="btn product-btn">Nos Produits</a>
         </div>
     </div>
 </header>
-<div class="row">
-    <div class="col-8 offset-2">
-        {% for label, messages in app.flashes %}
-        {% for message in messages %}
-        <div class="flash-{{ label }} bg-{{ label }} text-light p-3 mb-5 rounded">
-            {{ message }}
-        </div>
-        {% endfor %}
-        {% endfor %}
-    </div>
-</div>
 <h1 class="text-center pt-5">Un Concentré Pur D'amour Et De Cacao</h1>
 <p class="section-title-p mb-5">
     Tester le goût de nos produits, faits avec des produits pur et
     premium, 100% fabrication artisanale
 </p>
-<div class="row pt-5 mx-5">
+<div class="row pt-5 mx-5" id="product-inline-0">
     {% for product in products %}
     <div class="col">
         <div class="card border-0">
             <img src="{{ asset('img/category/' ~ product.img) }}" alt="Image Les amoureux du chocolat du produit"
                 class="img-fluid w-60">
-            <div class="card-body">
+            <div class="card-body" id="product-inline-0-title">
                 <h4 class="card-title text-center">{{ product.productName }}</h4>
                 <p class="text-center">{{ product.price }} € </p>
             </div>
@@ -45,10 +34,10 @@
     </div>
     {% endfor %}
     <div class="section-center intro-btn mb-5">
-        <a href="#" class="btn btn-sm text-center">Nos chocolats</a>
+        <a href="{{ path('category_index') }}" class="btn btn-sm text-center" id="btn-our-product">Nos chocolats</a>
     </div>
 </div>
-<div class="row pt-5">
+<div class="row pt-5" id="product-inline-1">
     {% for product in products %}
     <div class="col">
         <a href="#"><img src="{{ asset('img/category/' ~ product.img) }}"
@@ -56,7 +45,7 @@
     </div>
     {% endfor %}
 </div>
-<h2 class="text-center mt-5">Regardez. Testez. Dégustez</h2>
+<h2 class="text-center mt-5" id="taste">Regardez. Testez. Dégustez</h2>
 <div class="row pt-5">
     {% for category in categories %}
     <div class="col">
@@ -65,12 +54,12 @@
                 class="img-fluid w-60"></a>
     </div>
     {% endfor %}
-    <div class=" intro-btn mb-5">
-        <a href="#" class="btn btn-sm text-center">Nos chocolats</a>
+    <div class=" intro-btn mb-5" id="taste-btn">
+        <a href="{{ path('category_index') }}" class="btn btn-sm text-center" id="btn-our-product">Nos chocolats</a>
     </div>
 </div>
 <!-- Blog-info -->
-<section class="section-center info-blog">
+<section class="section-center info-blog" id="info-blog">
     <article class="infos-blog">
         <div class="section-title">
             <h4 class="blog-title">Rejoignez nous sur notre blog</h4>
@@ -136,9 +125,9 @@
         </div>
         <div class="row">
             <img src="./Img/Gallery-l-m/apropos-de-nous-acceuil.png" alt="Les_Amoureux_du_chocolat_shop"
-                class="img-fluid" />
+                class="img-fluid" id="img-shop" />
         </div>
     </article>
 </section>
-
+{% include "shared/_scrolltop.html.twig" %}
 {% endblock %}
