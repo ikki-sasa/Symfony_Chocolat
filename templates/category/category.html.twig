@@ -23,7 +23,7 @@
         <div class="card border-0 card-product">
             <img src="{{ asset('img/category/' ~ product.img ) }}" alt="photo principale" class="img-fluid">
             <div class="card-body  text-center">
-                <h4 class="card-title">{{ product.productName }}</h4>
+                <h4 class="card-title" id="category-h4">{{ product.productName }}</h4>
                 <p class="mt-4">
                     <a href=" {{ path('product_view', {'id':product.id})}} " class="btn intro-btn mb-5 ">Détails</a>
                 </p>

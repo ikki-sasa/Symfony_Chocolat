@@ -17,6 +17,7 @@
             <th scope="col">Événements</th>
             <th scope="col">Status du commentaire</th>
             <th scope="col">Publier</th>
+            <th scope="col">Répondre</th>
             <th scope="col">Supprimer</th>
         </tr>
     </thead>
@@ -36,6 +37,13 @@
             {% endif %}
             <td class="alig middle">
                 <a href=" {{ path('comment_publish', {'id': comment.id}) }}" class="text-primary">
+                    {# <i class="fas fa-pen-square"></i> #}
+                    <i class="fas fa-retweet"></i>
+                </a>
+
+            </td>
+            <td class="alig middle">
+                <a href=" {{ path('comment_reply', {'id': comment.id}) }}" class="text-primary">
                     {# <i class="fas fa-pen-square"></i> #}
                     <i class="fas fa-retweet"></i>
                 </a>

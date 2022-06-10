@@ -5,12 +5,14 @@
 {% block body %}
 
 <main class="container-fluid">
-    <h1 class="text-center mt-5 pt-5 mb-5 pb-5">ChocoBlog - Notre actualité les biens faits du chocolat et bien plus
+    <h1 class="text-center mt-5 pt-5 mb-5 pb-5">ChocoBlog - Notre actualité les biens faits du chocolat
+        et
+        bien plus
         encore
     </h1>
-    <div class="row">
+    <div class="row" id="article-blog">
         {% for article in articles %}
-        <div class="col-4 mt-2 pt-3 pb-5">
+        <div class="col-4 mt-2 pt-3 pb-5" id="article-read">
             <div class="card profile-card-blog text-center border-top-0">
                 <div class="card-img-block">
                     <img src=" {{asset('img/Blog/' ~ article.featuredImg )}} " alt="photo principale {{article.title}}"

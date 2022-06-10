@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Comment;
+use App\Entity\Reponse;
 use App\Form\CommentType;
+use App\Form\ReplyType;
 use App\Repository\ArticleRepository;
 use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -62,6 +64,7 @@ class CommentController extends AbstractController
     #[Route('/comment/{id}', name: 'comment_show', methods: ['GET'])]
     public function show(Comment $comment): Response
     {
+
         return $this->render('comment/show.html.twig', [
             'comment' => $comment,
         ]);
@@ -120,5 +123,27 @@ class CommentController extends AbstractController
             $this->addFlash('danger', 'Le commentaire outrageu a été retirer');
             return $this->redirectToRoute('comment_admin_index', [], Response::HTTP_SEE_OTHER);
         }
+    }
+
+    #[Route('/admin/reponse/{id}', name: 'comment_reply')]
+    public function reply(int $id, CommentRepository $commentRepository, ManagerRegistry $managerRegistry, Request $request): Response
+    {
+        $reponse = new Reponse();
+        $form = $this->createForm(ReplyType::class, $reponse);
+        $form->handleRequest($request);
+        $comment = $commentRepository->find($id);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $manager = $managerRegistry->getManager();
+            $reponse->setFkcomment($comment);
+            $manager->persist($reponse);
+            $manager->flush();
+
+            return $this->redirectToRoute('comment_admin_index');
+        }
+
+        return $this->render('admin/replycomments.html.twig', [
+            'formAnswer' => $form->createView()
+        ]);
     }
 }

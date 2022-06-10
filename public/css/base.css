@@ -83,7 +83,10 @@ p {
 /* Global classes */
 
 .btn-validation {
-  color: var(--clr-primary-4);
+  color: var(--clr-primary-1);
+}
+#btn {
+  color: var(--clr-primary-1);
 }
 a.btn {
   text-transform: uppercase;
@@ -592,8 +595,38 @@ TOGGLE SIDEBAR
   letter-spacing: var(--spacing);
   line-height: 1.25;
 }
+/* CHOCOBLOG  page index start*/
+#article-blog {
+margin-top: -5em;
+}
+
+#article-read {
+  width: 100%;
+}
 
 
+
+/* CHOCOBLOG  page index end*/
+
+/* 
+=============== 
+PRODUTCT START 
+===============
+*/
+
+#category-display-product {
+  margin-top: -5em;
+}
+
+#category-inline {
+  width: 100%;
+}
+
+/* 
+=============== 
+PRODUTCT END 
+===============
+*/
 /* 
 =============== 
 BUTTON TOP 
@@ -989,6 +1022,137 @@ font-size: 10px;
 footer small {
   font-size: 10px;
 }
+
+/* Article blog start */
+
+#article-img {
+  max-height: 55vh;
+}
+
+#breadcrumb-article {
+  text-align: center;
+  margin-left: 3em;
+}
+
+.article-center {
+  text-align: center;
+  margin-top: 25px;
+}
+#article-center-a {
+  margin-left: 5em;
+}
+/* Article blog end */
+
+
+/* Category product start */
+
+#category-h4 {
+  font-size: 10px;
+}
+
+#breadcrumb-category-product {
+  text-align: center;
+  margin-left: 3em;
+}
+
+#category-view {
+   text-align: center;
+}
+
+#category-img-2 {
+min-width: -webkit-fill-available;
+padding-bottom: 15px;
+}
+
+
+#col-grid {
+  flex:  1 0 35%;
+}
+/* Category product end */
+
+
+/* Login start */
+
+#login-center-h1 {
+  font-size: 22px;
+  margin-inline: -7em;
+  text-align: center;
+}
+
+#login-center {
+  margin-inline: -57px;
+  padding-bottom: 23px;
+}
+#login-center-create {
+  margin-inline: -42px;
+  padding-bottom: 23px;
+}
+#login-center-pswd {
+  margin-inline: -29px;
+  padding-bottom: 5px;
+}
+#login-center-rember {
+  margin-inline: 4px;
+}
+
+
+#inputEmail {
+  width: 19em;
+  margin-left: -8em;
+}
+
+
+#inputPassword {
+  width: 19em;
+  margin-left: -8em;
+}
+
+#btn-login {
+  margin-left: -3em;
+  background-color: var(--clr-primary-1);
+}
+
+/* Login end */
+
+
+/* Contact start end */
+
+.img-header-contact {
+  width: 100%;
+  object-fit: cover;
+  margin-top: 3em;
+  min-height: 11em;
+}
+.contact-h1 {
+    font-size: 28px;
+    color: var(--clr-primary-10);
+    z-index: 1;
+    margin-top: -3.5em;
+    position: absolute;
+    text-align: center;
+    margin-left: 0.5em;
+}
+
+.contact-h2 {
+  text-align: center;
+}
+
+#email-contact {
+  margin-top: 10em;
+}
+
+#btn-contact {
+    margin-left: 6.5em;
+    background-color: var(--clr-primary-1);
+}
+
+.mail-contact {
+  margin-inline: -5px;
+}
+
+
+
+/* Contact end */
 
 } 
 

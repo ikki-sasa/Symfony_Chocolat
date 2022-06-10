@@ -9,12 +9,12 @@
     <p class="text-center mt-4">Découvrez tous nos produits faits artisanalement.
         Un concentré d'amour, de passion et de création qui vont éveiller vos sens et vos papilles
     </p>
-    <div class="row">
+    <div class="row" id="category-display-product">
         {% for category in categories %}
-        <div class="col-4 p-3">
+        <div class="col-4 p-3" id="category-inline">
             <div class="card card-category border-0">
                 <img src=" {{asset('img/category/' ~ category.img )}} " alt="photo principale {{category.name}}"
-                    class="card-img-top ">
+                    class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title text-center"><a href="{{ path('product_category', {'slug': category.slug}) }}"
                             class="text-center">{{

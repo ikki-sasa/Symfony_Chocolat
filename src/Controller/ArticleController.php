@@ -5,8 +5,8 @@ namespace App\Controller;
 use App\Entity\Article;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
-use App\Repository\CategoryRepository;
 use App\Repository\CommentRepository;
+use App\Repository\ReponseRepository;
 use CodeInc\StripAccents\StripAccents;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,25 +35,17 @@ class ArticleController extends AbstractController
     }
 
     #[Route('/article/{id}', name: 'article')]
-    public function article(ArticleRepository $articleRepository, int $id, CommentRepository $commentRepository): Response
+    public function article(ArticleRepository $articleRepository, int $id, CommentRepository $commentRepository, ReponseRepository $reponseRepository): Response
     {
         $article = $articleRepository->find($id);
         $comments = $commentRepository->findBy(['articles_id' => $id]);
-        // $sousArticles = $articleRepository->findBy(['articles' => $article->getId()]);
+        $reponses = $reponseRepository->findAll();
+
         return $this->render('article/article.html.twig', [
             'article' => $article,
-            'comments' => $comments
-            // 'sousArticles' => $sousArticles
+            'comments' => $comments,
+            'reponses' => $reponses
 
-            // if (!empty($sousArticles)) {
-            // ]);
-            // } else {
-            //     $categories = $categoryRepository->findBy(['articles_id' => $article->getId()], ['comment' => 'ASC']);
-            // }
-
-            // return $this->render('article/index.html.twig', [
-            //     'article' => $article,
-            //     'categories' => $categories
         ]);
     }
 
@@ -148,7 +140,5 @@ class ArticleController extends AbstractController
         return $this->redirectToRoute('article_admin_index');
     }
 
-    // 1. articles (crud)
-    // 2. user (register ok , login ok, logout, email ok, crud presque)
-    // 3. comment (crud)
+    // 2. user (logout, crud presque)
 }

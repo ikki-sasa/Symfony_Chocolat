@@ -34,15 +34,14 @@
             <td class="align-middle"><img src="{{ asset('img/category/' ~ users.img) }}"
                     alt="photo produit {{ users.usersName }} "></td> #}
             {# <td class="align-middle"> {{ user.articles }} </td> #}
-            {# <td class="align-middle">
-                <a href=" {{ path('user_update', { 'id': user.id})}}" class="text-warning"><i
-                        class="fas fa-pen-square"></i></a>
+            <td class="align-middle">
+                {# <a href=" {{ path('user_update', { 'id': user.id})}}" class="text-warning"><i
+                        class="fas fa-pen-square"></i></a> #}
                 <a href=" {{ path('user_delete', { 'id': user.id})}}" class="text-danger"><i
                         class="fas fa-trash-alt"></i></a>
-            </td> #}
+            </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
-{% include "shared/_scrolltop.html.twig" %}
 {% endblock %}

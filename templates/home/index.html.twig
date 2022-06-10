@@ -2,7 +2,9 @@
 
 {% block title %}Accueil ♥ Les Amoureux du Chocolat ♥{% endblock %}
 {% block body %}
-{% include "shared/_flash_confirm_email.html.twig" %}
+<div class="row">
+    {% include "shared/_flash.html.twig" %}
+</div>
 <header class="hero">
     <div class="banner-hero-img">
         <img src="{{ asset('img/Logo/logo_white_no_bg.png')}}" alt="Logo Les Amoureux du Chocolat"
