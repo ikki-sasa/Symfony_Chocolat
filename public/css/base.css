@@ -128,6 +128,9 @@ a.btn {
   color: var(--clr-primary-9);
   background: var(--clr-primary-3);
 }
+a.btn:hover {
+  color: var(--clr-primary-9);
+} 
 
 .section {
   padding: 5rem 0;
@@ -643,7 +646,7 @@ BUTTON TOP
 }
 
 .top-btn:hover {
-  color: var(--clr-primary-10);
+  color: var(--clr-primary-1);
 }
 
 
@@ -1040,6 +1043,23 @@ footer small {
 }
 #article-center-a {
   margin-left: 5em;
+}
+
+.bg-reply {
+  background: var(--clr-primary-12);
+  opacity: 0.5;
+}
+
+.reply {
+  color:hsl(15, 6%, 14%);
+}
+
+.btn-article {
+
+}
+
+.comment-btn {
+  
 }
 /* Article blog end */
 

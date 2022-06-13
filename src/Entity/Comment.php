@@ -33,6 +33,9 @@ class Comment
     #[ORM\Column(type: 'datetime')]
     private $created_at;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $title;
+
 
 
     public function __construct()
@@ -101,6 +104,18 @@ class Comment
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
 
         return $this;
     }

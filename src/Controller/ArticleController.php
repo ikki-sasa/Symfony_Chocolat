@@ -20,6 +20,7 @@ class ArticleController extends AbstractController
     public function index(ArticleRepository $articleRepository): Response
     {
         $articles = $articleRepository->findAll();
+
         return $this->render('admin/adminArticleIndex.html.twig', [
             'articles' => $articles
         ]);
@@ -29,6 +30,7 @@ class ArticleController extends AbstractController
     public function articles(ArticleRepository $articleRepository): Response
     {
         $articles = $articleRepository->findAll();
+
         return $this->render('article/index.html.twig', [
             'articles' => $articles
         ]);
@@ -40,6 +42,7 @@ class ArticleController extends AbstractController
         $article = $articleRepository->find($id);
         $comments = $commentRepository->findBy(['articles_id' => $id]);
         $reponses = $reponseRepository->findAll();
+
 
         return $this->render('article/article.html.twig', [
             'article' => $article,

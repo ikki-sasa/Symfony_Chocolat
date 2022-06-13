@@ -1,7 +1,7 @@
 {% for label, messages in app.flashes %}
 {% for message in messages %}
-<div class="flash-{{ label }} bg-{{ label }} text-light p-3 mb-5 rounded text-center col-12">
-    {{ message }}
+<div class="flash-{{ label }} bg-{{ label }} text-light p-3 mb-0 rounded text-center col-12">
+    {{ message }}<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 </div>
 {% endfor %}
 {% endfor %}

@@ -16,16 +16,16 @@
                 <div class="row mt-4">
                     <div class="col">
                         <div class="form-control mt-1">
+                            {{ form_row(commentForm.title) }}
                             {{ form_row(commentForm.content) }}
-                            {# {{ form_row(contactForm.message) }} #}
-                            {# {{ form_errors(contactForm.message) }} #}
+                            {{ form_errors(commentForm.content) }}
                         </div>
                     </div>
                 </div>
                 <div class="col-12 text-end">
                     <a href="{{ path('comment_admin_index') }}" class="btn btn-outline-danger mt-5 me-2">Annuler</a>
                     {# a changer sinon espace admin pour user #}
-                    <button class="btn-btn-outilne-dark">
+                    <button class="btn comment-btn">
                         Envoyer
                     </button>
                 </div>

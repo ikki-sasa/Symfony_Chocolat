@@ -57,7 +57,7 @@ class RegistrationController extends AbstractController
             if ($user->getRoles() == 'ROLE_SUPER_ADMIN') {
                 return $this->redirectToRoute('admin');
             } else {
-                return $this->redirectToRoute('user');
+                return $this->redirectToRoute('home');
             }
         }
 
