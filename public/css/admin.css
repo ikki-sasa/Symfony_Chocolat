@@ -169,3 +169,22 @@ footer {
   cursor: pointer;
 }
 
+/* Media queries start */
+
+/* Admin board start  */
+@media screen and (min-width:320px) {
+  
+}
+
+/* Admin board end  */
+
+
+
+
+
+
+
+
+
+
+/* Media queries end */

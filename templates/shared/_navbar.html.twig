@@ -33,15 +33,22 @@
             <label for="btn2" class="show">Mon compte <i class="fas fa-caret-down"></i> </label>
             <input type="checkbox" id="btn2">
             <ul class="dropdown">
-                <li class="drop-item">
-                    {% if app.user%}
-                    <a href="{{ path('app_logout') }}" class="nav-link scroll-link"
-                        title="Se déconnecter des Amoureux du chocolat">Se
-                        déconnecter</a>
-                </li>
+                {% if app.user%}
+                {% if is_granted('ROLE_SUPER_ADMIN') %}
                 <li class="drop-item">
                     <a href="{{ path('admin') }}" class="nav-link scroll-link"
                         title="Aller à la page Administrateur des Amoureux du chocolat">Administrateur</a>
+                </li>
+                {% else %}
+                <li class="drop-item">
+                    <a href="{{ path('user_index') }}" class="nav-link scroll-link"
+                        title="Se déconnecter des Amoureux du chocolat">Information personelle</a>
+                </li>
+                {% endif %}
+                <li class="drop-item">
+                    <a href="{{ path('app_logout') }}" class="nav-link scroll-link"
+                        title="Se déconnecter des Amoureux du chocolat">Se
+                        déconnecter</a>
                 </li>
                 {% else %}
                 <li class="drop-item">
@@ -51,7 +58,6 @@
                 {% endif %}
             </ul>
         </li>
-
     </ul>
 </nav>
 
