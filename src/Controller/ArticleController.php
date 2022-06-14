@@ -143,5 +143,5 @@ class ArticleController extends AbstractController
         return $this->redirectToRoute('article_admin_index');
     }
 
-    // 2. user (logout, crud presque)
+    // 2. user (crud presque)
 }

@@ -16,11 +16,15 @@
                 {{ form_start(commentForm)}}
                 <div class="row mt-4">
                     <div class="col">
-                        <div class="form-control mt-1">
+                        <div class="form-control mt-1 mb-4 pb-4">
                             {{ form_row(commentForm.title) }}
-                            {{ form_row(commentForm.content) }}
-                            {{ form_errors(commentForm.content) }}
                         </div>
+                        <div class="form-control mt-1 mb-4 pb-4">
+                            {{ form_row(commentForm.content) }}
+                        </div>
+                        {# <div class="form-control mt-1 mb-4 pb-4">
+                            {{ form_errors(commentForm.content) }}
+                        </div> #}
                     </div>
                 </div>
 

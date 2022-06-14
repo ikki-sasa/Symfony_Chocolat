@@ -17,16 +17,20 @@
             </p>
         </div>
         <div class="col-12 col-md-6 col-lg-5 me-auto">
-            {# {% for comment in comments|reverse %} #}
             <h2 class="pt-4 mt-5">Bienvenue {{ user.firstName }}</h2>
             <h3 class="pt-5 mt-5">Historique des commentaires.</h3>
+            {% if comments is null %}
             <p class="pt-3 mt-3 mb-5">Vous n'avez pas d'article commenter</p>
-            {# <p class="pt-3 mt-3 mb-5"> {{ user.articles }} </p> #}
+            {% else %}
+            {% for comment in comments|reverse %}
+            <p class="pt-3 mt-3 mb-5"> {{ comment.createdAt|date('d/m/Y à H:i') }} </p>
+            <p class="pt-3 mt-3 mb-5"> {{ comment.title }} </p>
+            {% endfor %}
+            {% endif %}
             <h3 class="pt-3 mt-3">Détails de votre compte</h3>
             <p class="pt-3 mt-3">{{ user.lastName }}</p>
             <p class="pt-3 mt-3">{{ user.firstName }}</p>
             <p class="pt-3 mt-3 mb-5">Votre e-mail : {{ user.email }}</p>
-            {# {% endfor %} #}
         </div>
     </div>
 </div>

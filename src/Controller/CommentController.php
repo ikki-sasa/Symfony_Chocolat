@@ -4,16 +4,17 @@ namespace App\Controller;
 
 use App\Entity\Comment;
 use App\Entity\Reponse;
-use App\Form\CommentType;
 use App\Form\ReplyType;
+use App\Form\CommentType;
+use App\Repository\UserRepository;
 use App\Repository\ArticleRepository;
 use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CommentController extends AbstractController
 {
@@ -54,13 +55,16 @@ class CommentController extends AbstractController
     }
 
     #[Route('/comment/{id}', name: 'comment_show', methods: ['GET'])]
-    public function show(Comment $comment): Response
+    public function show(Comment $comment, CommentRepository $commentRepository): Response
     {
-
+        $comment = $commentRepository->findBy(['user' => $this->getUser()]);
         return $this->render('comment/show.html.twig', [
-            'comment' => $comment,
+            'comments' => $comment,
         ]);
     }
+
+
+
 
     #[Route('/admin/comment/{id}/edit', name: 'comment_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Comment $comment, EntityManagerInterface $entityManager): Response

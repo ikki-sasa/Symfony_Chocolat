@@ -20,7 +20,6 @@ class ContactController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // dd($form->getData());
             $contact = $form->getData();
             $email = (new TemplatedEmail())
                 ->from(new Address($contact['email'], $contact['firstName'] . ' ' . $contact['lastName']))

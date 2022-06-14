@@ -87,9 +87,29 @@ p {
   color: var(--clr-primary-1);
 }
 #btn {
-  color: var(--clr-primary-1);
+  background: var(--clr-primary-4);
+}
+
+#btn:hover {
+  background: var(--clr-primary-1);
 }
 a.btn {
+  text-transform: uppercase;
+  background: var(--clr-primary-4);
+  color: var(--clr-primary-9);
+  padding: 0.5rem 1.5rem;
+  letter-spacing: var(--spacing);
+  display: inline-block;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  font-size: 0.875rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: var(--raduis);
+}
+
+#btn-main {
   text-transform: uppercase;
   background: var(--clr-primary-4);
   color: var(--clr-primary-9);
@@ -542,7 +562,7 @@ TOGGLE SIDEBAR
 
 .about-p {
   padding-bottom: 2.5em;
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
 }
 
@@ -550,6 +570,14 @@ TOGGLE SIDEBAR
   height: 18rem;
   object-fit: contain;
   cursor: pointer;
+}
+
+.about-h4  {
+  font-size: 11px;
+} 
+ #about-h4 {
+  font-style: 13px;
+  margin-top: 12px;
 }
 
 /* .footer-about-card-img-top img {
@@ -606,6 +634,18 @@ margin-top: -5em;
 
 #article-read {
   width: 100%;
+}
+
+.user-comment {
+  display: contents;
+}
+
+.comment-h4, .comment-p, .comment-content {
+  text-align: center;
+}
+
+#comment-content {
+  margin-top: -2.5em;
 }
 
 
@@ -857,7 +897,7 @@ margin-top: -3em;
 }
 .blog-title  {
   margin: 0 5px 5px 5px;
-  font-size: 10px;
+  font-size: 13px;
 }
 
 
@@ -865,16 +905,17 @@ margin-top: -3em;
   width: 100vw;
 }
 .info-blog-text {
-  font-size: 5px;
+  font-size: 8px;
   max-width: 10rem;
   margin: 0  1em 2rem;
 }
 
 .btn-link {
     width: 130px;
-    margin-left: 6em;
+    margin-left: 4em;
     margin-top: -11em;
-    font-size: 4px;
+    font-size: 6px;
+    margin-top: -12em;
 }
 
 .section-title h2 {
@@ -1043,7 +1084,7 @@ footer small {
   margin-top: 25px;
 }
 #article-center-a {
-  margin-left: 5em;
+  margin-left: 9em;
 }
 
 .bg-reply {
@@ -1064,7 +1105,7 @@ footer small {
 }
 
 #btn-comment {
-  margin: 35px 7em -20px 0;
+  margin: 35px 107px -20px 0;
   color: var(--clr-primary-10);
   border-radius: var(--raduis);
   background: var(--clr-primary-4);
@@ -1089,6 +1130,7 @@ footer small {
 
 #cancel-comment {
   background: var(--clr-primary-11);
+  font-size: 0.875em;
 }
 
 
@@ -1172,6 +1214,26 @@ padding-bottom: 15px;
 /* Login end */
 
 
+/* Register start */
+
+#btn-register {
+  background: var(--clr-primary-4);
+  color: var(--clr-primary-9);
+  margin-left: 6em;
+  border-radius: var(--raduis);
+}
+#btn-register:hover {
+  background: var(--clr-primary-1);
+}
+
+.back-home {
+  text-align: center;
+  margin: 4em;
+}
+
+/* Register end */
+
+
 /* Contact start end */
 
 .img-header-contact {
@@ -1208,11 +1270,34 @@ padding-bottom: 15px;
 }
 /* Contact end */
 
+/* Forgotten password start */
+.small-p {
+  text-align: center;
+}
+
+#btn-reset {
+  background: var(--clr-primary-1);
+  text-transform: uppercase;
+  color: var(--clr-primary-9);
+  padding: 0.5rem 1.5rem;
+  letter-spacing: var(--spacing);
+  display: inline-block;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  font-size: 0.875rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: var(--raduis);
+}
+/* Forgotten password end */
+
 } 
 
 
 /* mobileM 375 */
 @media screen and (min-width:375px) {
+  
   .products-inventory {
     width: 94vw;
   }
@@ -1260,11 +1345,65 @@ padding-bottom: 15px;
     margin-bottom: -2px;
 }
 
+
+/* About page start */
+ #about-h4 {
+  margin-top: 2px;
+}
+/* About page end */
+
+
+/* Article blog start 375px */
+#article-center-a {
+  margin-left: 13em;
+}
+
+.user-comment-p {
+  margin-inline: 2em;
+}
+/* Article blog end  */
+
+/* Login page start */
+#btn-login {
+  margin-left: -2em;
+}
+
+#btn-reset {
+  background: var(--clr-primary-1);
+}
+
+#login-center {
+  margin-inline: -48px;
+}
+
+#login-center-create {
+  margin-inline: -33px;
+}
+
+/* #label-form-center {
+  text-align: center;
+} */
+/* Login page end */
+
+
+/* Register page start */
+#btn-register {
+  margin-left: 8em;
+}
+
+.back-home {
+  margin: 93px;
+}
+
+/* Register page end */
+
 }
 
 
 @media screen and (min-width:425px) {
-  .btn-link {
+ /* home page start */
+ 
+ .btn-link {
     width: 135px;
     margin-left: 10em;
     margin-top: -9em;
@@ -1275,94 +1414,83 @@ padding-bottom: 15px;
   margin: 0 22px 2rem;
     font-size: 8px;
     max-width: 15rem;
+  }
+  /* home page end */
+
+/* Article blog page start */
+#breadcrumb-article {
+  margin-inline: inherit;
+  margin-left: 5em;
 }
+
+#article-center-a {
+  margin-left: 16em;
 }
 
+.user-comment-p {
+  margin-inline: 4em;
+}
+/* Article blog page end */
 
+/* Comment Article start */
+#btn-comment {
+    margin: 35px 154px -20px 0;
+}
 
+.cancel-comment {
+    margin: -10px 56em 1em -8em;
+}
+/* Comment Article end */
+/* Product page start */
+#breadcrumb-category-product {
+  margin-left: 2em;
+}
+/* Product page end */
 
+/* login page start */
+#login-center-create {
+    margin-inline: -24px;
+}
 
+}
 
 
 /* tablet 768 */
 @media screen and (min-width: 768px) {
   /* Global styles */
-  .section {
-    padding: 2rem 0;
-  }
-
-  .icon-burger {
-    display: none;
-  }
-
-  .nav-menu {
-    display: initial;
-    position: static;
-  }
-
-  .nav-item {
-    display: inline-block;
-    margin-left: 20px;
-    /* position: relative; */
-  }
-
-
-  .dropdown {
-    position: absolute;
-    background: var(--clr-primary-10);
-    top: 70px;
-    right: 0;
-    padding-right: 40px;
-    width: max-content;
-  }
-  /* Navbar */
-  /* .nav {
-  height: 2rem;
-  }
-  .nav-btn {
-    display: none;
-  }
-  .nav-links {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-items: center;
-    column-gap: 2rem;
-    justify-self: auto;
-   
-  }
   
-  .nav-links a {
-    text-transform: capitalize;
-    color: var(--clr-primary-5);
-    font-weight: bold;
-    letter-spacing: var(--spacing);
-    -webkit-transition: var(--transition);
-    transition: var(--transition);
-     font-size: 15px;
-  }
-  .nav-links a:hover {
-    color: var(--clr-primary-1);
-  }
-  .nav-center {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    -webkit-box-align: center;
-    align-items: center;
-  } */
 
+/* 
+ 
+  /* Navbar */
+  
+.icon-burger {
+  padding: 1em;
+}
+.nav-menu {
+  margin-top: -3.1rem;
+  height: 13.1em;
+  top: 117px;
+}
  
   /* end of Navbar */
   /* Header  */
-  .img-logo-header {
+.img-logo-header {
     width: 40%;
     margin-top: 4em;
     margin-left: 1em;
   }
 
-  .product-btn {
+.product-btn {
     margin-top: -5rem;
     font-size: 17px;
   }
+
+a.btn {
+  padding: 2px 10px;
+  margin-left: 2em;
+  font-size: 15px;
+}
 
   
   /* end of Header  */
@@ -1377,8 +1505,12 @@ padding-bottom: 15px;
     text-align: center;
     font-family: var(--ff-primary);
     margin-bottom: -3rem;
-    font-size: 20px;
+    font-size: 25px;
   }
+
+#product-inline-0 {
+  margin-top: -4em;
+}
 
   /* .cards-center {
     width: 80vw;
@@ -1479,8 +1611,7 @@ padding-bottom: 15px;
 
 
 .intro-btn .btn {
-  font-size: 15px;
-  margin-top: 3rem;
+  margin-top: -1rem;
 }
 
 
@@ -1503,20 +1634,79 @@ padding-bottom: 15px;
 }
 
 .blog-title {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .btn-link {
-        width: 280px;
-    margin-left: 7.5em;
-    margin-top: -6em;
-    font-size: 10px;
+  width: 280px;
+  margin-left: 7.5em;
+  margin-top: -6em;
+  font-size: 10px;
 }
 .tile-1 img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+#img-shop {
+  height: 60vh;
+}
+
+footer>.container {
+    height: 18em;
 }
   /* End of MAIN */
+
+  /* About page start*/
+  .about-h1 {
+    margin-top: -9.5em;
+    margin-left: 5em;
+}
+
+.img-about-us {
+  margin-left: 6em;
+}
+
+#about-h4 {
+  margin-bottom: 2em;
+}
+  /* About page end*/
+
+  /* Chocoblog page start*/
+#blog-img {
+  width: 50%;
+}
+
+#article-img {
+    max-height: 94vh;
+}
+
+#article-center-a {
+    margin-left: 4em;
+}
+
+.user-comment-p {
+    margin-inline: 13em;
+}
+
+#btn-comment {
+    margin: 35px 154px -20px 0;
+}
+
+#cancel-comment {
+  margin-left: 16em;
+}
+  /* Chocoblog page end*/
+
+  /* Category page start*/
+#btn-intro-category {
+  margin-left: 0;
+}
+
+#product-category-img {
+  width: 10vh;
+}
+  /* Category page end*/
 }
 
 /* @media screen and (min-width: 676px) {

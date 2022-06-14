@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
+use App\Repository\CommentRepository;
 use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,38 +34,13 @@ class UserController extends AbstractController
 
 
     #[Route('/users', name: 'user_index')]
-    public function users(UserRepository $userRepository): Response
+    public function users(UserRepository $userRepository, CommentRepository $commentRepository): Response
     {
-        $user = $userRepository->find($this->getUser());
+        $comments = $commentRepository->findBy(["user_id" => $this->getUser()]);
+        $user = $userRepository->find($this->getUser()->getId());
         return $this->render('user/user.html.twig', [
+            'comments' => $comments,
             'user' => $user
         ]);
-        // version qui fonctionne vite fais
     }
-
-    // #[Route('/users/{id}', name: 'user_index', methods: ['GET'])]
-    // public function show(User $user): Response
-    // {
-
-    //     return $this->render('user/index.html.twig', [
-    //         'user' => $user,
-    //     ]);
-    // }
-
-    // #[Route('/users/{id}', name: 'user_index')]
-    // public function show(UserRepository $userRepository, int $id)
-    // {
-    //     $id = $userRepository->find($id);
-    //     return $this->render('user/index.html.twig');
-    // }
-
-    // #[Route('/users/{id}', name: 'user_index', methods: ['GET'])]
-    // public function show(User $users, UserRepository $userRepository, int $id): Response
-    // {
-    //     $users = $userRepository->find($id);
-    //     return $this->render('user/index.html.twig', [
-    //         'users' => $users
-    //     ]);
-    // }
-
 }

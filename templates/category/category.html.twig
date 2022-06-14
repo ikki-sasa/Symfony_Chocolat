@@ -25,7 +25,8 @@
             <div class="card-body  text-center">
                 <h4 class="card-title" id="category-h4">{{ product.productName }}</h4>
                 <p class="mt-4">
-                    <a href=" {{ path('product_view', {'id':product.id})}} " class="btn intro-btn mb-5 ">Détails</a>
+                    <a href=" {{ path('product_view', {'id':product.id})}} " class="btn intro-btn mb-5 "
+                        id="btn-intro-category">Détails</a>
                 </p>
             </div>
         </div>

@@ -25,7 +25,7 @@
                 </ol>
                 <h4 class="article-center"> {{ article.event }} </h4>
                 <div class="text-left">
-                    <h5 class="article-center">{{ article.title}}
+                    <h5 class="article-center">{{ article.title }}
                     </h5>
                     <p class="article-center">{{ article.content }}</p>
                 </div>
@@ -41,23 +41,23 @@
         {% for comment in comments|reverse %}
         {% if comment.commentStatus == true %}
         <div class="row align-items-center justify-content-center border border-dark mb-5">
-            <div class="col-12 col-md-1 mt-4 mt-md-0  me-auto me-md-0">
+            <div class="col-12 col-md-1 mt-4 mt-md-0  me-auto me-md-0 user-comment">
                 <img alt="utilisateur les amoureux du chocolat" class="img-fluid rounded-circle mb-3 mb-md-1 mt-1"
                     src=" {{ asset('img/Blog/user.png')  }} ">
                 <div class="mb-1 text-muted">
                     <em>{{comment.userId.firstName}}</em>
                 </div>
-                <p class="text-success">utilisateur vérifier</p>
+                <p class="text-success user-comment-p">utilisateur vérifier</p>
             </div>
 
             <div class="col-12 col-md-7 mt-3">
-                <h4>{{ comment.title }}</h4>
+                <h4 class="comment-h4">{{ comment.title }}</h4>
                 <div class="mb-1 text-muted text-end">
-                    <p class="text-muted">Posté le {{ comment.createdAt|date('d/m/y')}}
+                    <p class="text-muted comment-p">Posté le {{ comment.createdAt|date('d/m/y')}}
                     </p>
 
                 </div>
-                <p class="text-h3 pt-5">
+                <p class="text-h3 pt-5 comment-content" id="comment-content">
                     {{ comment.content }}
                 </p>
                 <div class="col-12 bg-reply">
