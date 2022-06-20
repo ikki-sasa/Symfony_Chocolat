@@ -2,130 +2,121 @@
 {% block title %}Détails Produit ♥ Les Amoureux du Chocolat ♥{% endblock %}
 
 {% block body %}
+<section class="pt-5 pb-5">
+    <div class="container-fluid">
+        <div class="row align-items-center border border-dark">
+            <div class="col-7">
+                <img src="{{ asset('img/category/' ~ product.img ) }}" alt="photo principale" class="img-fluid"
+                    id="product-img-view">
+            </div>
 
-<div class="pd-wrap mt-5">
-    <div class="row border border-dark mb-6">
-        <div class="col-md-6 ">
-            <div class=" product">
-                <div class="item">
-                    <img src="{{ asset('img/category/' ~ product.img ) }}" alt="photo principale" class="img-fluid">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="product-dtl">
-                <div class="product-info mt-5 text-left py-3 px-lg-5">
-                    <ol class="breadcrumb">
-                        <ol class="breadcrumb py-3" id="breadcrumb-category-product">
-                            <li class="breadcrumb-item"><a href=" {{ path('home')}} ">Accueil</a></li>
-                            <li class="breadcrumb-item"><a href=" {{ path('category_index')}} ">Gamme de produits</a>
-                            </li>
-                            <li class="breadcrumb-item active">{{ product.productName }}</li>
-                        </ol>
+            <div class="col-5">
+                <ol class="breadcrumb left">
+                    <ol class="breadcrumb py-3">
+                        <li class="breadcrumb-item"><a href=" {{ path('home')}} ">Accueil</a></li>
+                        <li class="breadcrumb-item"><a href=" {{ path('category_index')}} ">Gamme de produits</a>
+                        </li>
+                        <li class="breadcrumb-item active">{{ product.productName }}</li>
                     </ol>
-                    <h4 id="category-view"> {{ product.productName }} </h4>
-                    <div class="text-left" id="category-view">
-                        <p>Description : {{ product.description }}
-                        </p>
-                        <p>État : {{ product.statutes }}
-                        </p>
-                        <h6>Poids : {{ product.weight }} gr</h6>
-                        <p>Prix : {{ product.price }} €</p>
-                        <h6>Ingrédients:</h6>
-                        <p> {{ product.ingredients }} </p>
-                    </div>
+                </ol>
+                <h1 class="">{{ product.productName }}</h1>
+                <div class="list-features lead list-l">
+                    <p>Description : {{ product.description }}
+                    </p>
+                    <p>État : {{ product.statutes }}
+                    </p>
+                    <h6>Poids : {{ product.weight }} gr</h6>
+                    <p>Prix : {{ product.price }} €</p>
+                    <h6>Ingrédients:</h6>
+                    <p> {{ product.ingredients }} </p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="item">
-        <section class="pt-6 pb-3 border border-dark mt-6 mb-6">
-            <div class="container">
-                <div class="row row-grid">
-                    <div class="col-xs-6 col-md-6 my-1">
-                        <div class="img-fluid">
-                            <img src="{{ asset('img/category/' ~ product.img2 ) }}" alt="photo principale"
-                                class="img-fluid w-50  mx-auto d-block" id="category-img-2">
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-md-6 my-auto">
-                        <div class="mx-auto d-block">
-                            <h5 id="category-view"> {{ product.productName }} </h5>
-                        </div>
-                    </div>
-                </div>
+</section>
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-7">
+                <img src="{{ asset('img/category/' ~ product.img2 ) }}" alt="photo principale"
+                    class="img-fluid mx-auto d-block">
             </div>
-        </section>
-        <section class="mt-4">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col border border-dark" id="col-grid">
-                        <img src="{{ asset('img/Item/Framboise.png')}}" alt="Les amoureux du chocolat Framboise"
-                            class="img-fluid mw-25">
-                    </div>
-                    <div class="col border border-dark" id="col-grid">
-                        <img src="{{ asset('img/Item/Vanilla.png')}}" alt="Les amoureux du chocolat Vanilla"
-                            class="img-fluid mw-25">
-                    </div>
-                    <div class="col border border-dark" id="col-grid">
-                        <img src="{{ asset('img/Item/Feuilletine.png')}}" alt="Les amoureux du chocolat Feuilletine"
-                            class="img-fluid mw-25">
-                    </div>
-                    <div class="col border border-dark" id="col-grid">
-                        <img src="{{ asset('img/Item/Menthe.png')}}" alt="Les amoureux du chocolat Menthe"
-                            class="img-fluid mw-25">
-                    </div>
-                    <div class="col border border-dark" id="col-grid">
-                        <img src="{{ asset('img/Item/Citronnettes.png')}}" alt="Les amoureux du chocolat Citronnettes"
-                            class="img-fluid mw-25">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col border border-dark" id="col-grid">
-                        <img src="{{ asset('img/Item/Noix.png')}}" alt="Les amoureux du chocolat Noix"
-                            class="img-fluid mw-25">
-                    </div>
-                    <div class="col border border-dark" id="col-grid">
-                        <img src="{{ asset('img/Item/Orangettes.png')}}" alt="Les amoureux du chocolat Orangettes"
-                            class="img-fluid mw-25">
-                    </div>
-                    <div class="col border border-dark" id="col-grid">
-                        <img src="{{ asset('img/Item/Noisette-1.png')}}" alt="Les amoureux du chocolat Noisette"
-                            class="img-fluid mw-25">
-                    </div>
-                    <div class="col border border-dark" id="col-grid">
-                        <img src="{{ asset('img/Item/Tablette.png')}}" alt="Les amoureux du chocolat Tablette"
-                            class="img-fluid mw-25">
-                    </div>
-                    <div class="col border border-dark" id="col-grid">
-                        <img src="{{ asset('img/Item/Madeleine.png')}}" alt="Les amoureux du chocolat Madeleine"
-                            class="img-fluid mw-25">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col border border-dark" id="col-grid">
-                        <img src="{{ asset('img/Item/Pate-tartiner.png')}}"
-                            alt="Les amoureux du chocolat Pâte à tartiner" class="img-fluid mw-25">
-                    </div>
-                    <div class="col border border-dark" id="col-grid">
-                        <img src="{{ asset('img/Item/Earl-Grey-noir-herbs.png')}}"
-                            alt="Les amoureux du chocolat Earl Grey noir herbes" class="img-fluid mw-25">
-                    </div>
-                    <div class="col border border-dark" id="col-grid">
-                        <img src="{{ asset('img/Item/Croc-Noisette-lait.png')}}"
-                            alt="Les amoureux du chocolat Croc'Noisette lait" class="img-fluid mw-25">
-                    </div>
-                    <div class="col border border-dark" id="col-grid">
-                        <img src="{{ asset('img/Item/Guimauve.png')}}" alt="Les amoureux du chocolat Guimauve"
-                            class="img-fluid mw-25">
-                    </div>
-                    <div class="col border border-dark" id="col-grid">
-                        <img src="{{ asset('img/Item/Gingembre.png')}}" alt="Les amoureux du chocolat Gingembre"
-                            class="img-fluid mw-25">
-                    </div>
-                </div>
+            <div class="col-5">
+                <h5 class="mb-2">{{ product.productName }}</h5>
             </div>
-        </section>
+        </div>
     </div>
-    {% include "shared/_scrolltop.html.twig" %}
-    {% endblock %}
+</section>
+<section class="mt-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col border border-dark" id="col-grid">
+                <img src="{{ asset('img/Item/Framboise.png')}}" alt="Les amoureux du chocolat Framboise"
+                    class="img-fluid mw-25">
+            </div>
+            <div class="col border border-dark" id="col-grid">
+                <img src="{{ asset('img/Item/Vanilla.png')}}" alt="Les amoureux du chocolat Vanilla"
+                    class="img-fluid mw-25">
+            </div>
+            <div class="col border border-dark" id="col-grid">
+                <img src="{{ asset('img/Item/Feuilletine.png')}}" alt="Les amoureux du chocolat Feuilletine"
+                    class="img-fluid mw-25">
+            </div>
+            <div class="col border border-dark" id="col-grid">
+                <img src="{{ asset('img/Item/Menthe.png')}}" alt="Les amoureux du chocolat Menthe"
+                    class="img-fluid mw-25">
+            </div>
+            <div class="col border border-dark" id="col-grid">
+                <img src="{{ asset('img/Item/Citronnettes.png')}}" alt="Les amoureux du chocolat Citronnettes"
+                    class="img-fluid mw-25">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col border border-dark" id="col-grid">
+                <img src="{{ asset('img/Item/Noix.png')}}" alt="Les amoureux du chocolat Noix" class="img-fluid mw-25">
+            </div>
+            <div class="col border border-dark" id="col-grid">
+                <img src="{{ asset('img/Item/Orangettes.png')}}" alt="Les amoureux du chocolat Orangettes"
+                    class="img-fluid mw-25">
+            </div>
+            <div class="col border border-dark" id="col-grid">
+                <img src="{{ asset('img/Item/Noisette-1.png')}}" alt="Les amoureux du chocolat Noisette"
+                    class="img-fluid mw-25">
+            </div>
+            <div class="col border border-dark" id="col-grid">
+                <img src="{{ asset('img/Item/Tablette.png')}}" alt="Les amoureux du chocolat Tablette"
+                    class="img-fluid mw-25">
+            </div>
+            <div class="col border border-dark" id="col-grid">
+                <img src="{{ asset('img/Item/Madeleine.png')}}" alt="Les amoureux du chocolat Madeleine"
+                    class="img-fluid mw-25">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col border border-dark" id="col-grid">
+                <img src="{{ asset('img/Item/Pate-tartiner.png')}}" alt="Les amoureux du chocolat Pâte à tartiner"
+                    class="img-fluid mw-25">
+            </div>
+            <div class="col border border-dark" id="col-grid">
+                <img src="{{ asset('img/Item/Earl-Grey-noir-herbs.png')}}"
+                    alt="Les amoureux du chocolat Earl Grey noir herbes" class="img-fluid mw-25">
+            </div>
+            <div class="col border border-dark" id="col-grid">
+                <img src="{{ asset('img/Item/Croc-Noisette-lait.png')}}"
+                    alt="Les amoureux du chocolat Croc'Noisette lait" class="img-fluid mw-25">
+            </div>
+            <div class="col border border-dark" id="col-grid">
+                <img src="{{ asset('img/Item/Guimauve.png')}}" alt="Les amoureux du chocolat Guimauve"
+                    class="img-fluid mw-25">
+            </div>
+            <div class="col border border-dark" id="col-grid">
+                <img src="{{ asset('img/Item/Gingembre.png')}}" alt="Les amoureux du chocolat Gingembre"
+                    class="img-fluid mw-25">
+            </div>
+        </div>
+        {#
+    </div> #}
+</section>
+{#
+</div> #}
+{% endblock %}

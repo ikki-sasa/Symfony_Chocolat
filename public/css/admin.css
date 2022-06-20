@@ -86,6 +86,25 @@ table img {
   width: 8rem;
   object-fit: contain;
 }
+/*
+=============== 
+BUTTON TOP 
+===============
+*/
+.top-btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  opacity: 2;
+}
+
+.top-btn:hover {
+  color: var(--clr-primary-1);
+}
+
 
 
  /* width: 100%;
