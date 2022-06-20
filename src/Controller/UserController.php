@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
-use App\Repository\CommentRepository;
+use App\Form\UserType;
 use App\Repository\UserRepository;
+use App\Repository\CommentRepository;
+use CodeInc\StripAccents\StripAccents;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,15 +34,34 @@ class UserController extends AbstractController
         return $this->redirectToRoute('user_admin_index');
     }
 
-
-
-    #[Route('/users', name: 'user_index')]
+    #[Route('/user', name: 'user_index')]
     public function users(UserRepository $userRepository, CommentRepository $commentRepository): Response
     {
         $comments = $commentRepository->findBy(["user_id" => $this->getUser()]);
         $user = $userRepository->find($this->getUser()->getId());
         return $this->render('user/user.html.twig', [
             'comments' => $comments,
+            'user' => $user
+        ]);
+    }
+    #[Route('/user/update/{id}', name: 'user_update')]
+    public function update(UserRepository $userRepository, int $id, Request $request, ManagerRegistry $managerRegistry)
+    {
+        $user = $userRepository->find($id);
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $manager = $managerRegistry->getManager();
+            $manager->persist($user);
+            $manager->flush();
+            $this->addFlash('success', 'Vos informations ont bien été modifiées.');
+            return $this->redirectToRoute('user_index');
+        }
+
+
+        return $this->render('user/user_update.html.twig', [
+            'userForm' => $form->createView(),
             'user' => $user
         ]);
     }

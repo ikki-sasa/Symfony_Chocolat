@@ -19,6 +19,8 @@
                     <p class="pt-1 mt-1">{{ user.lastName }} Modifier votre :</p>
                     <p class="pt-1 mt-1">{{ user.firstName }} Modifier votre :</p>
                     <p class="pt-1 mt-1 mb-5">Votre e-mail : {{ user.email }}</p>
+                    <a href=" {{ path('user_update', { 'id': user.id})}}" class="text-warning"><i
+                            class="fas fa-pen-square"></i></a>
 
                 </div>
             </div>
