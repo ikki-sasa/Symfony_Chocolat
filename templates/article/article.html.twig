@@ -1,9 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ article.title }} détails Chocoblog ♥ Les Amoureux du Chocolat ♥ {% endblock %}
-
 {% block body %}
 <div class="row border border-dark mb-6 mx-auto d-flex">
+    <nav aria-label="breadcrumb" id="breadcrumb">
+        <ol class="breadcrumb mb-0 mt-3">
+            <li class="breadcrumb-item"><a href=" {{ path('home')}} ">Accueil</a></li>
+            <li class="breadcrumb-item"><a href=" {{ path('article_index')}} ">ChocoBlog article</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ article.title }}</li>
+        </ol>
+    </nav>
     <div class="col-md-6 ">
         <div class="product">
             <div class="item">
@@ -12,25 +18,23 @@
             </div>
         </div>
     </div>
-    <nav aria-label="breadcrumb" id="breadcrumb">
-        <ol class="breadcrumb mb-0 mt-3">
-            <li class="breadcrumb-item"><a href=" {{ path('home')}} ">Accueil</a></li>
-            <li class="breadcrumb-item"><a href=" path('article_index')}} ">ChocoBlog article</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{ article.title }}</li>
-        </ol>
-    </nav>
     <div class="col-md-6">
         <div class="product-dtl">
-            <div class="product-info mt-5 text-left py-3 px-lg-5">
+            <div class="product-info mt-5 text-center py-3 px-lg-5">
                 <div class="row align-items-center">
                     <h4 class="article-center"> {{ article.event }} </h4>
-                    <div class="text-left">
+                    <div class="text-center">
                         <h5 class="article-center">{{ article.title }}
                         </h5>
                         <p class="article-center">{{ article.content }}</p>
                     </div>
-                    <a href=" {{ path('comment_new', {'id':article.id}) }} " class="btn article-btn">Commenter
-                        l'article</a>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <a href=" {{ path('comment_new', {'id':article.id}) }} " class="btn article-btn"
+                                id="article-btn">Commenter
+                                l'article</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

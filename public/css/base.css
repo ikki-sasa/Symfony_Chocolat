@@ -235,7 +235,7 @@ FIXED NAVBAR
 */
 
 .navbar {
-  background-color: var(--clr-primary-10);
+  background-color: var(--clr-primary-9);
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -788,10 +788,13 @@ End of Footer
 
 
   #navbar {
+    width: 100vw;
+    position: fixed;
     padding: 10px;
     margin-bottom: -4em;
     padding-top: 0;
     padding-bottom: 0;
+    z-index: 35;
   }
 
   .nav-menu {
@@ -1113,6 +1116,12 @@ footer small {
   margin: auto;
 }
 
+#article-btn {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
 .comment-h4 {
   font-size: small;
 }
@@ -1206,9 +1215,18 @@ footer small {
 /* Category product start */
 
 #category-h4 {
+  margin: auto;
+  display: flex;
+  justify-content: center;
   font-size: 10px;
 }
 
+
+#btn-intro-category {
+  margin: auto;
+  display: inline-flex;
+  justify-content: center;
+}
 
 #col-grid {
   flex:  1 0 35%;
@@ -1578,6 +1596,16 @@ footer small {
 }
 /* Article blog page end */
 
+/* Product view start */
+#product-img-view {
+  max-width: 99vw;
+    margin-left: -6.2em;
+    height: 46vh;
+}
+/* Product view end */
+
+
+
 /* Comment Article start */
 /* #btn-comment {
     margin: 35px 154px -20px 0;
@@ -1637,17 +1665,22 @@ footer small {
 .icon-burger {
   display: none;
 }
-
-
-
   /* end of Navbar */
-  /* Header  */
-.img-logo-header {
-    width: 40%;
-    margin-top: 4em;
-    margin-left: 1em;
-  }
 
+  /* Header   768px*/
+.img-logo-header {
+  /* width: 40%;
+  margin-top: 4em;
+  margin-left: 1em; */
+  width: 50%;
+  margin-top: 10em;
+  margin-left: 13em;
+  display: flex;
+  opacity: 0.8;
+  }
+.img-header-home {
+  height: 74vh;
+}
 .product-btn {
     margin-top: -5rem;
     font-size: 17px;
@@ -1660,19 +1693,32 @@ a.btn {
 }
 
   
-  /* end of Header  */
-  /* MAIN */
-  .section-title-h {
-    white-space: pre-line;
-    text-align: center;
-    font-size: 30px;
-  }
-  .section-title-p {
-    font-size: 17px;
-  }
+/* end of Header  */
+/* MAIN  768px*/
+.section-title-h {
+  white-space: pre-line;
+  text-align: center;
+  font-size: 30px;
+}
+.section-title-p {
+  font-size: 17px;
+}
 
 #product-inline-0 {
   margin-top: -4em;
+}
+
+#product-inline-1 {
+  display: flex;
+  margin-top: -3em;
+}
+
+#taste>h2 {
+  margin-top: 1em;
+}
+
+#category-home {
+  display: flex;
 }
 
 
@@ -1690,7 +1736,7 @@ a.btn {
     margin-bottom: 3rem;
   }
 
-  /* Intro product img */
+  /* Intro product img  768px*/
 .products-inventory {
     display: flex;
     width: 91vw;
@@ -1733,9 +1779,9 @@ a.btn {
     margin-bottom: 0em;
   }
 
-  /* end of Intro product img */
+  /* end of Intro product img  768px*/
 
-  /* products-inventory  */
+  /* products-inventory   768px*/
   
   .products-inventory {
     display: flex;
@@ -1745,7 +1791,7 @@ a.btn {
     object-fit: contain;
     margin: 0 0 0 0;
   }
-  /* end products-inventory  */
+  /* end products-inventory   768px*/
 
   .categories-products {
     display: flex;
@@ -1769,8 +1815,8 @@ a.btn {
     text-transform: uppercase;
     font-size: 0.975rem;
   }
-  /* end of products-inventory  */
-/* BLOG  */
+  /* end of products-inventory   768px*/
+/* BLOG   768px*/
 .info-blog {
   margin-top: -2rem;
 }
@@ -1801,14 +1847,17 @@ a.btn {
 }
 
 footer>.container {
-    height: 18em;
+  height: 18em;
 }
-  /* End of MAIN */
+  /* End of Blog main page 768px*/
 
-  /* About page start*/
-  .about-h1 {
-    margin-top: -9.5em;
-    margin-left: 5em;
+  /* About page start 768px*/
+.about-h1 {
+  margin-top: -9.5em;
+  margin-left: 5em;
+}
+.img-header {
+    height: 100vh;
 }
 
 .img-about-us {
@@ -1818,11 +1867,20 @@ footer>.container {
 #about-h4 {
   margin-bottom: 2em;
 }
-  /* About page end*/
+/* About page end 768px*/
 
-  /* Chocoblog page start*/
-#blog-img {
+/* Chocoblog page start 768px*/
+
+#breadcrumb ol {
+  padding-top: 2em;
+  font-size: x-large;
+}
+#article-read {
   width: 50%;
+}
+
+#blog-img {
+  width: 100%;
 }
 
 #article-img {
@@ -1837,24 +1895,33 @@ footer>.container {
     margin-inline: 13em;
 }
 
-#btn-comment {
-    margin: 35px 154px -20px 0;
+
+#article-btn {
+  display: flex;
+  margin: auto;
+  justify-content: center;
 }
+
 
 /* #cancel-comment {
   margin-left: 16em;
 } */
-  /* Chocoblog page end*/
+  /* Chocoblog page end 768px*/
 
-  /* Category page start*/
+  /* Category page start 768px*/
+
+#category-inline {
+  margin-top: 2em;
+  width: 33%;
+}
+
 
 #img-category-width {
-  width: 50%;
+  width: 33%;
 }
 
 #category-h4 {
-    font-size: 20px;
-    margin: auto;
+  font-size: medium;
 }
 
 #btn-intro-category {
@@ -1864,9 +1931,9 @@ footer>.container {
 #product-category-img {
   width: 10vh;
 }
-  /* Category page end*/
+  /* Category page end 768px*/
 
-  /* Product page start*/
+  /* Product page start 768px*/
 
 /* .breadcrumb {
   margin: auto;
@@ -1886,9 +1953,14 @@ margin-top: 4em;
   margin-left: -4.8em;
 } */
 
-#description>p {
-  font-size: 5px;
+.description-title {
+  margin-top: -6em;
 }
+
+.product-view-description {
+  line-height: 5em;
+}
+
 
 #col-product {
   width: 88.5vw;
@@ -1902,7 +1974,7 @@ margin-top: 4em;
     flex: 1 0 30%;
 }
 
-/* User page start */
+/* User page start  768px*/
 .title-user-first {
   text-align: center;
   font-size: 39px;
@@ -1920,11 +1992,11 @@ margin-top: 4em;
 }
 
 
-a.btn {
+/* a.btn-user appelle user sur ton template {
   padding: 0px 0px;
   margin: auto;
   font-size: 12px;
-}
+} */
 
 #btn-user {
   display: flex;
@@ -1935,14 +2007,14 @@ a.btn {
 .btn-intro-user {
 
 }
-/* User page end */
+/* User page end  768px*/
 
 
 
 
-  /* Product page end*/
+  /* Product page end 768px*/
 
-  /* Login page start*/
+  /* Login page start 768px*/
 #email-login{
   display: block;
   margin: auto;
@@ -1977,9 +2049,9 @@ a.btn {
   display: flex;
   margin: auto;
 }
-  /* Login page end*/
+  /* Login page end 768px*/
 
-  /* Contact page start*/
+  /* Contact page start 768px*/
 .contact-h1 {
     margin-top: -6.5em;
     margin-left: 9.5em;
