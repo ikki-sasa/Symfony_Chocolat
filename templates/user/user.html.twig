@@ -3,29 +3,29 @@
 {% block title %}Bienvenue {{ user.firstName }} ♥ Les Amoureux du Chocolat ♥{% endblock %}
 
 {% block body %}
+{% include "shared/_flash.html.twig" %}
 
 <section class="pt-1 pb-1 mt-1">
     <div class="container-fluid">
         <div class="row justify-content-center align-content-center d-flex ">
-            <div class="col-md-3 col-3 mx-5 justify-content-center align-content-center d-md-flex flex-column
- ">
-                <h2 class="">Votre compte</h2>
-                <a href="#">Historique des articles commenter</a>
-                <p class=" mt-5">
+            <div class="col-md-3 col-3 mx-auto justify-content-center align-content-center d-md-flex flex-column text-center
+ " id="user-details">
+                <h2 class="title-user-first">Votre compte</h2>
+                <p class="text-logout mt-5">
                     <a href=" {{ path('app_logout') }} ">Déconnexion</a>
                 </p>
-                <h2 class="mb-3 mt-3">Détails de votre compte</h2>
-                <div>
-                    <p class="pt-1 mt-1">{{ user.lastName }} Modifier votre :</p>
-                    <p class="pt-1 mt-1">{{ user.firstName }} Modifier votre :</p>
+                <h2 class="title-user mb-3 mt-3">Détails de votre compte</h2>
+                <div class="text-infos">
+                    <p class="pt-1 mt-1">{{ user.lastName }}</p>
+                    <p class="pt-1 mt-1">{{ user.firstName }}</p>
                     <p class="pt-1 mt-1 mb-5">Votre e-mail : {{ user.email }}</p>
-                    <a href=" {{ path('user_update', { 'id': user.id})}}" class="text-warning"><i
-                            class="fas fa-pen-square"></i></a>
+                    <a href=" {{ path('user_update', { 'id': user.id})}}" class="btn intro-user">Modifier vos
+                        informations</a>
 
                 </div>
             </div>
-            <div class="col-md-4 col-2 mx-auto">
-                <h2 class="pt-5 mt-0">Bienvenue {{ user.firstName }}</h2>
+            <div class="col-md-4 col-2 mx-auto text-infos text-center" id="user-details">
+                <h2 class="title-user pt-5 mt-0">Bienvenue {{ user.firstName }}</h2>
                 <h3 class="pt-3 mt-3 pb-3">Historique des commentaires</h3>
                 <ul class="timeline">
                     {% if comments is null %}
@@ -33,14 +33,13 @@
                     {% else %}
                     {% for comment in comments|reverse %}
                     <li>
-                        <div class="card text-right py-0 px-0 mb-1 mt-1 border border-dark">
-                            <p class="pt-1 mt-1 mb-1 text-muted small">Créer le {{ comment.createdAt|date('d/m/Y à
+                        <div class="card text-right py-0 px-0 mb-1 mt-1 border border-dark text-infos">
+                            <p class="pt-1 mt-1 mb-1 text-muted small ">Créer le {{ comment.createdAt|date('d/m/Y à
                                 H:i')
                                 }}
                             </p>
                             <h5 class="pt-1 mt-1 mb-1"> {{ comment.title|u.truncate(15, '...', false) }} </h5>
                             <div class="row align-items-center justify-content-between">
-
                                 <p class=""> {{comment.content|u.truncate(30, '...', false)}} </p>
                             </div>
                         </div>

@@ -27,7 +27,7 @@ class CommentController extends AbstractController
     }
 
     #[Route('/comment/new/{id}', name: 'comment_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, ManagerRegistry $managerRegistry, int $id, ArticleRepository $articleRepository): Response
+    public function new(Request $request, ManagerRegistry $managerRegistry, int $id, ArticleRepository $articleRepository): Response
     {
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
@@ -43,11 +43,10 @@ class CommentController extends AbstractController
             $manager->persist($comment);
             $manager->flush();
 
-
             return $this->redirectToRoute('article_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        // $this->addFlash('success', 'Votre commentaire à bien été envoyé, il sera traité dans un bref délai merci ! ');
+        $this->addFlash('success', 'Votre commentaire à bien été envoyé, il sera traité dans un bref délai merci ! ');
         return $this->render('comment/user_comment.html.twig', [
             'commentForm' => $form->createView(),
             'article' => $article

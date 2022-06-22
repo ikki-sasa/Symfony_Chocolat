@@ -1,26 +1,23 @@
 {% extends 'base.html.twig' %}
 {% block title %}Détails Produit ♥ Les Amoureux du Chocolat ♥{% endblock %}
-
 {% block body %}
 <section class="pt-5 pb-5">
     <div class="container-fluid">
         <div class="row align-items-center border border-dark">
-            <div class="col-7">
-                <img src="{{ asset('img/category/' ~ product.img ) }}" alt="photo principale" class="img-fluid"
+            <nav aria-label="breadcrumb" id="breadcrumb">
+                <ol class="breadcrumb mt-5 mb-3">
+                    <li class="breadcrumb-item"><a href=" {{ path('home')}} ">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href=" path('category_index')}} ">Gamme de produits</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ product.productName }}</li>
+                </ol>
+            </nav>
+            <div class="col-7 mx-auto">
+                <img src="{{ asset('img/category/' ~ product.img ) }}" alt="photo principale" class="img-fluid mb-3"
                     id="product-img-view">
             </div>
-
-            <div class="col-5">
-                <ol class="breadcrumb left">
-                    <ol class="breadcrumb py-3">
-                        <li class="breadcrumb-item"><a href=" {{ path('home')}} ">Accueil</a></li>
-                        <li class="breadcrumb-item"><a href=" {{ path('category_index')}} ">Gamme de produits</a>
-                        </li>
-                        <li class="breadcrumb-item active">{{ product.productName }}</li>
-                    </ol>
-                </ol>
-                <h1 class="">{{ product.productName }}</h1>
-                <div class="list-features lead list-l">
+            <h1 class="text-center">{{ product.productName }}</h1>
+            <div class="list-features lead list-l right text-center">
+                <div class="description" id="description">
                     <p>Description : {{ product.description }}
                     </p>
                     <p>État : {{ product.statutes }}

@@ -3,7 +3,7 @@
 {% block title %}{{ article.title }} détails Chocoblog ♥ Les Amoureux du Chocolat ♥ {% endblock %}
 
 {% block body %}
-<div class="row border border-dark mb-6">
+<div class="row border border-dark mb-6 mx-auto d-flex">
     <div class="col-md-6 ">
         <div class="product">
             <div class="item">
@@ -12,70 +12,69 @@
             </div>
         </div>
     </div>
+    <nav aria-label="breadcrumb" id="breadcrumb">
+        <ol class="breadcrumb mb-0 mt-3">
+            <li class="breadcrumb-item"><a href=" {{ path('home')}} ">Accueil</a></li>
+            <li class="breadcrumb-item"><a href=" path('article_index')}} ">ChocoBlog article</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ article.title }}</li>
+        </ol>
+    </nav>
     <div class="col-md-6">
         <div class="product-dtl">
             <div class="product-info mt-5 text-left py-3 px-lg-5">
-                <ol class="breadcrumb" id="breadcrumb-article">
-                    <ol class="breadcrumb py-3">
-                        <li class="breadcrumb-item"><a href=" {{ path('home')}} ">Accueil</a></li>
-                        <li class="breadcrumb-item"><a href=" {{ path('article_index')}} ">ChocoBlog article</a>
-                        </li>
-                        <li class="breadcrumb-item active">{{ article.title }}</li>
-                    </ol>
-                </ol>
-                <h4 class="article-center"> {{ article.event }} </h4>
-                <div class="text-left">
-                    <h5 class="article-center">{{ article.title }}
-                    </h5>
-                    <p class="article-center">{{ article.content }}</p>
+                <div class="row align-items-center">
+                    <h4 class="article-center"> {{ article.event }} </h4>
+                    <div class="text-left">
+                        <h5 class="article-center">{{ article.title }}
+                        </h5>
+                        <p class="article-center">{{ article.content }}</p>
+                    </div>
+                    <a href=" {{ path('comment_new', {'id':article.id}) }} " class="btn article-btn">Commenter
+                        l'article</a>
                 </div>
-                <a href=" {{ path('comment_new', {'id':article.id}) }} " id="article-center-a"
-                    class="btn article-btn">Commenter l'article</a>
             </div>
         </div>
     </div>
+    <section class="pt-3 pb-3">
+        <div class="container">
+            <h1 class="text-center mt-2 pb-4">Découvrez ce que nos clients disent de l'événement</h1>
+            {% for comment in comments|reverse %}
+            {% if comment.commentStatus == true %}
+            <div class="row align-items-center justify-content-center border border-dark mb-5">
+                <div class="col-12 col-md-1 mt-4 mt-md-0  me-auto me-md-0 user-comment">
+                    <img alt="utilisateur les amoureux du chocolat" class="img-fluid rounded-circle mb-3 mb-md-1 mt-1"
+                        src=" {{ asset('img/Blog/user.png')  }} ">
+                    <div class="mb-1 text-muted">
+                        <em>{{comment.userId.firstName}}</em>
+                    </div>
+                    <p class="text-success user-comment-p">utilisateur vérifier</p>
+                </div>
+
+                <div class="col-12 col-md-7 mt-3">
+                    <h4 class="comment-h4">{{ comment.title }}</h4>
+                    <div class="mb-1 text-muted text-end">
+                        <p class="text-muted comment-p">Posté le {{ comment.createdAt|date('d/m/y')}}
+                        </p>
+
+                    </div>
+                    <p class="text-h3 pt-5 comment-content" id="comment-content">
+                        {{ comment.content }}
+                    </p>
+                    <div class="col-12 bg-reply">
+                        <p class="reply">Réponse <strong class="text-uppercase">♥ Les Amoureux du Chocolat♥</strong></p>
+                        <p class="text-h3">
+                            {% for reponse in reponses %}
+                            {% if reponse.fkcomment.id == comment.id %}
+                            {{ reponse.answer }}
+                            {% endif %}
+                            {% endfor %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
 </div>
-<section class="pt-3 pb-3">
-    <div class="container">
-        <h1 class="text-center mt-2 pb-4">Découvrez ce que nos clients disent de l'événement</h1>
-        {% for comment in comments|reverse %}
-        {% if comment.commentStatus == true %}
-        <div class="row align-items-center justify-content-center border border-dark mb-5">
-            <div class="col-12 col-md-1 mt-4 mt-md-0  me-auto me-md-0 user-comment">
-                <img alt="utilisateur les amoureux du chocolat" class="img-fluid rounded-circle mb-3 mb-md-1 mt-1"
-                    src=" {{ asset('img/Blog/user.png')  }} ">
-                <div class="mb-1 text-muted">
-                    <em>{{comment.userId.firstName}}</em>
-                </div>
-                <p class="text-success user-comment-p">utilisateur vérifier</p>
-            </div>
-
-            <div class="col-12 col-md-7 mt-3">
-                <h4 class="comment-h4">{{ comment.title }}</h4>
-                <div class="mb-1 text-muted text-end">
-                    <p class="text-muted comment-p">Posté le {{ comment.createdAt|date('d/m/y')}}
-                    </p>
-
-                </div>
-                <p class="text-h3 pt-5 comment-content" id="comment-content">
-                    {{ comment.content }}
-                </p>
-                <div class="col-12 bg-reply">
-                    <p class="reply">Réponse <strong class="text-uppercase">♥ Les Amoureux du Chocolat♥</strong></p>
-                    <p class="text-h3">
-                        {% for reponse in reponses %}
-                        {% if reponse.fkcomment.id == comment.id %}
-                        {{ reponse.answer }}
-                        {% endif %}
-                        {% endfor %}
-                    </p>
-                </div>
-            </div>
-        </div>
-        {% endif %}
-        {% endfor %}
-    </div>
-</section>
-
-{% include "shared/_scrolltop.html.twig" %}
 {% endblock %}

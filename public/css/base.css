@@ -92,7 +92,11 @@ p {
 
 #btn:hover {
   background: var(--clr-primary-1);
+  color: var(--clr-primary-9);
 }
+
+
+
 a.btn {
   text-transform: uppercase;
   background: var(--clr-primary-4);
@@ -107,6 +111,29 @@ a.btn {
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: var(--raduis);
+}
+
+#btn-user {
+  text-transform: uppercase;
+  background-color: var(--clr-primary-4);
+  color: var(--clr-primary-9);
+  padding: 0.5rem 0.5rem;
+  letter-spacing: var(--spacing);
+  display: inline-block;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  font-size: 0.875rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: var(--raduis);
+}
+#btn-user:hover {
+  color: var(--clr-primary-9);
+}
+
+a.btn:hover {
+  color: var(--clr-primary-9);
 }
 
 #btn-main {
@@ -191,7 +218,7 @@ ul.timeline > li:before {
     left: 20px;
     width: 20px;
     height: 20px;
-    z-index: 400;
+    z-index: 10;
 }
 
 /* HEADER  */
@@ -266,11 +293,6 @@ FIXED NAVBAR
 /*
 SIDEBAR
 */
-
-
-
-
-
 
 .img-logo-header {
   position: absolute;
@@ -622,19 +644,26 @@ BUTTON TOP
 }
 .cookie-consent-modal.active{
     display: flex;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.fa-cookie-bite {
+  color: var(--clr-primary-1);
+}
+
 .content{
     background-color: #fff;
     padding: 5vw 3vw;
     border-radius: 10px 10px 0 0;
 }
 
-/* .btns{
+.btns{
     display: flex;
     justify-content: flex-end;
     margin-top: 2em;
 }
-.btn{
+/* .btn{
     border: none;
     outline: none;
     padding: .8em 1.5em;
@@ -642,11 +671,46 @@ BUTTON TOP
     margin-right: 1em;
     border-radius: 3px;
     text-transform: uppercase;
-}
+}  */
 .btn.accept{
-    background-color: rgb(0, 185, 124);
+  text-transform: uppercase;
+  background: var(--clr-primary-4);
+  color: var(--clr-primary-9);
+  padding: 0.5rem 1.5rem;
+  letter-spacing: var(--spacing);
+  display: inline-block;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  font-size: 0.875rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: var(--raduis);
+} 
+.btn.cancel{
+  margin: auto 30px;
+  text-transform: uppercase;
+  background: var(--clr-primary-4);
+  color: var(--clr-primary-9);
+  padding: 0.5rem 1.5rem;
+  letter-spacing: var(--spacing);
+  display: inline-block;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  font-size: 0.875rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: var(--raduis);
+} 
+.btn.accept:hover {
+    background: var(--clr-primary-1);
     color: #fff;
-} */
+} 
+.btn.cancel:hover {
+    background: var(--clr-primary-1);
+    color: #fff;
+} 
 
 
 /*
@@ -694,6 +758,34 @@ End of Footer
 /* Media queries */
 @media screen and (min-width: 320px) {
   
+.cookie-consent-modal {
+  height: 104vh;
+}
+
+.content h1,p,a {
+  text-align: center;
+}
+.content a {
+  display: block;
+}
+
+.nav-links {
+  display: none;
+}
+
+.btn.accept{
+  display: flex;
+  margin: auto;
+  padding: 0.3rem 0.3rem;
+  font-size: 0.5rem;
+} 
+.btn.cancel{
+  display: flex;
+  margin: auto;
+  padding: 0.3rem 0.3rem;
+  font-size: 0.5rem;
+} 
+
 
   #navbar {
     padding: 10px;
@@ -719,11 +811,18 @@ svg {
 h1 {
   font-size: 20px;
 }
+
+.about-h1 {
+  margin-top: -5.5em;
+}
   
 
-  .img-header {
-    margin-top: 0em;
-  }
+.img-header-home {
+   margin-top: 0em;
+   width: 100vw;
+   margin-left: -0.8em;
+   height: 48vh;
+}
   
 
   .product-btn  {
@@ -734,6 +833,9 @@ h1 {
   }
 
   #btn-our-product {
+    display: inline-block;
+    margin: auto;
+    justify-content: center;
     font-size: 8px;
   }
 
@@ -742,15 +844,16 @@ a.btn {
     padding: 0px 0px;
     font-size: 8px;
     cursor: pointer;
+    margin-top: -6em;
 }
 
   .hero {
     margin-bottom: -1rem;
   }
   .img-logo-header {
-    width: 35%;
-    margin-top: 4em;
-    margin-left: 1em;
+    width: 40%;
+    margin-top: 2em;
+    margin-left: 0em;
 }
   
   .section {
@@ -772,6 +875,7 @@ a.btn {
 
 
 #product-inline-0 {
+  display: contents;
   margin-top: -5em;
 }
 
@@ -783,7 +887,18 @@ a.btn {
 }
 
 #product-inline-1 {
-margin-top: -3em;
+/* margin-top: -3em; */
+  display: block;
+  margin: auto;
+  justify-content: center;
+  max-width: 100vw;
+}
+
+#category-home {
+  display: block;
+  margin: auto;
+  justify-content: center;
+  width: 100vw;
 }
 
 #taste {
@@ -933,6 +1048,12 @@ margin-top: -3em;
   padding: 0;
   
 }
+
+.img-home-before-footer {
+  width: 100vw;
+  display: contents;
+  margin: auto;
+}
 /* Footer MDQ 320px */
 footer {
 max-width: 100%;
@@ -976,9 +1097,11 @@ footer small {
   max-height: 55vh;
 }
 
-#breadcrumb-article {
-  text-align: center;
-  margin-left: 3em;
+
+#breadcrumb ol {
+  display: flex;
+  margin: auto;
+  justify-content: center; 
 }
 
 .article-center {
@@ -986,7 +1109,12 @@ footer small {
   margin-top: 25px;
 }
 #article-center-a {
-  margin-left: 9em;
+  display: inline-block;
+  margin: auto;
+}
+
+.comment-h4 {
+  font-size: small;
 }
 
 .bg-reply {
@@ -1007,18 +1135,20 @@ footer small {
 }
 
 #btn-comment {
-  margin: 35px 107px -20px 0;
+  display: flex;
+  margin: auto;
+  justify-content: center;
   color: var(--clr-primary-10);
   border-radius: var(--raduis);
   background: var(--clr-primary-4);
   color: var(--clr-primary-9);
-  padding: 5px;
+  padding: 8px;
   transition: var(--transition);
   cursor: pointer;
   border-radius: var(--raduis);
 }
 
-.cancel-comment {
+/* .cancel-comment {
   margin: 5px 49em 2em -5em;
   text-transform: uppercase;
   padding: 0.5rem 1.5rem;
@@ -1029,11 +1159,24 @@ footer small {
   cursor: pointer;
   border-radius: var(--raduis);
 }
+*/
 
 #cancel-comment {
-  background: var(--clr-primary-11);
-  font-size: 0.875em;
-}
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  color: var(--clr-primary-10);
+  border-radius: var(--raduis);
+  background: rgb(236, 111, 111);
+  color: var(--clr-primary-9);
+  padding: 8px;
+  transition: var(--transition);
+  cursor: pointer;
+  border-radius: var(--raduis);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: fit-content;
+} 
 
 
 #comment-card {
@@ -1045,6 +1188,16 @@ footer small {
 .breadcrumb {
   margin-inline: -9em;
   font-size: 12px;
+}
+
+#product-img-view {
+  max-width: 100vw;
+  margin-left: -5em;
+  height: 50vh;
+}
+
+.description {
+  font-size: small;
 }
 
 /* Product page end */
@@ -1066,8 +1219,11 @@ footer small {
 /* Login start */
 
 #login-center-h1 {
+  display: flex;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
   font-size: 22px;
-  margin-inline: -7em;
   text-align: center;
 }
 
@@ -1101,7 +1257,15 @@ footer small {
 
 #btn-login {
   margin-left: -3em;
-  background-color: var(--clr-primary-1);
+  background: var(--clr-primary-4);
+  border-radius: var(--raduis);
+  transition: var(--transition);
+  cursor: pointer;
+  border-radius: var(--raduis);
+}
+
+#btn-login:hover {
+  background: var(--clr-primary-1);
 }
 
 /* Login end */
@@ -1112,8 +1276,10 @@ footer small {
 #btn-register {
   background: var(--clr-primary-4);
   color: var(--clr-primary-9);
-  margin-left: 6em;
   border-radius: var(--raduis);
+  display: flex;
+  margin: auto;
+  justify-content: center;
 }
 #btn-register:hover {
   background: var(--clr-primary-1);
@@ -1121,7 +1287,9 @@ footer small {
 
 .back-home {
   text-align: center;
-  margin: 4em;
+  display: flex;
+  margin: auto;
+  justify-content: center;
 }
 
 /* Register end */
@@ -1153,9 +1321,24 @@ footer small {
   margin-top: 10em;
 }
 
+
 #btn-contact {
-    margin-left: 6.5em;
-    background-color: var(--clr-primary-1);
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  background: var(--clr-primary-4);
+  letter-spacing: var(--spacing);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  font-size: 0.875rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: var(--raduis);
+
+}
+#btn-contact:hover {
+  background: var(--clr-primary-1);
 }
 
 .mail-contact {
@@ -1169,12 +1352,14 @@ footer small {
 }
 
 #btn-reset {
-  background: var(--clr-primary-1);
-  text-transform: uppercase;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+  background: var(--clr-primary-4);
   color: var(--clr-primary-9);
   padding: 0.5rem 1.5rem;
   letter-spacing: var(--spacing);
-  display: inline-block;
   -webkit-transition: var(--transition);
   transition: var(--transition);
   font-size: 0.875rem;
@@ -1183,28 +1368,52 @@ footer small {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: var(--raduis);
 }
+
+#btn-reset:hover {
+  background: var(--clr-primary-1);
+}
 /* Forgotten password end */
 
-} 
+/* User Page start */
+
+.title-user-first {
+  margin-top: 2em;
+}
+
+#user-details {
+  width: 84%;
+}
+/* User Page end */
+
+/* Button top */
+.top-btn {
+  right: 20px;
+}
+
+}
 
 
 /* mobileM 375 */
 @media screen and (min-width:375px) {
+
+.nav-links {
+  display: none;
+}
   
-  .products-inventory {
+.products-inventory {
     width: 94vw;
-  }
+}
 
-
-  .intro-btn .btn {
+.intro-btn .btn {
     margin-left: -20px;
-  }
+}
 
-  .btn-section {
+.btn-section {
   padding: 3px 5px;
   font-size: 3px;
 }
-  .btn-section-1 {
+
+.btn-section-1 {
   padding: 3px 5px;
   font-size: 3px;
 }
@@ -1212,6 +1421,10 @@ footer small {
   .blog-title {
     margin: 0 5px 5px 20px;
 }
+
+/* #product-inline-1 {
+  max-width: 90vw;
+} */
 
 .info-blog-text {
     margin: 0 4em 2rem;
@@ -1226,7 +1439,6 @@ footer small {
 }
 
 
-
 .copyright-info {
     margin-top: auto;
     margin-left: -20rem;
@@ -1237,6 +1449,16 @@ footer small {
 
 
 /* About page start */
+
+
+ .about-h1 {
+  margin-top: -6.5em;
+}
+
+.img-header {
+    height: 56vh;
+}
+
  #about-h4 {
   margin-top: 2px;
 }
@@ -1253,14 +1475,33 @@ footer small {
 }
 /* Article blog end  */
 
+
+/* Category page start */
+.category-view {
+  margin-bottom: 4em;
+}
+/* Category page end  */
+
+/* Product page start */
+.description {
+  font-size: small;
+}
+
+#product-img-view {
+  max-width: 99vw;
+  margin-left: -5.5em;
+  height: 46vh;
+}
+/* Product page end */
+
 /* Login page start */
 #btn-login {
   margin-left: -2em;
 }
 
-#btn-reset {
+/* #btn-reset {
   background: var(--clr-primary-1);
-}
+} */
 
 #login-center {
   margin-inline: -48px;
@@ -1277,41 +1518,56 @@ footer small {
 
 
 /* Register page start */
-#btn-register {
+/* #btn-register {
   margin-left: 8em;
-}
+} */
 
 .back-home {
   margin: 93px;
 }
-
 /* Register page end */
+
+/* Contact us start end */
+.contact-h1 {
+  margin-left: 1.5em;
+}
+/* Contact us end */
 
 }
 
 
 @media screen and (min-width:425px) {
+  /* Cookie consent */
+.content {
+  height: 85vh;
+  margin-bottom: -15em;
+}
+
+.nav-links {
+  display: none;
+}
+
  /* home page start */
  
  .btn-link {
-    width: 135px;
-    margin-left: 10em;
-    margin-top: -9em;
-    font-size: 6px;
+  width: 135px;
+  margin-left: 10em;
+  margin-top: -11em;
+  font-size: 7px;
 }
 
 .info-blog-text {
   margin: 0 22px 2rem;
-    font-size: 8px;
-    max-width: 15rem;
-  }
+  font-size: 10px;
+  max-width: 15rem;
+}
   /* home page end */
 
 /* Article blog page start */
-#breadcrumb-article {
+/* #breadcrumb-article {
   margin-inline: inherit;
   margin-left: 5em;
-}
+} */
 
 #article-center-a {
   margin-left: 16em;
@@ -1323,13 +1579,13 @@ footer small {
 /* Article blog page end */
 
 /* Comment Article start */
-#btn-comment {
+/* #btn-comment {
     margin: 35px 154px -20px 0;
-}
+} */
 
-.cancel-comment {
+/* .cancel-comment {
     margin: -10px 56em 1em -8em;
-}
+} */
 /* Comment Article end */
 /* Product page start */
 
@@ -1337,30 +1593,53 @@ footer small {
 
 /* login page start */
 #login-center-create {
-    margin-inline: -24px;
+  margin-inline: -24px;
 }
+
+#inputEmail, #inputPassword {
+  margin-left: -6em;
+}
+
+#email-login, #login-center-pswd {
+  display: block;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+/* login page end */
+
+/* Contact us start end  */
+.contact-h1 {
+    margin-left: 2.5em;
+}
+/* Contact us end  */
 
 }
 
 
 /* tablet 768 */
-@media screen and (min-width: 768px) {
-  /* Global styles */
-  
-
-/* 
- 
+@media screen and (min-width: 768px) { 
   /* Navbar */
-  
+.nav-links {
+  display: flex;
+  margin: auto;
+  position: absolute;
+  margin-left: 8em;
+  font-size: 9px;
+}
+
+.logo {
+  width: 6rem;
+}
+
 .icon-burger {
-  padding: 1em;
+  display: none;
 }
-.nav-menu {
-  margin-top: -3.1rem;
-  height: 13.1em;
-  top: 117px;
-}
- 
+
+
+
   /* end of Navbar */
   /* Header  */
 .img-logo-header {
@@ -1562,9 +1841,9 @@ footer>.container {
     margin: 35px 154px -20px 0;
 }
 
-#cancel-comment {
+/* #cancel-comment {
   margin-left: 16em;
-}
+} */
   /* Chocoblog page end*/
 
   /* Category page start*/
@@ -1588,6 +1867,11 @@ footer>.container {
   /* Category page end*/
 
   /* Product page start*/
+
+/* .breadcrumb {
+  margin: auto;
+} */
+
 #view-card-product {
 margin-top: 4em;
 }
@@ -1596,14 +1880,20 @@ margin-top: 4em;
   padding-top: 1em;
 }
 
-/* .breadcrumb {
-  margin: -2em;
-  margin-bottom: auto;
-  font-size: 12px;
+/* #product-img-view {
+  display: block;
+  max-width: 98vw;
+  margin-left: -4.8em;
+} */
+
+#description>p {
+  font-size: 5px;
 }
-*/
-#product-img-view {
-  height: 70vh;
+
+#col-product {
+  width: 88.5vw;
+  display: flex;
+  margin: auto;
 }
 
 
@@ -1612,7 +1902,40 @@ margin-top: 4em;
     flex: 1 0 30%;
 }
 
+/* User page start */
+.title-user-first {
+  text-align: center;
+  font-size: 39px;
+}
+.title-user {
+  text-align: center;
+}
 
+.text-logout {
+  text-align: center;
+}
+
+.text-infos {
+  text-align: center;
+}
+
+
+a.btn {
+  padding: 0px 0px;
+  margin: auto;
+  font-size: 12px;
+}
+
+#btn-user {
+  display: flex;
+  margin: auto;
+}
+
+
+.btn-intro-user {
+
+}
+/* User page end */
 
 
 
@@ -1621,6 +1944,10 @@ margin-top: 4em;
 
   /* Login page start*/
 #email-login{
+  display: block;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
   margin: 5px 70px;
 }
 
@@ -1647,7 +1974,8 @@ margin-top: 4em;
 }
 
 #btn-login {
-    margin: 2em;
+  display: flex;
+  margin: auto;
 }
   /* Login page end*/
 

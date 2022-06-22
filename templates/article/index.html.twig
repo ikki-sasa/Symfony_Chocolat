@@ -5,6 +5,7 @@
 {% block body %}
 
 <main class="container-fluid">
+    {% include "shared/_flash.html.twig" %}
     <h1 class="text-center mt-5 pt-5 mb-5 pb-5">ChocoBlog - Notre actualité les biens faits du chocolat
         et
         bien plus
@@ -29,5 +30,4 @@
         {% endfor %}
     </div>
 </main>
-{% include "shared/_scrolltop.html.twig" %}
 {% endblock %}

@@ -11,7 +11,7 @@
                 <h2 class="mb-5 mt-3 text-center">Laissez votre commentaire ! </h2>
                 <p class="text-h3 lead text-center">Partagez avec nous votre avis sur nos événements est créations est
                     même nous
-                    reviendrons vers vous avec pleins de surprise est de nouveauté tout au long de l'années ! </p>
+                    reviendrons vers vous avec pleins de surprise est de nouveauté tout au long de l'années</p>
                 <h4 class="mb-3 mt-3 h4-comment">Message</h4>
                 {{ form_start(commentForm)}}
                 <div class="row mt-4">
@@ -33,10 +33,9 @@
                         Envoyer
                     </button>
                 </div>
-                <div class="col-12 text-end cancel-comment">
-                    <a href="{{ path('comment_admin_index') }}" class="btn btn-outline-danger mt-5 me-2"
-                        id="cancel-comment">Annuler</a>
-                    {# a changer sinon espace admin pour user #}
+                <div class="text-end ">
+                    <a href="{{ path('article_index') }}" class="btn" id="cancel-comment">
+                        Annuler</a>
                 </div>
                 {# {{ include('comment/_form.html.twig') }} #}
             </div>
@@ -53,7 +52,7 @@
                         <h4 class="card-title">{#{ articles.title }#}</h4>
 
                         <p class="mt-4">
-                            <a href="#" class="">retour à l'article</a>
+                            <a href="{{ path('article_index') }}" class="">retour à l'article</a>
                         </p>
                     </div>
                 </div>

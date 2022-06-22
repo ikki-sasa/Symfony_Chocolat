@@ -1,130 +1,136 @@
 {% extends 'base.html.twig' %}
 {% block title %}Accueil ♥ Les Amoureux du Chocolat ♥{% endblock %}
 {% block body %}
-{% include "shared/_cookie.html.twig" %}
 <div class="row">
     {% include "shared/_flash.html.twig" %}
 </div>
-<header class="hero">
-    <div class="banner-hero-img">
-        <img src="{{ asset('img/Logo/logo_white_no_bg.png')}}" alt="Logo Les Amoureux du Chocolat"
-            class="img-logo-header" />
-        <img src="{{ asset('img/Header/Les_Amoureux_du_chocolat_header.png')}}" alt="Les Amoureux du Chocolat"
-            class="img-header" />
+<div class="row mb-6 mx-auto d-flex">
+    <header class="hero container-fluid">
+        <div class="banner-hero-img">
+            <img src="{{ asset('img/Logo/logo_white_no_bg.png')}}" alt="Logo Les Amoureux du Chocolat"
+                class="img-logo-header img-fluid" />
+            <img src="{{ asset('img/Header/Les_Amoureux_du_chocolat_header.png')}}" alt="Les Amoureux du Chocolat"
+                class="img-header-home" />
 
-        <div class="section-center hero-center">
-            <a href="{{ path('category_index') }}" class="btn product-btn">Nos Produits</a>
-        </div>
-    </div>
-</header>
-<h1 class="text-center pt-5">Un Concentré Pur D'amour Et De Cacao</h1>
-<p class="section-title-p mb-5">
-    Tester le goût de nos produits, faits avec des produits pur et
-    premium, 100% fabrication artisanale
-</p>
-<div class="row pt-5 mx-5" id="product-inline-0">
-    {% for product in products %}
-    <div class="col-md-auto-col-6 col-md-4">
-        <div class="card border-0">
-            <img src="{{ asset('img/category/' ~ product.img) }}" alt="Image Les amoureux du chocolat du produit"
-                class="img-fluid w-60">
-            <div class="card-body" id="product-inline-0-title">
-                <h4 class="card-title text-center">{{ product.productName }}</h4>
-                <p class="text-center">{{ product.price }} € </p>
+            <div class="section-center hero-center">
+                <a href="{{ path('category_index') }}" class="btn product-btn">Nos Produits</a>
             </div>
         </div>
-    </div>
-    {% endfor %}
-    <div class="section-center intro-btn mb-5">
-        <a href="{{ path('category_index') }}" class="btn btn-sm text-center" id="btn-our-product">Nos chocolats</a>
-    </div>
-</div>
-<div class="row pt-5" id="product-inline-1">
-    {% for product in products|reverse %}
-    <div class="col">
-        <a href="#"><img src="{{ asset('img/category/' ~ product.img) }}"
-                alt="Image Les amoureux du chocolat du produit {{product.productName}}" class="img-fluid w-60"></a>
-    </div>
-    {% endfor %}
-</div>
-<h2 class="text-center mt-5" id="taste">Regardez. Testez. Dégustez</h2>
-<div class="row pt-5">
-    {% for category in categories %}
-    <div class="col">
-        <a href="{{ path('product_category', {'slug': category.slug}) }}"><img
-                src="{{ asset('img/category/' ~ category.img) }}" alt="photo principale {{category.name}}"
-                class="img-fluid w-60"></a>
-    </div>
-    {% endfor %}
-    <div class=" intro-btn mb-5" id="taste-btn">
-        <a href="{{ path('category_index') }}" class="btn btn-sm text-center" id="btn-our-product">Nos chocolats</a>
-    </div>
-</div>
-<!-- Blog-info -->
-<section class="section-center info-blog" id="info-blog">
-    <article class="infos-blog">
-        <div class="section-title">
-            <h4 class="blog-title">Rejoignez nous sur notre blog</h4>
-            <p class="info-blog-text">
-                Venez visiter notre blog pour découvrir nos nouveautés est
-                créations sur instagram #LaC
-            </p>
-        </div>
-        <div class="intro-btn">
-            <a href=" {{ path('article_index')}} " class="btn-link">Venez découvrir l'actualité sur notre blog</a>
-        </div>
-    </article>
-
-    <article class="tiles section-center">
-        <div class="tile">
-            <div class="tiles-center">
-                <!-- single tile  -->
-                <article class="tile-1">
-                    <img src="./Img/Blog/work_production1.jpg" alt="Les_Amoureux_du_chocolat" />
-                </article>
-                <!-- end of single tile  -->
-                <!-- single tile  -->
-                <article class="tile-2">
-                    <img src="./Img/Blog/merry_christmas2.jpg" alt="Les_Amoureux_du_chocolat" />
-                </article>
-                <!-- end of single tile  -->
-                <!-- single tile  -->
-                <article class="tile-3">
-                    <img src="./Img/Blog/orangettes3.jpg" alt="Les_Amoureux_du_chocolat" />
-                </article>
-                <!-- end of single tile  -->
-                <!-- single tile  -->
-                <article class="tile-4">
-                    <img src="./Img/Blog/pere_noel_slide4.jpg" alt="Les_Amoureux_du_chocolat" />
-                </article>
-                <!-- end of single tile  -->
-                <!-- single tile  -->
-                <article class="tile-5">
-                    <img src="./Img/Blog/Madeleines noir5.jpg" alt="Les_Amoureux_du_chocolat" />
-                </article>
-                <!-- end of single tile  -->
-                <!-- single tile  -->
-                <article class="tile-6">
-                    <img src="./Img/Blog/truffes6.jpg" alt="Les_Amoureux_du_chocolat" />
-                </article>
-                <!-- end of single tile  -->
-                <!-- single tile  -->
-                <article class="tile-7">
-                    <img src="./Img/Blog/mini-box7.jpg" alt="Les_Amoureux_du_chocolat" width="250px" />
-                </article>
-                <!-- end of single tile  -->
+    </header>
+    <h1 class="text-center pt-5">Un Concentré Pur D'amour Et De Cacao</h1>
+    <p class="section-title-p mb-5">
+        Tester le goût de nos produits, faits avec des produits pur et
+        premium, 100% fabrication artisanale
+    </p>
+    <div class="row pt-5 mx-auto" id="product-inline-0">
+        {% for product in products %}
+        <div class="col-md-auto-col-6 col-md-4">
+            <div class="card border-0">
+                <img src="{{ asset('img/category/' ~ product.img) }}" alt="Image Les amoureux du chocolat du produit"
+                    class="img-fluid w-60">
+                <div class="card-body" id="product-inline-0-title">
+                    <h4 class="card-title text-center">{{ product.productName }}</h4>
+                    <p class="text-center">{{ product.price }} € </p>
+                </div>
             </div>
         </div>
-    </article>
-
-    <article class="container-fluid ">
-        <div class="row">
-            <img src="./Img/Gallery-l-m/Venezuela72.jpg" alt="Les_Amoureux_du_chocolat_Venezuela_72"
-                class="img-fluid" />
-
-            <img src="./Img/Gallery-l-m/apropos-de-nous-acceuil-size.png" alt="Les_Amoureux_du_chocolat_shop"
-                class="img-fluid" id="img-shop" />
+        {% endfor %}
+        <div class="section-center intro-btn mb-5">
+            <a href="{{ path('category_index') }}" class="btn btn-sm text-center" id="btn-our-product">Nos chocolats</a>
         </div>
-    </article>
-</section>
+    </div>
+    <div class="row pt-5" id="product-inline-1">
+        {% for product in products|reverse %}
+        {# {% set images = random([ for product in products '{{ produit.img }}','CONFISERIES']) %} #}
+        {# {% set product = products | merge([random(products | filter(products => products not in products))]) %} #}
+
+        {# {% if product == products %}
+        {% endif %} #}
+        <div class="col">
+            <a href="#"><img src="{{ asset('img/category/' ~ product.img) }}"
+                    alt="Image Les amoureux du chocolat du produit {{product.productName}}" class="img-fluid"></a>
+        </div>
+        {% endfor %}
+    </div>
+    <h2 class="text-center mt-5" id="taste">Regardez. Testez. Dégustez</h2>
+    <div class="row pt-5 mx-auto" id="category-home">
+        {% for category in categories %}
+        <div class="col">
+            <a href="{{ path('product_category', {'slug': category.slug}) }}"><img
+                    src="{{ asset('img/category/' ~ category.img) }}" alt="photo principale {{category.name}}"
+                    class="img-fluid"></a>
+        </div>
+        {% endfor %}
+        <div class=" intro-btn mb-5" id="taste-btn">
+            <a href="{{ path('category_index') }}" class="btn btn-sm text-center" id="btn-our-product">Nos chocolats</a>
+        </div>
+    </div>
+    <!-- Blog-info -->
+    <section class="section-center info-blog" id="info-blog">
+        <article class="infos-blog">
+            <div class="section-title">
+                <h4 class="blog-title">Rejoignez nous sur notre blog</h4>
+                <p class="info-blog-text">
+                    Venez visiter notre blog pour découvrir nos nouveautés est
+                    créations sur instagram #LaC
+                </p>
+            </div>
+            <div class="intro-btn">
+                <a href=" {{ path('article_index')}} " class="btn-link">Venez découvrir l'actualité sur notre blog</a>
+            </div>
+        </article>
+
+        <article class="tiles section-center">
+            <div class="tile">
+                <div class="tiles-center">
+                    <!-- single tile  -->
+                    <article class="tile-1">
+                        <img src="./Img/Blog/work_production1.jpg" alt="Les_Amoureux_du_chocolat" />
+                    </article>
+                    <!-- end of single tile  -->
+                    <!-- single tile  -->
+                    <article class="tile-2">
+                        <img src="./Img/Blog/merry_christmas2.jpg" alt="Les_Amoureux_du_chocolat" />
+                    </article>
+                    <!-- end of single tile  -->
+                    <!-- single tile  -->
+                    <article class="tile-3">
+                        <img src="./Img/Blog/orangettes3.jpg" alt="Les_Amoureux_du_chocolat" />
+                    </article>
+                    <!-- end of single tile  -->
+                    <!-- single tile  -->
+                    <article class="tile-4">
+                        <img src="./Img/Blog/pere_noel_slide4.jpg" alt="Les_Amoureux_du_chocolat" />
+                    </article>
+                    <!-- end of single tile  -->
+                    <!-- single tile  -->
+                    <article class="tile-5">
+                        <img src="./Img/Blog/Madeleines noir5.jpg" alt="Les_Amoureux_du_chocolat" />
+                    </article>
+                    <!-- end of single tile  -->
+                    <!-- single tile  -->
+                    <article class="tile-6">
+                        <img src="./Img/Blog/truffes6.jpg" alt="Les_Amoureux_du_chocolat" />
+                    </article>
+                    <!-- end of single tile  -->
+                    <!-- single tile  -->
+                    <article class="tile-7">
+                        <img src="./Img/Blog/mini-box7.jpg" alt="Les_Amoureux_du_chocolat" width="250px" />
+                    </article>
+                    <!-- end of single tile  -->
+                </div>
+            </div>
+        </article>
+
+        <article class="container-fluid img-home-before-footer">
+            <div class="row">
+                <img src="./Img/Gallery-l-m/Venezuela72.jpg" alt="Les_Amoureux_du_chocolat_Venezuela_72"
+                    class="img-fluid" />
+
+                <img src="./Img/Gallery-l-m/apropos-de-nous-acceuil-size.png" alt="Les_Amoureux_du_chocolat_shop"
+                    class="img-fluid" id="img-shop" />
+            </div>
+        </article>
+    </section>
+</div>
 {% endblock %}

@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use App\Repository\CommentRepository;
-use CodeInc\StripAccents\StripAccents;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

@@ -20,7 +20,7 @@ const sidebar = document.querySelector('#sidebar');
       behavior: 'smooth',
     });
   });
-
+// Cookie
 let cookieModal = document.querySelector(".cookie-consent-modal")
 let cancelCookieBtn = document.querySelector(".btn.cancel")
 let acceptCookieBtn = document.querySelector(".btn.accept")
@@ -39,3 +39,9 @@ setTimeout(function (){
         cookieModal.classList.add("active")
     }
 }, 2000)
+
+// Flash alert pop up
+var alertList = document.querySelectorAll('.alert')
+alertList.forEach(function (alert) {
+  new bootstrap.Alert(alert)
+})
