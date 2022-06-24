@@ -4,17 +4,23 @@
 
 {% block body %}
 
-<header class="container-fluid p-5 text-center bg-light">
+<header class="container-fluid p-5 text-center bg-light pb-5 pt-5 mb-5 mt-5">
     <h1>♥ Les Amoureux du Chocolat ♥ - erreur 404</h1>
 </header>
-
+<header class="hero">
+    <div class="banner-hero-img">
+        <img src="{{ asset('/Img/error/error404.jpg')}}" alt="Les Amoureux du Chocolat" class="img-header-error" />
+        <h1 class="error-h1 text-center">♥ Les Amoureux du Chocolat ♥ - La page demandée n'existe pas (ou plus)
+        </h1>
+    </div>
+</header>
 <main class="container-fluid">
-    <div class="row p-5">
+    <div class="row p-5 pb-5 pt-5 mb-5 mt-5">
         <div class="col-8 offset-2">
-            <h2 class="mb-5 pb-5 text-center">La page demandée n'existe pas (ou plus)</h2>
-            <p><a href="{{ path('home') }}" class="text-primary">Retourner à l'accueil</a></p>
+            <p class="pb-5 pt-5 mb-5 mt-5"><a href="{{ path('home') }}" class="text-primary back-home-error">Retourner à
+                    l'accueil</a>
+            </p>
         </div>
     </div>
 </main>
-{% include "shared/_scrolltop.html.twig" %}
 {% endblock %}

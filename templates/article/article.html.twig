@@ -41,7 +41,9 @@
     </div>
     <section class="pt-3 pb-3">
         <div class="container">
-            <h1 class="text-center mt-2 pb-4">Découvrez ce que nos clients disent de l'événement</h1>
+            <h1 class="text-center pb-4" id="article-comment-title">Découvrez ce que nos clients disent de
+                l'événement
+            </h1>
             {% for comment in comments|reverse %}
             {% if comment.commentStatus == true %}
             <div class="row align-items-center justify-content-center border border-dark mb-5">
