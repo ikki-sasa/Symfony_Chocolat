@@ -68,8 +68,8 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Le mot de passe doit contenir au moins une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial'
                     ]),
                 ],
-            ]);
-        // ->add('captcha', ReCaptchaType::class);
+            ])
+            ->add('captcha', ReCaptchaType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

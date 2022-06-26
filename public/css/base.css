@@ -1280,9 +1280,21 @@ End of Footer
   /* Comment blog end */
 
   /* Product page start */
+  #breadcrumb {
+    margin-top: 2em;
+  }
+
   .breadcrumb {
     margin-inline: -9em;
     font-size: 12px;
+  }
+
+  .product {
+    margin-top: -3em;
+  }
+
+  #product-img {
+    max-height: 45vh;
   }
 
   #product-img-view {
@@ -1293,6 +1305,10 @@ End of Footer
 
   .description {
     font-size: small;
+  }
+
+  .product-details-title {
+    font-size: x-small;
   }
 
   /* Product page end */
@@ -2022,7 +2038,7 @@ End of Footer
   /* Chocoblog page start 768px*/
 
   #breadcrumb ol {
-    padding-top: 2em;
+    padding-top: 0em;
     font-size: x-large;
   }
 
@@ -2091,9 +2107,14 @@ End of Footer
 
   /* Product page start 768px*/
 
-  /* .breadcrumb {
-  margin: auto;
-} */
+
+  #product-img-description {
+    height: 53vh;
+  }
+
+  .product-details-title {
+    font-size: large;
+  }
 
   #view-card-product {
     margin-top: 4em;
@@ -2114,7 +2135,7 @@ End of Footer
   }
 
   .product-view-description {
-    line-height: 5em;
+    line-height: 2em;
   }
 
 
@@ -2524,8 +2545,16 @@ End of Footer
     font-size: 40px;
   }
 
+  .description {
+    font-size: large;
+  }
+
   #descrition-top {
-    margin-top: 8em;
+    margin-top: 2em;
+  }
+
+  .product-view-description {
+    line-height: 3em;
   }
 
   #col-grid {
@@ -2697,6 +2726,10 @@ End of Footer
     margin: 5px 8rem 2rem;
   }
 
+  .tiles-center {
+    max-width: 1440px;
+  }
+
   /* home page end  */
   /* about us page start  */
   .about-h1 {
@@ -2742,6 +2775,15 @@ End of Footer
 
   /* Category end  */
 
+  /* Product start  */
+  .product-details-title {
+    font-size: xx-large;
+  }
+
+  /* Product end  */
+
+
+
 
   /* Login start */
   #login-center-h1 {
@@ -2782,11 +2824,26 @@ End of Footer
   }
 
   .blog-title {
-    margin-left: 7em;
+    margin-left: 1em;
+    font-size: 40px;
   }
 
   .info-blog-text {
-    margin: 5px 13rem 2rem;
+    margin: 5px 2rem 2rem;
+    font-size: 25px;
+  }
+
+  .btn-link {
+    width: 16.5em;
+    margin-left: 10.5em;
+    margin-top: -10em;
+    font-size: 28px;
+  }
+
+  .tiles-center {
+    max-width: 1600px;
+    gap: 1.5rem;
+    grid-column-gap: 1.5rem;
   }
 
   .contact-h1 {

@@ -49,13 +49,13 @@ class ProductController extends AbstractController
             $firstImg = $form['img']->getData();
             $extensionFirstImg = $firstImg->guessExtension();
             $nameImg1 = time() . '-1' . $extensionFirstImg;
-            $firstImg->move($this->getParameter('dossier_photos_category'), $nameImg1);
+            $firstImg->move($this->getParameter('dossier_photos_Product'), $nameImg1);
             $product->setImg($nameImg1);
             $secondImg = $form['img2']->getData();
             if ($secondImg !== null) {
                 $extensionSecondImg = $secondImg->guessExtension();
                 $nameImg2 = time() . '-2.' . $extensionSecondImg;
-                $secondImg->move($this->getParameter('dossier_photos_category'), $nameImg2);
+                $secondImg->move($this->getParameter('dossier_photos_Product'), $nameImg2);
                 $product->setImg2($nameImg2);
             } else {
                 $product->setImg2('null');
@@ -84,13 +84,13 @@ class ProductController extends AbstractController
             $firstImg = $form['img']->getData();
             $nameOldImg = $product->getImg();
             if ($firstImg !== null) {
-                $oldPathImg = $this->getParameter('dossier_photos_category') . '/' . $nameOldImg;
+                $oldPathImg = $this->getParameter('dossier_photos_Product') . '/' . $nameOldImg;
                 if (file_exists($oldPathImg)) {
                     unlink($oldPathImg);
                 }
                 $extensionFirstImg = $firstImg->guessExtension();
                 $nameImg1 = time() . '-1.' . $extensionFirstImg;
-                $firstImg->move($this->getParameter('dossier_photos_category'), $nameImg1);
+                $firstImg->move($this->getParameter('dossier_photos_Product'), $nameImg1);
                 $product->setImg($nameImg1);
                 $manager->persist($product);
             } else {
@@ -100,14 +100,14 @@ class ProductController extends AbstractController
             $nameOldImg2 = $product->getImg2();
             if ($secondImg !== null) {
                 if ($nameOldImg2 !== null) {
-                    $oldPathImg2 = $this->getParameter('dossier_photos_category') . '/' . $nameOldImg2;
+                    $oldPathImg2 = $this->getParameter('dossier_photos_Product') . '/' . $nameOldImg2;
                     if (file_exists($oldPathImg2)) {
                         unlink($oldPathImg2);
                     }
                 }
                 $extensionSecondImg = $secondImg->guessExtension();
                 $nameImg2 = time() . '-2.' . $extensionSecondImg;
-                $secondImg->move($this->getParameter('dossier_photos_category'), $nameImg2);
+                $secondImg->move($this->getParameter('dossier_photos_Product'), $nameImg2);
                 $product->setImg2($nameImg2);
                 $manager->persist($product);
             } else {
@@ -130,7 +130,7 @@ class ProductController extends AbstractController
         $product = $productRepository->find($id);
         $firstImg = $product->getImg();
         if ($firstImg !== null) {
-            $oldPathImg = $this->getParameter('dossier_photos_category') . '/' . $firstImg;
+            $oldPathImg = $this->getParameter('dossier_photos_Product') . '/' . $firstImg;
             if (file_exists($oldPathImg)) {
                 unlink($oldPathImg);
             }

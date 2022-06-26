@@ -5,13 +5,14 @@ namespace App\Form;
 use App\Entity\Product;
 use App\Entity\Category;
 use App\Repository\CategoryRepository;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
@@ -40,7 +41,7 @@ class ProductType extends AbstractType
                 'required' => true,
                 'label' => 'Ingrédients',
                 'attr' => [
-                    'maxLength' => 750,
+                    'maxLength' => 4000,
                     'placeholder' => 'Ingrédients du produit'
                 ]
             ])
@@ -52,7 +53,7 @@ class ProductType extends AbstractType
                     'placeholder' => 'État du produit en cours'
                 ]
             ])
-            ->add('price', IntegerType::class, [
+            ->add('price', NumberType::class, [
                 'required' => true,
                 'label' => 'Prix',
                 'attr' => [

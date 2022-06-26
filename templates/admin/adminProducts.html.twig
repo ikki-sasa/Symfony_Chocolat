@@ -21,8 +21,8 @@
         <tr>
             <td class="align-middle"> {{ product.Id }} </td>
             <td class="align-middle"> {{ product.productName }} </td>
-            <td class="align-middle"> {{ product.price|number_format(0, ',', '') }} €</td>
-            <td class="align-middle"><img src="{{ asset('img/category/' ~ product.img) }}"
+            <td class="align-middle"> {{ product.price|number_format(2, ',', ' ') }} €</td>
+            <td class="align-middle"><img src="{{ asset('img/Product/' ~ product.img) }}"
                     alt="photo produit {{ product.productName }} "></td>
             <td class="align-middle"> {{ product.categoryId.name }} </td>
             <td class="align-middle">
@@ -38,5 +38,4 @@
 <div class="d-flex justify-content-end my-5">
     <a href=" {{ path('product_create')}}" class="btn btn-success">Ajouter une création</a>
 </div>
-{% include "shared/_scrolltop.html.twig" %}
 {% endblock %}

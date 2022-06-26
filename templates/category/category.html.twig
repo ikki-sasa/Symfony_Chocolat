@@ -8,11 +8,11 @@
     Un concentré d'amour, de passion et de création qui vont éveiller vos sens et vos papilles
     Laissez vous tentez par nos mélanges chocolat & fruits secs à la fois tendre et croquant.
 </p>
-<div class="row">
+<div class="row mx-auto">
     {% for product in products %}
     <div class="col-md-3 p-3 col-6 mx-auto" id="img-category-width">
         <div class="card border-0 card-product">
-            <img src="{{ asset('img/category/' ~ product.img ) }}" alt="photo principale" class="img-fluid">
+            <img src="{{ asset('img/Product/' ~ product.img ) }}" alt="photo principale" class="img-fluid">
             <div class="card-body  text-center">
                 <h4 class="card-title" id="category-h4">{{ product.productName }}</h4>
                 <a href=" {{ path('product_view', {'id':product.id})}} " class="btn intro-btn mb-5 mt-4"

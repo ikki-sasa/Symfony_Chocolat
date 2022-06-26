@@ -47,4 +47,20 @@ class ArticleRepository extends ServiceEntityRepository
         ;
     }
     */
+    /**
+     * @return Article[]
+     */
+    public function findThisThree()
+    {
+
+        return $this->createQueryBuilder('fls')
+            ->orderBy('fls.id', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @return Article[] 
+     */
 }

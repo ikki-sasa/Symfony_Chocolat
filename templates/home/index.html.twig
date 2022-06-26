@@ -16,7 +16,7 @@
             </div>
         </div>
     </header>
-    <h1 class="text-center pt-5 header-home-h1">Un Concentré Pur D'amour Et De Cacao</h1>
+    <h1 class="text-center pt-5 mt-3 header-home-h1 mx-auto">Un Concentré Pur D'amour Et De Cacao</h1>
     <p class="section-title-p mb-5">
         Tester le goût de nos produits, faits avec des produits pur et
         premium, 100% fabrication artisanale
@@ -38,98 +38,96 @@
             <a href="{{ path('category_index') }}" class="btn btn-sm text-center" id="btn-our-product">Nos chocolats</a>
         </div>
     </div>
-    <div class="row pt-5" id="product-inline-1">
-        {% for product in products|reverse %}
-        {# {% set images = random([ for product in products '{{ produit.img }}','CONFISERIES']) %} #}
-        {# {% set product = products | merge([random(products | filter(products => products not in products))]) %} #}
-
-        {# {% if product == products %}
-        {% endif %} #}
-        <div class="col">
-            <a href="#"><img src="{{ asset('img/category/' ~ product.img) }}"
-                    alt="Image Les amoureux du chocolat du produit {{product.productName}}" class="img-fluid w-60"></a>
+    <div class="card-group">
+        {% for article in articles %}
+        <div class="card border border-white">
+            <img src="{{ asset('img//Blog/' ~ article.featuredImg) }}" class="card-img-top"
+                alt="Image Les amoureux du chocolat du produit {{article.title}}">
         </div>
         {% endfor %}
     </div>
+
     <h2 class="text-center mt-5" id="taste">Regardez. Testez. Dégustez</h2>
-    <div class="row pt-5 mx-auto" id="category-home">
+    <div class="card-group mt-5">
         {% for category in categories %}
-        <div class="col">
+        <div class="card border border-white">
             <a href="{{ path('product_category', {'slug': category.slug}) }}"><img
-                    src="{{ asset('img/category/' ~ category.img) }}" alt="photo principale {{category.name}}"
-                    class="img-fluid"></a>
+                    src="{{ asset('img/category/' ~ category.img) }}" class="card-img-top"
+                    alt="Image Les amoureux du chocolat du produit {{category.name}}"></a>
         </div>
         {% endfor %}
-        <div class=" intro-btn mb-5" id="taste-btn">
-            <a href="{{ path('category_index') }}" class="btn btn-sm text-center" id="btn-our-product">Nos chocolats</a>
-        </div>
     </div>
-    <!-- Blog-info -->
-    <section class="section-center info-blog" id="info-blog">
-        <article class="infos-blog">
-            <div class="section-title">
-                <h4 class="blog-title">Rejoignez nous sur notre blog</h4>
-                <p class="info-blog-text">
-                    Venez visiter notre blog pour découvrir nos nouveautés est
-                    créations sur instagram #LaC
-                </p>
-            </div>
-            <div class="intro-btn">
-                <a href=" {{ path('article_index')}} " class="btn-link">Venez découvrir l'actualité sur notre blog</a>
-            </div>
-        </article>
+    <div class=" intro-btn mb-5" id="taste-btn">
+        <a href="{{ path('category_index') }}" class="btn btn-sm text-center" id="btn-our-product">Nos chocolats</a>
+    </div>
+    {#
+</div> #}
+<!-- Blog-info -->
+<section class="section-center info-blog mx-auto" id="info-blog">
+    <article class="infos-blog">
+        <div class="section-title">
+            <h4 class="blog-title">Rejoignez nous sur notre blog</h4>
+            <p class="info-blog-text">
+                Venez visiter notre blog pour découvrir nos nouveautés est
+                créations sur instagram #LaC
+            </p>
+        </div>
+        <div class="intro-btn">
+            <a href=" {{ path('article_index')}} " class="btn-link">Venez découvrir l'actualité sur notre blog</a>
+        </div>
+    </article>
 
-        <article class="tiles section-center">
-            <div class="tile">
-                <div class="tiles-center">
-                    <!-- single tile  -->
-                    <article class="tile-1">
-                        <img src="./Img/Blog/work_production1.jpg" alt="Les_Amoureux_du_chocolat" />
-                    </article>
-                    <!-- end of single tile  -->
-                    <!-- single tile  -->
-                    <article class="tile-2">
-                        <img src="./Img/Blog/merry_christmas2.jpg" alt="Les_Amoureux_du_chocolat" />
-                    </article>
-                    <!-- end of single tile  -->
-                    <!-- single tile  -->
-                    <article class="tile-3">
-                        <img src="./Img/Blog/orangettes3.jpg" alt="Les_Amoureux_du_chocolat" />
-                    </article>
-                    <!-- end of single tile  -->
-                    <!-- single tile  -->
-                    <article class="tile-4">
-                        <img src="./Img/Blog/pere_noel_slide4.jpg" alt="Les_Amoureux_du_chocolat" />
-                    </article>
-                    <!-- end of single tile  -->
-                    <!-- single tile  -->
-                    <article class="tile-5">
-                        <img src="./Img/Blog/Madeleines noir5.jpg" alt="Les_Amoureux_du_chocolat" />
-                    </article>
-                    <!-- end of single tile  -->
-                    <!-- single tile  -->
-                    <article class="tile-6">
-                        <img src="./Img/Blog/truffes6.jpg" alt="Les_Amoureux_du_chocolat" />
-                    </article>
-                    <!-- end of single tile  -->
-                    <!-- single tile  -->
-                    <article class="tile-7">
-                        <img src="./Img/Blog/mini-box7.jpg" alt="Les_Amoureux_du_chocolat" width="250px" />
-                    </article>
-                    <!-- end of single tile  -->
-                </div>
+    <article class="tiles section-center mx-auto">
+        <div class="tile mx-auto">
+            <div class="tiles-center mx-auto">
+                <!-- single tile  -->
+                <article class="tile-1">
+                    <img src="./Img/Blog/work_production1.jpg" alt="Les_Amoureux_du_chocolat" />
+                </article>
+                <!-- end of single tile  -->
+                <!-- single tile  -->
+                <article class="tile-2">
+                    <img src="./Img/Blog/merry_christmas2.jpg" alt="Les_Amoureux_du_chocolat" />
+                </article>
+                <!-- end of single tile  -->
+                <!-- single tile  -->
+                <article class="tile-3">
+                    <img src="./Img/Blog/orangettes3.jpg" alt="Les_Amoureux_du_chocolat" />
+                </article>
+                <!-- end of single tile  -->
+                <!-- single tile  -->
+                <article class="tile-4">
+                    <img src="./Img/Blog/pere_noel_slide4.jpg" alt="Les_Amoureux_du_chocolat" />
+                </article>
+                <!-- end of single tile  -->
+                <!-- single tile  -->
+                <article class="tile-5">
+                    <img src="./Img/Blog/Madeleines noir5.jpg" alt="Les_Amoureux_du_chocolat" />
+                </article>
+                <!-- end of single tile  -->
+                <!-- single tile  -->
+                <article class="tile-6">
+                    <img src="./Img/Blog/truffes6.jpg" alt="Les_Amoureux_du_chocolat" />
+                </article>
+                <!-- end of single tile  -->
+                <!-- single tile  -->
+                <article class="tile-7">
+                    <img src="./Img/Blog/mini-box7.jpg" alt="Les_Amoureux_du_chocolat" width="250px" />
+                </article>
+                <!-- end of single tile  -->
             </div>
-        </article>
+        </div>
+    </article>
 
-        <article class="container-fluid img-home-before-footer">
-            <div class="row">
-                <img src="./Img/Gallery-l-m/Venezuela72.jpg" alt="Les_Amoureux_du_chocolat_Venezuela_72"
-                    class="img-fluid" />
+    <article class="container-fluid img-home-before-footer">
+        <div class="row">
+            <img src="./Img/Gallery-l-m/Venezuela72.jpg" alt="Les_Amoureux_du_chocolat_Venezuela_72"
+                class="img-fluid" />
 
-                <img src="./Img/Gallery-l-m/apropos-de-nous-acceuil-size.png" alt="Les_Amoureux_du_chocolat_shop"
-                    class="img-fluid" id="img-shop" />
-            </div>
-        </article>
-    </section>
+            <img src="./Img/Gallery-l-m/apropos-de-nous-acceuil-size.png" alt="Les_Amoureux_du_chocolat_shop"
+                class="img-fluid" id="img-shop" />
+        </div>
+    </article>
+</section>
 </div>
 {% endblock %}
