@@ -16,9 +16,11 @@ class Reponse
     #[ORM\Column(type: 'string', length: 255)]
     private $answer;
 
-    #[ORM\OneToOne(targetEntity: Comment::class, cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(targetEntity: comment::class, cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private $fkcomment;
+    private $fk_comment;
+
+
 
 
 
@@ -39,14 +41,14 @@ class Reponse
         return $this;
     }
 
-    public function getFkcomment(): ?Comment
+    public function getFkComment(): ?comment
     {
-        return $this->fkcomment;
+        return $this->fk_comment;
     }
 
-    public function setFkcomment(Comment $fkcomment): self
+    public function setFkComment(comment $fk_comment): self
     {
-        $this->fkcomment = $fkcomment;
+        $this->fk_comment = $fk_comment;
 
         return $this;
     }

@@ -1417,6 +1417,13 @@ End of Footer
     justify-content: center;
   }
 
+  #registration_form_captcha {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+
   /* Register end */
 
 
@@ -2617,6 +2624,13 @@ End of Footer
   }
 
   /* Contact us end */
+
+  /* Registration start */
+  .form-check .form-check-input {
+    margin-left: 0;
+  }
+
+  /* Registration end */
 
 
   footer>.container {

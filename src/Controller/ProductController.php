@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\Product;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,9 +33,11 @@ class ProductController extends AbstractController
     }
 
     #[Route('/admin/products', name: 'admin_product_index')]
-    public function adminIndex(ProductRepository $productRepository): Response
+    public function adminIndex(ProductRepository $productRepository, EntityManagerInterface $entityManagerInterface, Request $request, PaginatorInterface $paginatorInterface): Response
     {
-        $products = $productRepository->findAll();
+        $dql = "SELECT a FROM App:Product a";
+        $query = $entityManagerInterface->createQuery($dql);
+        $products = $paginatorInterface->paginate($query, $request->query->getInt('page', 1), 100);
         return $this->render('admin/adminProducts.html.twig', [
             'products' => $products
         ]);

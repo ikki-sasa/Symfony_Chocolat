@@ -83,14 +83,14 @@ class CommentController extends AbstractController
     }
 
     #[Route('/admin/comment/delete/{id}', name: 'comment_delete')]
-    public function delete(CommentRepository $commentRepository, int $id, ManagerRegistry $managerRegistry): Response
+    public function delete(CommentRepository $commentRepository, int $id, ManagerRegistry $managerRegistry, Comment $comment): Response
     {
         $manager = $managerRegistry->getManager();
-        $comment = $commentRepository->find($id);
+        // $comment = $commentRepository->find($id);
         $manager->remove($comment);
         $manager->flush();
 
-
+        $this->addFlash('danger', 'Le commentaire a  bien été effacé');
         return $this->redirectToRoute('comment_admin_index', [], Response::HTTP_SEE_OTHER);
     }
 
@@ -132,7 +132,6 @@ class CommentController extends AbstractController
             $reponse->setFkcomment($comment);
             $manager->persist($reponse);
             $manager->flush();
-
             return $this->redirectToRoute('comment_admin_index');
         }
 

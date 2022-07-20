@@ -14,6 +14,7 @@ class ReplyType extends AbstractType
     {
         $builder
             ->add('answer', TextType::class, [
+                'label' => 'Veuillez écrire votre réponse',
                 'required' => true,
                 'attr' => [
                     'maxLength' => 255

@@ -1,6 +1,18 @@
-<h3>Répondre : </h3>
-{{ form_start(formAnswer)}}
-{{ form_row(formAnswer.answer)}}
+{% extends 'adminBase.html.twig' %}
 
-<button>Enregistrer</button>
-{{ form_end(formAnswer)}}
+{% block title %}Réponse commentaire client{% endblock %}
+
+{% block body %}
+<div class="text">
+    <h1 class="text">
+        Répondre au commentaire :
+    </h1>
+    <h2>Répondre au commentaire : </h2>
+    {{ form_start(formAnswer)}}
+    {{ form_row(formAnswer.answer)}}
+
+    <button class="btn btn-success m-3">Enregistrer</button>
+    {{ form_end(formAnswer)}}
+
+</div>
+{% endblock %}

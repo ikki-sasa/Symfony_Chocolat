@@ -41,16 +41,16 @@ class RegistrationFormType extends AbstractType
                     'maxLength' => 180
                 ]
             ])
-            // ->add('email')
-            // ->add('agreeTerms', CheckboxType::class, [
-            //     'label' => 'Nos conditions générales',
-            //     'mapped' => false,
-            //     'constraints' => [
-            //         new IsTrue([
-            //             'message' => 'Vous devez accepter nos conditions générales d\'utilisation.',
-            //         ]),
-            //     ],
-            // ])
+            ->add('email')
+            ->add('agreeTerms', CheckboxType::class, [
+                'label' => 'Nos conditions générales',
+                'mapped' => false,
+                'constraints' => [
+                    new IsTrue([
+                        'message' => 'Vous devez accepter nos conditions générales d\'utilisation.',
+                    ]),
+                ],
+            ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller

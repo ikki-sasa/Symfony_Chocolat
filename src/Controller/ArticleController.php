@@ -142,6 +142,4 @@ class ArticleController extends AbstractController
         $this->addFlash('success', 'L\'article a bien été suprimée.');
         return $this->redirectToRoute('article_admin_index');
     }
-
-    // 2. user (crud presque)
 }

@@ -38,4 +38,7 @@
 <div class="d-flex justify-content-end my-5">
     <a href=" {{ path('product_create')}}" class="btn btn-success">Ajouter une création</a>
 </div>
+<div class="col-12 text-center mt-5">
+    <p>{{ knp_pagination_render(products, 'bundles/KnpPaginator/Pagination/pagination.html.twig') }}</p>
+</div>
 {% endblock %}

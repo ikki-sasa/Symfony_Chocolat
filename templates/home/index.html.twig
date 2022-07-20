@@ -22,10 +22,10 @@
         premium, 100% fabrication artisanale
     </p>
     <div class="row pt-5 mx-auto" id="product-inline-0">
-        {% for product in products %}
+        {% for product in products|reverse %}
         <div class="col-md-auto-col-6 col-md-4">
             <div class="card border-0">
-                <img src="{{ asset('img/category/' ~ product.img) }}" alt="Image Les amoureux du chocolat du produit"
+                <img src="{{ asset('img/Product/' ~ product.img) }}" alt="Image Les amoureux du chocolat du produit"
                     class="img-fluid w-60">
                 <div class="card-body" id="product-inline-0-title">
                     <h4 class="card-title text-center">{{ product.productName }}</h4>
