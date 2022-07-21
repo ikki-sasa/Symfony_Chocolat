@@ -70,7 +70,9 @@
                         <p class="reply">Réponse <strong class="text-uppercase">♥ Les Amoureux du Chocolat♥</strong></p>
                         <p class="text-h3">
                             {% for reponse in reponses %}
-                            {% if reponse.fkcommentidId == comment.id %}
+                            {# {{ dump(reponse.fkCommentId.id) }} #}
+
+                            {% if reponse.fkCommentId.id == comment.id %}
                             {{ reponse.answer }}
                             {% endif %}
                             {% endfor %}
