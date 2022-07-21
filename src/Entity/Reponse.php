@@ -16,12 +16,8 @@ class Reponse
     #[ORM\Column(type: 'string', length: 255)]
     private $answer;
 
-    #[ORM\OneToOne(targetEntity: comment::class, cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private $fk_comment;
-
-
-
+    #[ORM\OneToOne(inversedBy: 'reponse', targetEntity: Comment::class, cascade: ['persist', 'remove'])]
+    private $fk_comment_id;
 
 
     public function getId(): ?int
@@ -41,14 +37,14 @@ class Reponse
         return $this;
     }
 
-    public function getFkComment(): ?comment
+    public function getFkCommentId(): ?Comment
     {
-        return $this->fk_comment;
+        return $this->fk_comment_id;
     }
 
-    public function setFkComment(comment $fk_comment): self
+    public function setFkCommentId(?Comment $fk_comment_id): self
     {
-        $this->fk_comment = $fk_comment;
+        $this->fk_comment_id = $fk_comment_id;
 
         return $this;
     }

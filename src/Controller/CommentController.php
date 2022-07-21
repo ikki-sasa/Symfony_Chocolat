@@ -129,7 +129,7 @@ class CommentController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $manager = $managerRegistry->getManager();
-            $reponse->setFkcomment($comment);
+            $reponse->setFkCommentId($comment);
             $manager->persist($reponse);
             $manager->flush();
             return $this->redirectToRoute('comment_admin_index');

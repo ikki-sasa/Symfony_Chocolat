@@ -36,6 +36,9 @@ class Comment
     #[ORM\Column(type: 'string', length: 255)]
     private $title;
 
+    #[ORM\OneToOne(mappedBy: 'fk_comment_id', targetEntity: Reponse::class, cascade: ['persist', 'remove'])]
+    private $reponse;
+
 
 
     public function __construct()
@@ -116,6 +119,28 @@ class Comment
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getReponse(): ?Reponse
+    {
+        return $this->reponse;
+    }
+
+    public function setReponse(?Reponse $reponse): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($reponse === null && $this->reponse !== null) {
+            $this->reponse->setFkCommentId(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($reponse !== null && $reponse->getFkCommentId() !== $this) {
+            $reponse->setFkCommentId($this);
+        }
+
+        $this->reponse = $reponse;
 
         return $this;
     }

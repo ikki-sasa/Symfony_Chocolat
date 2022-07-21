@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20220718112701 extends AbstractMigration
+final class Version20220720201219 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,7 +20,6 @@ final class Version20220718112701 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE reponse ADD fk_comment_id INT NOT NULL');
         $this->addSql('ALTER TABLE reponse ADD CONSTRAINT FK_5FB6DEC7807B780 FOREIGN KEY (fk_comment_id) REFERENCES comment (id)');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_5FB6DEC7807B780 ON reponse (fk_comment_id)');
     }
@@ -30,6 +29,5 @@ final class Version20220718112701 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE reponse DROP FOREIGN KEY FK_5FB6DEC7807B780');
         $this->addSql('DROP INDEX UNIQ_5FB6DEC7807B780 ON reponse');
-        $this->addSql('ALTER TABLE reponse DROP fk_comment_id');
     }
 }
