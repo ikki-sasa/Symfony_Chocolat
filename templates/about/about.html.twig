@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="col-sm mx-auto">
-                <img src="./Img/About/nous.png" alt="Les Amoureux du chocolat les artisans"
+                <img src="{{ asset('img/About/nous.png')}}" alt="Les Amoureux du chocolat les artisans"
                     class="img-fluid img-about-us">
             </div>
         </div>
@@ -61,7 +61,7 @@
             <div class="col-md-3 col-6 mx-auto">
                 <div class="card">
                     <a href="https://www.cma-essonne.fr/" target="_blank" rel="noopener noreferrer"> <img
-                            class="card-img-top shadow" src="./Img/About/couv-cma-ess.jpg" alt="Chambre de Métiers 
+                            class="card-img-top shadow" src="{{ asset('img/About/couv-cma-ess.jpg')}}" alt="Chambre de Métiers 
      et de l'artisanat"></a>
                     <div class="card-body text-center">
                         <h4 class="card-title about-h4">Chambre de Métiers
@@ -72,7 +72,7 @@
             <div class="col-md-3 col-6 mx-auto">
                 <div class="card">
                     <a href="https://www.croqueurschocolat.com/" target="_blank" rel="noopener noreferrer"> <img
-                            class="card-img-top shadow" src="./Img/About/Croqueurs-de-chocolat.png"
+                            class="card-img-top shadow" src="{{ asset('img/About/Croqueurs-de-chocolat.png')}}"
                             alt="Club des Croqueurs de Chocolat"></a>
                     <div class="card-body text-center">
                         <h4 class="card-title about-h4">Club des Croqueurs de Chocolat</h4>
@@ -82,8 +82,8 @@
             <div class="col-md-3 col-6 mx-auto">
                 <div class="card">
                     <a href="https://www.lespapillesdor.fr/commercants/les-amoureux-du-chocolat" target="_blank"
-                        rel="noopener noreferrer"> <img class="card-img-top shadow" src="./Img/About/papilles-dor.png"
-                            alt="Papilles d'or"></a>
+                        rel="noopener noreferrer"> <img class="card-img-top shadow"
+                            src="{{ asset('img/About/papilles-dor.png')}}" alt="Papilles d'or"></a>
                     <div class="card-body text-center">
                         <h4 class="card-title about-h4" id="about-h4">Les Papilles <br> d'or</h4>
                     </div>
@@ -92,7 +92,7 @@
             <div class="col-md-3 col-6 mx-auto">
                 <div class="card">
                     <a href="https://www.essonne.cci.fr/" target="_blank" rel="noopener noreferrer"> <img
-                            class="card-img-top shadow" src="./Img/About/logo-cci.png"
+                            class="card-img-top shadow" src="{{ asset('img/About/logo-cci.png')}}"
                             alt="Chambre de commerce et de l'industrie essonne "></a>
                     <div class="card-body text-center">
                         <h4 class="card-title about-h4" id="about-h4">CCI <br> Essonne</h4>
@@ -104,18 +104,16 @@
 </section>
 <div class="card-group img-fluid w-60">
     <div class="card">
-        <img src="./Img/About/les-amoureux-du-chocolat-Jo-work-maq.png" class="footer-about-card-img-top"
+        <img src="{{ asset('img/About/les-amoureux-du-chocolat-Jo-work-maq.png')}}" class="footer-about-card-img-top"
             alt="Les Amoureux du chocolat production ganache">
     </div>
     <div class="card">
-        <img src="./Img/About/les-amoureux-du-chocolat-work-maq.png" class="footer-about-card-img-top"
+        <img src="{{ asset('img/About/les-amoureux-du-chocolat-work-maq.png')}}" class="footer-about-card-img-top"
             alt="Les Amoureux du chocolat production caramel">
     </div>
     <div class="card">
-        <img src="./Img/About/les-amoureux-du-chocolat-us-maq.png" class="footer-about-card-img-top "
+        <img src="{{ asset('img/About/les-amoureux-du-chocolat-us-maq.png')}}" class="footer-about-card-img-top "
             alt="Les Amoureux du chocolat les artisans">
-
     </div>
 </div>
-{% include "shared/_scrolltop.html.twig" %}
 {% endblock %}
