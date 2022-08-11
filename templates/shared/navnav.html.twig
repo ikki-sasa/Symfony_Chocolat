@@ -1,0 +1,91 @@
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+<header class="site-navbar js-sticky-header site-navbar-target border-0" role="banner">
+
+    <div class="container">
+        <div class="row align-items-center" id="site-nav">
+            <div class="col-6 col-xl-2">
+                <a class="navbar-brand" href="{{ path('home') }}">
+                    <img src="{{ asset('img/Logo/Les-amoureux-du-chocolat-logo_brown.png')}}"
+                        alt="Logo Les Amoureux du Chocolat" class="logo">
+                </a>
+            </div>
+            <div class="col-12 col-md-12   d-none d-lg-block">
+                <nav class="site-navigation position-relative text-right" role="navigation">
+                    <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                        <li><a href="{{ path('home') }}" class="nav-link"
+                                title="L'accueil des Amoureux du chocolat">Accueil</a></li>
+                        <li><a href="{{ path('about') }}" class="nav-link"
+                                title="Aller à la page à propos des Amoureux du chocolat">À
+                                propos de nous</a></li>
+                        <li class="has-children">
+                            <a href="{{ path('category_index') }}" class="nav-link"
+                                title="Aller à la page Produit des Amoureux du chocolat">Catégorie de produits</a>
+                            <ul class="dropdown">
+                                <li><a href="#team-section" class="nav-link">Atelier</a></li>
+                                <li><a href="#pricing-section" class="nav-link">Chocolat et fruits secs</a></li>
+                                <li><a href="#faq-section" class="nav-link">Coffrets</a></li>
+                                <li><a href="#gallery-section" class="nav-link">Confiseries</a></li>
+                                <li><a href="#services-section" class="nav-link">Confites</a></li>
+                                <li><a href="#" class="nav-link">Ganaches</a></li>
+                                <li><a href="#" class="nav-link">Les pâtes à tartiner</a></li>
+                                <li><a href="#" class="nav-link">Madeleines et biscuits</a></li>
+                                <li><a href="#" class="nav-link">Moulage en chocolat</a></li>
+                                <li><a href="#" class="nav-link">Orangettes et citronnettes</a></li>
+                                <li><a href="#" class="nav-link">Pranlinés</a></li>
+                                <li><a href="#" class="nav-link">Tablettes</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href="{{ path('article_index') }}" class="nav-link"
+                                title="Aller à la page ChocoBlog des Amoureux du chocolat">ChocoBlog</a></li>
+                        {% if app.user%}
+                        {% if is_granted('ROLE_SUPER_ADMIN') %}
+                        <li class="has-children">
+                            <a href="{{ path('admin') }}" class="nav-link">Administrateur</a>
+                            <ul class="dropdown">
+                                <li><a href="{{ path('admin') }}" class="nav-link"
+                                        title="Aller à la page Administrateur des Amoureux du chocolat">Interface
+                                        admin</a>
+                                </li>
+                                {% else %}
+                                <li><a href="{{ path('user_index') }}" class="nav-link"
+                                        title="Se déconnecter des Amoureux du chocolat">Information personelle</a></li>
+                                {% endif %}
+                                <li><a href="{{ path('app_logout') }}" class="nav-link"
+                                        title="Se déconnecter des Amoureux du chocolat">
+                                        Déconnexion</a></a></li>
+                                {% else %}
+                                <li><a href="{{ path('app_login') }}" class="nav-link"
+                                        title="Aller à la page Se connecter des Amoureux du chocolat">Se connecter</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </li>
+
+
+                        {# <li class="social"><a href="#contact-section" class="nav-link"><span
+                                    class="icon-facebook"></span></a>
+                        </li>
+
+                        <li class="social"><a href="#contact-section" class="nav-link"><span
+                                    class="icon-twitter"></span></a></li>
+                        <li class="social"><a href="#contact-section" class="nav-link"><span
+                                    class="icon-linkedin"></span></a>
+                        </li> #}
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#"
+                    class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"
+                        id="icon-menu"></span></a></div>
+        </div>
+    </div>
+
+</header>

@@ -5,10 +5,10 @@
     {% include "shared/_flash.html.twig" %}
 </div>
 <div class="row mb-6 mx-auto d-flex">
-    <header class="hero container-fluid">
-        <div class="banner-hero-img">
+    <header class="hero ">
+        <div class="banner-hero-img ">
             <img src="{{ asset('img/Logo/logo_white_no_bg.png')}}" alt="Logo Les Amoureux du Chocolat"
-                class="img-logo-header img-fluid" />
+                class="img-logo-header img-fluid mx-auto" />
             <img src="{{ asset('img/Header/Les_Amoureux_du_chocolat_header.png')}}" alt="Les Amoureux du Chocolat"
                 class="img-header-home" />
             <div class="section-center hero-center">
@@ -16,7 +16,7 @@
             </div>
         </div>
     </header>
-    <h1 class="text-center pt-5 mt-3 header-home-h1 mx-auto">Un Concentré Pur D'amour Et De Cacao</h1>
+    <h1 class="text-center header-home-h1 mx-auto" id="header-home-h1">Un Concentré Pur D'amour Et De Cacao</h1>
     <p class="section-title-p mb-5">
         Tester le goût de nos produits, faits avec des produits pur et
         premium, 100% fabrication artisanale
@@ -73,7 +73,8 @@
             </p>
         </div>
         <div class="intro-btn">
-            <a href=" {{ path('article_index')}} " class="btn-link">Venez découvrir l'actualité sur notre blog</a>
+            <a href=" {{ path('article_index')}} " class="btn-link" id="btn-blog">Venez découvrir l'actualité sur notre
+                blog</a>
         </div>
     </article>
 

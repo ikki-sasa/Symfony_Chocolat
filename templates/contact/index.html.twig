@@ -13,7 +13,7 @@
 </header>
 <section class="pb-5 pt-0">
     <div class="container-fluid">
-        <div class="row mt-5">
+        <div class="row" id="info-contact">
             <div class="col-12 col-md-6 col-lg-6">
                 <h2 class="mb-5 contact-h2">Recevez des informations personnalisées</h2>
                 <p class="text-center mt-5">Si vous avez un doute ou une interrogation... nous restons à votre
@@ -34,50 +34,42 @@
             </div>
             <div class="col-12 col-md-6 ms-auto pt-5 pt-md-0">
                 {{ form_start(contactForm)}}
-
-                {# <form> #}
-                    <div class="row">
-                        <div class="col">
-                            {{ form_row(contactForm.firstName)}}
-
-
-                        </div>
-                        <div class="col">
-                            {{ form_row(contactForm.lastName)}}
-                        </div>
+                <div class="row">
+                    <div class="col">
+                        {{ form_row(contactForm.firstName)}}
                     </div>
-                    <div class="row mt-4">
-                        <div class="col">
-                            {{ form_row(contactForm.email)}}
-                        </div>
+                    <div class="col">
+                        {{ form_row(contactForm.lastName)}}
                     </div>
-                    <div class="row mt-4">
-                        <div class="col">
-                            {{ form_row(contactForm.phone)}}
-                        </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        {{ form_row(contactForm.email)}}
                     </div>
-                    <div class="row mt-4">
-                        <div class="col">
-                            {{ form_row(contactForm.message)}}
-                        </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        {{ form_row(contactForm.phone)}}
                     </div>
-                    <div class="row mt-4">
-                        <div class="col">
-                            {{ form_row(contactForm.captcha) }}
-                            {{ form_errors(contactForm.captcha) }}
-                        </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        {{ form_row(contactForm.message)}}
                     </div>
-                    <div class="row mt-4">
-                        <div class="col">
-
-                            <button class="btn btn-md btn-primary mt-5 mb-5" id="btn-contact" type="submit">
-                                Envoyer
-                            </button>
-                            {# <input type="submit" class="btn btn-primary" value="Envoyer"> #}
-                        </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        {{ form_row(contactForm.captcha) }}
+                        {{ form_errors(contactForm.captcha) }}
                     </div>
-                    {#
-                </form> #}
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        <button class="btn btn-md btn-primary mt-5 mb-5" id="btn-contact" type="submit">
+                            Envoyer
+                        </button>
+                    </div>
+                </div>
                 {{ form_end(contactForm)}}
             </div>
         </div>

@@ -2,9 +2,9 @@
 
 {% block title %}{{ article.title }} détails Chocoblog ♥ Les Amoureux du Chocolat ♥ {% endblock %}
 {% block body %}
-<div class="row border border-dark mb-6 mx-auto d-flex">
+<div class="row border border-dark mb-6 mx-auto d-flex" id="article-infos">
     <nav aria-label="breadcrumb" id="breadcrumb">
-        <ol class="breadcrumb mb-0 mt-3">
+        <ol class="breadcrumb mb-4 mt-3">
             <li class="breadcrumb-item"><a href=" {{ path('home')}} ">Accueil</a></li>
             <li class="breadcrumb-item"><a href=" {{ path('article_index')}} ">ChocoBlog article</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ article.title }}</li>
