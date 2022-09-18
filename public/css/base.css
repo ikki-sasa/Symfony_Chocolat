@@ -1244,13 +1244,14 @@ End of Footer
   .img-header-home {
     margin-top: -3.9em;
     margin-left: -12px;
-    height: 23vh;
+    height: 33.5vh;
+    width: 99vw;
   }
 
 
   #header-home-h1 {
     font-size: 35px;
-    margin-top: 6em;
+    margin-top: 8em;
   }
 
   /* .img-hero-center {
