@@ -371,7 +371,7 @@ NAV
 }
 
 .site-navbar .site-navigation .site-menu .has-children .dropdown .active {
-  color: #007bff !important;
+  color: var(--clr-primary-1) !important;
 }
 
 .site-navbar .site-navigation .site-menu .has-children .dropdown>li {
@@ -405,7 +405,7 @@ NAV
 .site-navbar .site-navigation .site-menu .has-children:hover>a,
 .site-navbar .site-navigation .site-menu .has-children:focus>a,
 .site-navbar .site-navigation .site-menu .has-children:active>a {
-  color: #007bff;
+  color: var(--clr-primary-1);
 }
 
 .site-navbar .site-navigation .site-menu .has-children:hover,
@@ -1244,7 +1244,7 @@ End of Footer
   .img-header-home {
     margin-top: -3.9em;
     margin-left: -12px;
-    height: 31.5vh;
+    height: 23vh;
   }
 
 
@@ -1311,7 +1311,7 @@ End of Footer
 
 
   .about-h1 {
-    margin-top: -6.5em;
+    margin-top: -8em;
   }
 
   .about-img-header {
@@ -1321,7 +1321,7 @@ End of Footer
 
 
   .about-h2 {
-    margin-top: 14em;
+    margin-top: 20em;
   }
 
   /* About page end */
@@ -1957,7 +1957,7 @@ End of Footer
   .img-header-home {
     margin-top: -3.9em;
     margin-left: -12px;
-    height: 37.3vh;
+    height: 27.5vh;
   }
 
   #header-home-h1 {
@@ -2127,8 +2127,7 @@ End of Footer
 
   .img-header-home {
     margin-top: -4.9em;
-    /* margin-left: -12px; */
-    height: 42.3vh;
+    height: 31vh;
   }
 
   #header-home-h1 {
@@ -2253,18 +2252,18 @@ End of Footer
   /* Header   768px*/
 
   .img-logo-header {
-    width: 50%;
-    margin-top: 10em;
-    margin-left: 13em;
+    width: 70%;
     display: flex;
     opacity: 0.8;
-    top: 0.5em;
+    margin-top: 12.5em;
+    position: absolute;
+    left: 9.5em;
   }
 
   .img-header-home {
     width: 100vw;
-    height: 50vh;
-    margin-top: -15.3em;
+    height: 67vh;
+    margin-top: 0;
   }
 
   .product-btn {
@@ -2282,7 +2281,7 @@ End of Footer
   /* MAIN  768px*/
 
   #header-home-h1 {
-    margin-top: 13.5em;
+    margin-top: 17.5em;
   }
 
   .section-title-h {
@@ -2312,6 +2311,9 @@ End of Footer
     display: flex;
   }
 
+  #taste-btn {
+    margin-top: 0.5em;
+  }
 
   #btn-1 {
     margin-left: -3rem;
@@ -2457,12 +2459,12 @@ End of Footer
   }
 
   .about-h1 {
-    margin-top: -9.5em;
+    margin-top: -7em;
     margin-left: 5em;
   }
 
   .about-h2 {
-    margin-top: 27em;
+    margin-top: 20em;
   }
 
   .img-header {
@@ -2733,26 +2735,11 @@ End of Footer
 
 @media screen and (min-width: 800px) {
 
-  /* .cards {
-    margin-bottom: 0rem;
-    margin-top: 0rem;
-    margin-left: -1.5rem;
-}
-.cards-center {
-    width: 95vw;
-    max-width: 1170px;
-    margin: 2rem auto;
-    margin-left: -1rem;
-    margin-bottom: -5rem;
-} */
+
   #btn-1 {
     margin-left: -2rem;
     font-size: 18px;
-    /* font-size: 21px;
-    display: flex;
-    justify-content: center;
-    width: 20%;
-    margin: auto; */
+
   }
 
   #products-inventory {
@@ -2789,6 +2776,15 @@ End of Footer
 }
 
 @media screen and (min-width: 865px) {
+
+  .img-logo-header {
+    left: 13.5em;
+  }
+
+  #header-home-h1 {
+    margin-top: 16.5em;
+  }
+
   #products-inventory {
     margin-left: -3rem;
   }
@@ -2810,9 +2806,31 @@ End of Footer
   }
 
 
+  /* about us start */
+  .about-h1 {
+    margin-top: -8em;
+  }
+
+  .about-h2 {
+    margin-top: 23.5em;
+  }
+
+  /* about us end */
+
+
 }
 
-@media screen and (min-width: 992px) {}
+@media screen and (min-width: 992px) {
+
+  /* .site-navbar .site-navigation .site-menu {
+    margin-left: 7em;
+    text-align: center;
+    margin-top: -0.6em;
+  } */
+  .d-lg-block {
+    display: none;
+  }
+}
 
 
 @media screen and (min-width: 1024px) {
@@ -2856,7 +2874,7 @@ End of Footer
   .img-logo-header {
     position: absolute;
     width: 50%;
-    margin-top: 16em;
+    margin-top: 12.5em;
     left: 19em;
   }
 
@@ -3174,6 +3192,54 @@ End of Footer
 
 
 @media screen and (min-width: 1170px) {
+
+  .logo {
+    width: 13.5rem;
+    margin-left: -2em;
+  }
+
+  #header-home-h1 {
+    margin-top: 17em;
+  }
+
+  .img-logo-header {
+    margin-top: 11em;
+  }
+
+  #taste-btn {
+    margin-top: 3em;
+  }
+
+  /* about us start */
+
+  .about-h1 {
+    margin-top: -7.5em;
+    margin-left: 5em;
+    font-size: 65px;
+  }
+
+  .about-h2 {
+    margin-top: 30em;
+  }
+
+  .img-about-us {
+    margin-top: 52em;
+  }
+
+  .about-p {
+    padding-bottom: 0.5em;
+    font-size: 18px;
+  }
+
+  /* about us end */
+
+  /* chocoblog start */
+  .article-center {
+    font-size: 28px;
+  }
+
+  /* chocoblog end */
+
   .blog-title {
     margin: 1em;
   }
@@ -3207,30 +3273,73 @@ End of Footer
   }
 
   /* reset password end */
+
+  /* contact us start  */
+  .contact-h1 {
+    margin-top: -4.5em;
+    margin-left: 5em;
+    font-size: 65px;
+  }
+
+  #info-contact {
+    margin-top: 31em;
+  }
+
+  /* contact us end  */
 }
 
 
 @media screen and (min-width: 1440px) {
 
   /* navbar start  */
-  /* .nav-links {
-    margin-left: 13em;
-    font-size: 18px;
-  } */
+  .site-navbar .site-navigation .site-menu>li>a {
+    padding: 0px 15px;
+    font-size: x-large;
+  }
+
+  .site-navbar .site-navigation .site-menu {
+    margin-left: 10em;
+    text-align: center;
+    margin-top: -2.5em;
+  }
 
   /* navbar end  */
   /* header start  */
   .img-header-home {
-    height: 60vh;
+    height: 86vh;
   }
 
   .img-logo-header {
-    width: 35%;
+    width: 60%;
+    margin-top: 15em;
+  }
+
+  .logo {
+    width: 20rem;
   }
 
   /* header end  */
 
   /* home page start  */
+
+  #header-home-h1 {
+    margin-top: 24em;
+  }
+
+  .img-about-us {
+    margin-top: 84em;
+  }
+
+
+  .about-h2 {
+    margin-top: 28em;
+  }
+
+  a.btn {
+    padding: 25px 30px;
+    margin-left: 2em;
+    font-size: 25px;
+  }
 
   .blog-title {
     margin-left: 4em;
@@ -3247,7 +3356,7 @@ End of Footer
   /* home page end  */
   /* about us page start  */
   .about-h1 {
-    margin-top: -8.5em;
+    margin-top: -10.5em;
     margin-left: 6em;
     font-size: 70px;
   }
@@ -3264,8 +3373,18 @@ End of Footer
   /* about us page end  */
 
   /* ChocoBlog page start  */
+
+
+  .title-intro-blog {
+    margin-top: 1.5em;
+  }
+
   .article-center {
-    font-size: 28px;
+    font-size: 35px;
+  }
+
+  #breadcrumb ol {
+    font-size: 30px;
   }
 
   /* ChocoBlog page end  */
@@ -3296,7 +3415,18 @@ End of Footer
 
   /* Product end  */
 
+  /* contact us start */
+  .contact-h1 {
+    margin-top: -4.5em;
+    margin-left: 5.5em;
+    font-size: 75px;
+  }
 
+  #info-contact {
+    margin-top: 38em;
+  }
+
+  /* contact us end */
 
 
   /* Login start */
@@ -3325,16 +3455,25 @@ End of Footer
 @media screen and (min-width: 1600px) {
 
   .logo {
-    width: 13rem;
+    width: 19rem;
   }
 
-  /* .nav-links {
-    margin-left: 19.5em;
-    font-size: 20px;
-  } */
+  .site-navbar .site-navigation .site-menu {
+    margin-top: -2.5em;
+  }
+
+  .img-logo-header {
+    width: 70%;
+    margin-top: 18.5em;
+    left: 19em;
+  }
 
   .img-header-home {
-    height: 80vh;
+    height: 97vh;
+  }
+
+  #header-home-h1 {
+    margin-top: 27em;
   }
 
   .blog-title {
@@ -3360,11 +3499,36 @@ End of Footer
     grid-column-gap: 1.5rem;
   }
 
-  .contact-h1 {
-    margin-top: -7.5em;
-    margin-left: 12.5em;
-    font-size: 50px;
+  /* about us start */
+  .about-h1 {
+    margin-top: -8em;
+    margin-left: 4.5em;
+    font-size: 90px;
   }
+
+  .about-h2 {
+    margin-top: 25em;
+  }
+
+  .img-about-us {
+    margin-top: 74em;
+  }
+
+  /* about us  end */
+
+
+  /* contact us start */
+  .contact-h1 {
+    margin-top: -4.3em;
+    margin-left: 5em;
+    font-size: 90px;
+  }
+
+  #info-contact {
+    margin-top: 42em;
+  }
+
+  /* contact us end */
 
   /* login  */
   #login-center-rember {
